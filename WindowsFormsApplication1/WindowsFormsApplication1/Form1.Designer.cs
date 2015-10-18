@@ -50,6 +50,7 @@
             this.cocktail_ing6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AddNewPannel = new System.Windows.Forms.Panel();
+            this.add_cancel = new System.Windows.Forms.Button();
             this.quantity10 = new System.Windows.Forms.TextBox();
             this.quantity9 = new System.Windows.Forms.TextBox();
             this.quantity8 = new System.Windows.Forms.TextBox();
@@ -107,30 +108,29 @@
             this.setIng2 = new System.Windows.Forms.ComboBox();
             this.setIng1 = new System.Windows.Forms.ComboBox();
             this.settingsPanel = new System.Windows.Forms.Panel();
-            this.add_cancel = new System.Windows.Forms.Button();
-            this.settingsCancel = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.calib10 = new System.Windows.Forms.TextBox();
+            this.calib9 = new System.Windows.Forms.TextBox();
+            this.calib8 = new System.Windows.Forms.TextBox();
+            this.calib7 = new System.Windows.Forms.TextBox();
+            this.calib6 = new System.Windows.Forms.TextBox();
+            this.calib5 = new System.Windows.Forms.TextBox();
+            this.calib4 = new System.Windows.Forms.TextBox();
+            this.calib3 = new System.Windows.Forms.TextBox();
+            this.calib2 = new System.Windows.Forms.TextBox();
+            this.calib1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.settingsCancel = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
@@ -366,6 +366,16 @@
             this.AddNewPannel.Size = new System.Drawing.Size(551, 241);
             this.AddNewPannel.TabIndex = 16;
             this.AddNewPannel.Visible = false;
+            // 
+            // add_cancel
+            // 
+            this.add_cancel.Location = new System.Drawing.Point(437, 197);
+            this.add_cancel.Name = "add_cancel";
+            this.add_cancel.Size = new System.Drawing.Size(52, 23);
+            this.add_cancel.TabIndex = 36;
+            this.add_cancel.Text = "Cancel";
+            this.add_cancel.UseVisualStyleBackColor = true;
+            this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
             // 
             // quantity10
             // 
@@ -878,16 +888,16 @@
             this.settingsPanel.Controls.Add(this.button3);
             this.settingsPanel.Controls.Add(this.label23);
             this.settingsPanel.Controls.Add(this.label22);
-            this.settingsPanel.Controls.Add(this.textBox10);
-            this.settingsPanel.Controls.Add(this.textBox9);
-            this.settingsPanel.Controls.Add(this.textBox8);
-            this.settingsPanel.Controls.Add(this.textBox7);
-            this.settingsPanel.Controls.Add(this.textBox6);
-            this.settingsPanel.Controls.Add(this.textBox5);
-            this.settingsPanel.Controls.Add(this.textBox4);
-            this.settingsPanel.Controls.Add(this.textBox3);
-            this.settingsPanel.Controls.Add(this.textBox2);
-            this.settingsPanel.Controls.Add(this.textBox1);
+            this.settingsPanel.Controls.Add(this.calib10);
+            this.settingsPanel.Controls.Add(this.calib9);
+            this.settingsPanel.Controls.Add(this.calib8);
+            this.settingsPanel.Controls.Add(this.calib7);
+            this.settingsPanel.Controls.Add(this.calib6);
+            this.settingsPanel.Controls.Add(this.calib5);
+            this.settingsPanel.Controls.Add(this.calib4);
+            this.settingsPanel.Controls.Add(this.calib3);
+            this.settingsPanel.Controls.Add(this.calib2);
+            this.settingsPanel.Controls.Add(this.calib1);
             this.settingsPanel.Controls.Add(this.button2);
             this.settingsPanel.Controls.Add(this.settingsCancel);
             this.settingsPanel.Controls.Add(this.setIng6);
@@ -917,185 +927,14 @@
             this.settingsPanel.TabIndex = 56;
             this.settingsPanel.Visible = false;
             // 
-            // add_cancel
+            // button11
             // 
-            this.add_cancel.Location = new System.Drawing.Point(437, 197);
-            this.add_cancel.Name = "add_cancel";
-            this.add_cancel.Size = new System.Drawing.Size(52, 23);
-            this.add_cancel.TabIndex = 36;
-            this.add_cancel.Text = "Cancel";
-            this.add_cancel.UseVisualStyleBackColor = true;
-            this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
-            // 
-            // settingsCancel
-            // 
-            this.settingsCancel.Location = new System.Drawing.Point(347, 195);
-            this.settingsCancel.Name = "settingsCancel";
-            this.settingsCancel.Size = new System.Drawing.Size(52, 23);
-            this.settingsCancel.TabIndex = 37;
-            this.settingsCancel.Text = "Cancel";
-            this.settingsCancel.UseVisualStyleBackColor = true;
-            this.settingsCancel.Click += new System.EventHandler(this.settingsCancel_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(238, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(39, 23);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "Calib";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(183, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(49, 20);
-            this.textBox1.TabIndex = 57;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(183, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(49, 20);
-            this.textBox2.TabIndex = 58;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(183, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(49, 20);
-            this.textBox3.TabIndex = 59;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(183, 110);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(49, 20);
-            this.textBox4.TabIndex = 60;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(183, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(49, 20);
-            this.textBox5.TabIndex = 61;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(455, 29);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(49, 20);
-            this.textBox6.TabIndex = 62;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(455, 57);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(49, 20);
-            this.textBox7.TabIndex = 63;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(455, 84);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(49, 20);
-            this.textBox8.TabIndex = 64;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(455, 111);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(49, 20);
-            this.textBox9.TabIndex = 65;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(455, 138);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(49, 20);
-            this.textBox10.TabIndex = 66;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(180, 13);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(56, 13);
-            this.label22.TabIndex = 67;
-            this.label22.Text = "Calibration";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(452, 13);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 13);
-            this.label23.TabIndex = 68;
-            this.label23.Text = "Calibration";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(238, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 23);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "Calib";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(238, 83);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(39, 23);
-            this.button4.TabIndex = 70;
-            this.button4.Text = "Calib";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(238, 109);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(39, 23);
-            this.button5.TabIndex = 71;
-            this.button5.Text = "Calib";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(238, 137);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(39, 23);
-            this.button6.TabIndex = 72;
-            this.button6.Text = "Calib";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(509, 28);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(39, 23);
-            this.button7.TabIndex = 73;
-            this.button7.Text = "Calib";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(509, 57);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(39, 23);
-            this.button8.TabIndex = 74;
-            this.button8.Text = "Calib";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(509, 83);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(39, 23);
-            this.button9.TabIndex = 75;
-            this.button9.Text = "Calib";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(509, 136);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(39, 23);
+            this.button11.TabIndex = 77;
+            this.button11.Text = "Calib";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
@@ -1106,14 +945,175 @@
             this.button10.Text = "Calib";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // button9
             // 
-            this.button11.Location = new System.Drawing.Point(509, 136);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(39, 23);
-            this.button11.TabIndex = 77;
-            this.button11.Text = "Calib";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button9.Location = new System.Drawing.Point(509, 83);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(39, 23);
+            this.button9.TabIndex = 75;
+            this.button9.Text = "Calib";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(509, 57);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(39, 23);
+            this.button8.TabIndex = 74;
+            this.button8.Text = "Calib";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(509, 28);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(39, 23);
+            this.button7.TabIndex = 73;
+            this.button7.Text = "Calib";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(238, 137);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(39, 23);
+            this.button6.TabIndex = 72;
+            this.button6.Text = "Calib";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(238, 109);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(39, 23);
+            this.button5.TabIndex = 71;
+            this.button5.Text = "Calib";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(238, 83);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(39, 23);
+            this.button4.TabIndex = 70;
+            this.button4.Text = "Calib";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(238, 56);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 23);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "Calib";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(452, 13);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(56, 13);
+            this.label23.TabIndex = 68;
+            this.label23.Text = "Calibration";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(180, 13);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(56, 13);
+            this.label22.TabIndex = 67;
+            this.label22.Text = "Calibration";
+            // 
+            // calib10
+            // 
+            this.calib10.Location = new System.Drawing.Point(455, 138);
+            this.calib10.Name = "calib10";
+            this.calib10.Size = new System.Drawing.Size(49, 20);
+            this.calib10.TabIndex = 66;
+            // 
+            // calib9
+            // 
+            this.calib9.Location = new System.Drawing.Point(455, 111);
+            this.calib9.Name = "calib9";
+            this.calib9.Size = new System.Drawing.Size(49, 20);
+            this.calib9.TabIndex = 65;
+            // 
+            // calib8
+            // 
+            this.calib8.Location = new System.Drawing.Point(455, 84);
+            this.calib8.Name = "calib8";
+            this.calib8.Size = new System.Drawing.Size(49, 20);
+            this.calib8.TabIndex = 64;
+            // 
+            // calib7
+            // 
+            this.calib7.Location = new System.Drawing.Point(455, 57);
+            this.calib7.Name = "calib7";
+            this.calib7.Size = new System.Drawing.Size(49, 20);
+            this.calib7.TabIndex = 63;
+            // 
+            // calib6
+            // 
+            this.calib6.Location = new System.Drawing.Point(455, 29);
+            this.calib6.Name = "calib6";
+            this.calib6.Size = new System.Drawing.Size(49, 20);
+            this.calib6.TabIndex = 62;
+            // 
+            // calib5
+            // 
+            this.calib5.Location = new System.Drawing.Point(183, 138);
+            this.calib5.Name = "calib5";
+            this.calib5.Size = new System.Drawing.Size(49, 20);
+            this.calib5.TabIndex = 61;
+            // 
+            // calib4
+            // 
+            this.calib4.Location = new System.Drawing.Point(183, 110);
+            this.calib4.Name = "calib4";
+            this.calib4.Size = new System.Drawing.Size(49, 20);
+            this.calib4.TabIndex = 60;
+            // 
+            // calib3
+            // 
+            this.calib3.Location = new System.Drawing.Point(183, 84);
+            this.calib3.Name = "calib3";
+            this.calib3.Size = new System.Drawing.Size(49, 20);
+            this.calib3.TabIndex = 59;
+            // 
+            // calib2
+            // 
+            this.calib2.Location = new System.Drawing.Point(183, 56);
+            this.calib2.Name = "calib2";
+            this.calib2.Size = new System.Drawing.Size(49, 20);
+            this.calib2.TabIndex = 58;
+            // 
+            // calib1
+            // 
+            this.calib1.Location = new System.Drawing.Point(183, 29);
+            this.calib1.Name = "calib1";
+            this.calib1.Size = new System.Drawing.Size(49, 20);
+            this.calib1.TabIndex = 57;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(238, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(39, 23);
+            this.button2.TabIndex = 56;
+            this.button2.Text = "Calib";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // settingsCancel
+            // 
+            this.settingsCancel.Location = new System.Drawing.Point(347, 195);
+            this.settingsCancel.Name = "settingsCancel";
+            this.settingsCancel.Size = new System.Drawing.Size(52, 23);
+            this.settingsCancel.TabIndex = 37;
+            this.settingsCancel.Text = "Cancel";
+            this.settingsCancel.UseVisualStyleBackColor = true;
+            this.settingsCancel.Click += new System.EventHandler(this.settingsCancel_Click);
             // 
             // Form1
             // 
@@ -1240,16 +1240,16 @@
         private System.Windows.Forms.Button settingsCancel;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox calib10;
+        private System.Windows.Forms.TextBox calib9;
+        private System.Windows.Forms.TextBox calib8;
+        private System.Windows.Forms.TextBox calib7;
+        private System.Windows.Forms.TextBox calib6;
+        private System.Windows.Forms.TextBox calib5;
+        private System.Windows.Forms.TextBox calib4;
+        private System.Windows.Forms.TextBox calib3;
+        private System.Windows.Forms.TextBox calib2;
+        private System.Windows.Forms.TextBox calib1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
