@@ -867,7 +867,7 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(0, 22);
+            this.settingsPanel.Location = new System.Drawing.Point(557, 29);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(551, 245);
             this.settingsPanel.TabIndex = 56;

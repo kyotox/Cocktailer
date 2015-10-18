@@ -195,7 +195,7 @@ namespace WindowsFormsApplication1
                 if ((i < mix_split.Length) && (mix_split[i] != "0"))
                 {
                     mix_split_copy[i-1] = mix_split[i];
-                    qty_split_copy[i-1] = " - " + qty_split[i];
+                    qty_split_copy[i-1] = " - " + qty_split[i] + "ml";
 
                 }
                 else
@@ -546,52 +546,52 @@ namespace WindowsFormsApplication1
             ing1.ValueMember = "ID";
             ing1.DisplayMember = "Field1";
             ing1.DataSource = combo1;
-            ing1.SelectedIndex = available_ingredients[0];
+            ing1.SelectedIndex = 0;
 
             ing2.ValueMember = "ID";
             ing2.DisplayMember = "Field1";
             ing2.DataSource = combo2;
-            ing2.SelectedIndex = available_ingredients[1];
+            ing2.SelectedIndex = 0;
 
             ing3.ValueMember = "ID";
             ing3.DisplayMember = "Field1";
             ing3.DataSource = combo3;
-            ing3.SelectedIndex = available_ingredients[2];
+            ing3.SelectedIndex = 0;
 
             ing4.ValueMember = "ID";
             ing4.DisplayMember = "Field1";
             ing4.DataSource = combo4;
-            ing4.SelectedIndex = available_ingredients[3];
+            ing4.SelectedIndex = 0;
 
             ing5.ValueMember = "ID";
             ing5.DisplayMember = "Field1";
             ing5.DataSource = combo5;
-            ing5.SelectedIndex = available_ingredients[4];
+            ing5.SelectedIndex = 0;
 
             ing6.ValueMember = "ID";
             ing6.DisplayMember = "Field1";
             ing6.DataSource = combo6;
-            ing6.SelectedIndex = available_ingredients[5];
+            ing6.SelectedIndex =0;
 
             ing7.ValueMember = "ID";
             ing7.DisplayMember = "Field1";
             ing7.DataSource = combo7;
-            ing7.SelectedIndex = available_ingredients[6];
+            ing7.SelectedIndex = 0;
 
             ing8.ValueMember = "ID";
             ing8.DisplayMember = "Field1";
             ing8.DataSource = combo8;
-            ing8.SelectedIndex = available_ingredients[7];
+            ing8.SelectedIndex = 0;
 
             ing9.ValueMember = "ID";
             ing9.DisplayMember = "Field1";
             ing9.DataSource = combo9;
-            ing9.SelectedIndex = available_ingredients[8];
+            ing9.SelectedIndex = 0;
 
             ing10.ValueMember = "ID";
             ing10.DisplayMember = "Field1";
             ing10.DataSource = combo10;
-            ing10.SelectedIndex = available_ingredients[9];
+            ing10.SelectedIndex = 0;
 
         }
 
