@@ -108,7 +108,29 @@
             this.setIng1 = new System.Windows.Forms.ComboBox();
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.add_cancel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingsCancel = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
@@ -667,7 +689,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(314, 140);
+            this.label12.Location = new System.Drawing.Point(296, 140);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 18);
             this.label12.TabIndex = 55;
@@ -677,7 +699,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(318, 113);
+            this.label13.Location = new System.Drawing.Point(300, 113);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 18);
             this.label13.TabIndex = 54;
@@ -687,7 +709,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(318, 86);
+            this.label14.Location = new System.Drawing.Point(300, 86);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(22, 18);
             this.label14.TabIndex = 53;
@@ -697,7 +719,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(318, 59);
+            this.label15.Location = new System.Drawing.Point(300, 59);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(22, 18);
             this.label15.TabIndex = 52;
@@ -707,7 +729,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(318, 32);
+            this.label16.Location = new System.Drawing.Point(300, 32);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(22, 18);
             this.label16.TabIndex = 51;
@@ -717,7 +739,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(103, 139);
+            this.label17.Location = new System.Drawing.Point(28, 140);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(22, 18);
             this.label17.TabIndex = 50;
@@ -727,7 +749,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(103, 112);
+            this.label18.Location = new System.Drawing.Point(28, 113);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(22, 18);
             this.label18.TabIndex = 49;
@@ -737,7 +759,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(103, 85);
+            this.label19.Location = new System.Drawing.Point(28, 86);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(22, 18);
             this.label19.TabIndex = 48;
@@ -747,7 +769,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(103, 58);
+            this.label20.Location = new System.Drawing.Point(28, 59);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(22, 18);
             this.label20.TabIndex = 47;
@@ -757,7 +779,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(103, 28);
+            this.label21.Location = new System.Drawing.Point(28, 29);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(22, 18);
             this.label21.TabIndex = 46;
@@ -766,7 +788,7 @@
             // setIng10
             // 
             this.setIng10.FormattingEnabled = true;
-            this.setIng10.Location = new System.Drawing.Point(346, 137);
+            this.setIng10.Location = new System.Drawing.Point(328, 137);
             this.setIng10.Name = "setIng10";
             this.setIng10.Size = new System.Drawing.Size(121, 21);
             this.setIng10.TabIndex = 45;
@@ -774,7 +796,7 @@
             // setIng9
             // 
             this.setIng9.FormattingEnabled = true;
-            this.setIng9.Location = new System.Drawing.Point(346, 110);
+            this.setIng9.Location = new System.Drawing.Point(328, 110);
             this.setIng9.Name = "setIng9";
             this.setIng9.Size = new System.Drawing.Size(121, 21);
             this.setIng9.TabIndex = 44;
@@ -782,7 +804,7 @@
             // setIng8
             // 
             this.setIng8.FormattingEnabled = true;
-            this.setIng8.Location = new System.Drawing.Point(346, 83);
+            this.setIng8.Location = new System.Drawing.Point(328, 83);
             this.setIng8.Name = "setIng8";
             this.setIng8.Size = new System.Drawing.Size(121, 21);
             this.setIng8.TabIndex = 43;
@@ -790,7 +812,7 @@
             // setIng7
             // 
             this.setIng7.FormattingEnabled = true;
-            this.setIng7.Location = new System.Drawing.Point(346, 56);
+            this.setIng7.Location = new System.Drawing.Point(328, 56);
             this.setIng7.Name = "setIng7";
             this.setIng7.Size = new System.Drawing.Size(121, 21);
             this.setIng7.TabIndex = 42;
@@ -798,7 +820,7 @@
             // setIng6
             // 
             this.setIng6.FormattingEnabled = true;
-            this.setIng6.Location = new System.Drawing.Point(346, 29);
+            this.setIng6.Location = new System.Drawing.Point(328, 29);
             this.setIng6.Name = "setIng6";
             this.setIng6.Size = new System.Drawing.Size(121, 21);
             this.setIng6.TabIndex = 41;
@@ -806,7 +828,7 @@
             // setIng5
             // 
             this.setIng5.FormattingEnabled = true;
-            this.setIng5.Location = new System.Drawing.Point(131, 136);
+            this.setIng5.Location = new System.Drawing.Point(56, 137);
             this.setIng5.Name = "setIng5";
             this.setIng5.Size = new System.Drawing.Size(121, 21);
             this.setIng5.TabIndex = 40;
@@ -814,7 +836,7 @@
             // setIng4
             // 
             this.setIng4.FormattingEnabled = true;
-            this.setIng4.Location = new System.Drawing.Point(131, 109);
+            this.setIng4.Location = new System.Drawing.Point(56, 110);
             this.setIng4.Name = "setIng4";
             this.setIng4.Size = new System.Drawing.Size(121, 21);
             this.setIng4.TabIndex = 39;
@@ -822,7 +844,7 @@
             // setIng3
             // 
             this.setIng3.FormattingEnabled = true;
-            this.setIng3.Location = new System.Drawing.Point(131, 82);
+            this.setIng3.Location = new System.Drawing.Point(56, 83);
             this.setIng3.Name = "setIng3";
             this.setIng3.Size = new System.Drawing.Size(121, 21);
             this.setIng3.TabIndex = 38;
@@ -830,7 +852,7 @@
             // setIng2
             // 
             this.setIng2.FormattingEnabled = true;
-            this.setIng2.Location = new System.Drawing.Point(131, 55);
+            this.setIng2.Location = new System.Drawing.Point(56, 56);
             this.setIng2.Name = "setIng2";
             this.setIng2.Size = new System.Drawing.Size(121, 21);
             this.setIng2.TabIndex = 37;
@@ -838,14 +860,36 @@
             // setIng1
             // 
             this.setIng1.FormattingEnabled = true;
-            this.setIng1.Location = new System.Drawing.Point(131, 28);
+            this.setIng1.Location = new System.Drawing.Point(56, 29);
             this.setIng1.Name = "setIng1";
             this.setIng1.Size = new System.Drawing.Size(121, 21);
             this.setIng1.TabIndex = 36;
             // 
             // settingsPanel
             // 
-            this.settingsPanel.Controls.Add(this.button1);
+            this.settingsPanel.Controls.Add(this.button11);
+            this.settingsPanel.Controls.Add(this.button10);
+            this.settingsPanel.Controls.Add(this.button9);
+            this.settingsPanel.Controls.Add(this.button8);
+            this.settingsPanel.Controls.Add(this.button7);
+            this.settingsPanel.Controls.Add(this.button6);
+            this.settingsPanel.Controls.Add(this.button5);
+            this.settingsPanel.Controls.Add(this.button4);
+            this.settingsPanel.Controls.Add(this.button3);
+            this.settingsPanel.Controls.Add(this.label23);
+            this.settingsPanel.Controls.Add(this.label22);
+            this.settingsPanel.Controls.Add(this.textBox10);
+            this.settingsPanel.Controls.Add(this.textBox9);
+            this.settingsPanel.Controls.Add(this.textBox8);
+            this.settingsPanel.Controls.Add(this.textBox7);
+            this.settingsPanel.Controls.Add(this.textBox6);
+            this.settingsPanel.Controls.Add(this.textBox5);
+            this.settingsPanel.Controls.Add(this.textBox4);
+            this.settingsPanel.Controls.Add(this.textBox3);
+            this.settingsPanel.Controls.Add(this.textBox2);
+            this.settingsPanel.Controls.Add(this.textBox1);
+            this.settingsPanel.Controls.Add(this.button2);
+            this.settingsPanel.Controls.Add(this.settingsCancel);
             this.settingsPanel.Controls.Add(this.setIng6);
             this.settingsPanel.Controls.Add(this.label12);
             this.settingsPanel.Controls.Add(this.setIng1);
@@ -867,7 +911,7 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(557, 29);
+            this.settingsPanel.Location = new System.Drawing.Point(421, 19);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(551, 245);
             this.settingsPanel.TabIndex = 56;
@@ -883,15 +927,193 @@
             this.add_cancel.UseVisualStyleBackColor = true;
             this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
             // 
-            // button1
+            // settingsCancel
             // 
-            this.button1.Location = new System.Drawing.Point(347, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.settingsCancel.Location = new System.Drawing.Point(347, 195);
+            this.settingsCancel.Name = "settingsCancel";
+            this.settingsCancel.Size = new System.Drawing.Size(52, 23);
+            this.settingsCancel.TabIndex = 37;
+            this.settingsCancel.Text = "Cancel";
+            this.settingsCancel.UseVisualStyleBackColor = true;
+            this.settingsCancel.Click += new System.EventHandler(this.settingsCancel_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(238, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(39, 23);
+            this.button2.TabIndex = 56;
+            this.button2.Text = "Calib";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(183, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(49, 20);
+            this.textBox1.TabIndex = 57;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(183, 56);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(49, 20);
+            this.textBox2.TabIndex = 58;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(183, 84);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(49, 20);
+            this.textBox3.TabIndex = 59;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(183, 110);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(49, 20);
+            this.textBox4.TabIndex = 60;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(183, 138);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(49, 20);
+            this.textBox5.TabIndex = 61;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(455, 29);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(49, 20);
+            this.textBox6.TabIndex = 62;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(455, 57);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(49, 20);
+            this.textBox7.TabIndex = 63;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(455, 84);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(49, 20);
+            this.textBox8.TabIndex = 64;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(455, 111);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(49, 20);
+            this.textBox9.TabIndex = 65;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(455, 138);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(49, 20);
+            this.textBox10.TabIndex = 66;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(180, 13);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(56, 13);
+            this.label22.TabIndex = 67;
+            this.label22.Text = "Calibration";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(452, 13);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(56, 13);
+            this.label23.TabIndex = 68;
+            this.label23.Text = "Calibration";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(238, 56);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 23);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "Calib";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(238, 83);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(39, 23);
+            this.button4.TabIndex = 70;
+            this.button4.Text = "Calib";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(238, 109);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(39, 23);
+            this.button5.TabIndex = 71;
+            this.button5.Text = "Calib";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(238, 137);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(39, 23);
+            this.button6.TabIndex = 72;
+            this.button6.Text = "Calib";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(509, 28);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(39, 23);
+            this.button7.TabIndex = 73;
+            this.button7.Text = "Calib";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(509, 57);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(39, 23);
+            this.button8.TabIndex = 74;
+            this.button8.Text = "Calib";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(509, 83);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(39, 23);
+            this.button9.TabIndex = 75;
+            this.button9.Text = "Calib";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(509, 110);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(39, 23);
+            this.button10.TabIndex = 76;
+            this.button10.Text = "Calib";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(509, 136);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(39, 23);
+            this.button11.TabIndex = 77;
+            this.button11.Text = "Calib";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1015,7 +1237,29 @@
         private System.Windows.Forms.ComboBox setIng1;
         private System.Windows.Forms.Panel settingsPanel;
         private System.Windows.Forms.Button add_cancel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button settingsCancel;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }
 

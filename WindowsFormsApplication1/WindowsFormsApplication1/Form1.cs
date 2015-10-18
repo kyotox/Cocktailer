@@ -30,14 +30,12 @@ namespace WindowsFormsApplication1
             {
                 string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
-
-                short ingNo = 0;
-                foreach (string line in lines)
+                
+                for (short IngNo=0; IngNo<10; IngNo++)
                 {
-                    // Use a tab to indent each line of the file.
-                    available_ingredients[ingNo] = line;
-
-                    ingNo++;
+                    
+                        // Use a tab to indent each line of the file.
+                        available_ingredients[IngNo] = lines[IngNo];
                 }
 
                 string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
@@ -103,30 +101,30 @@ namespace WindowsFormsApplication1
         {
             string mix = Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["mix"].Value);
             string qty = Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["qty"].Value);
-            short[] output_pump;
-            output_pump = new short[10];
+            int[] output_pump;
+            output_pump = new int[10];
 
             int[] output_qty;
             output_qty = new int[10];
 
             string[] mix_split = mix.Split('|');
             short ing_no = 0;
-            foreach (string s_m in mix_split)
+            foreach (string mix_ing in mix_split)
             {
-                if (s_m != "")
+                if (mix_ing != "")
                 {
                     try
                     {
                         string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
-                        short motor_no = 1;
-                        foreach (string line in lines)
-                        {
-                            if (line == s_m)
-                            {
-                                output_pump[ing_no-1] = motor_no;
-                            }
 
-                            motor_no++;
+                        for (int motor_no=0; motor_no < 10;motor_no++)
+                        {
+                            
+                                if (lines[motor_no] == mix_ing)
+                                {
+                                    output_pump[ing_no] = motor_no+1;
+                                }
+                                
                         }
 
 
@@ -137,8 +135,9 @@ namespace WindowsFormsApplication1
                     {
                         MessageBox.Show(ex.Message);
                     }
+                    ing_no++;
                 }
-                ing_no++;
+                
             }
 
             string[] qty_split = qty.Split('|');
@@ -249,15 +248,18 @@ namespace WindowsFormsApplication1
                 string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
                 Int32[] available_ingredients;
+                Int32[] calib_values;
                 available_ingredients = new Int32[10];
+                calib_values = new Int32[10];
 
-                short ingNo = 0;
+                short lineNo = 0;
                 foreach (string line in lines)
                 {
-                    // Use a tab to indent each line of the file.
-                    available_ingredients[ingNo] = Int32.Parse(line);
-
-                    ingNo++;
+                if (lineNo < 10)
+                    available_ingredients[lineNo] = Int32.Parse(line);
+                else
+                    calib_values[lineNo - 10] = Int32.Parse(line);
+                    lineNo++;
                 }
 
                 //load ingredients lirary
@@ -495,12 +497,12 @@ namespace WindowsFormsApplication1
 
             Int32[] available_ingredients;
             available_ingredients = new Int32[10];
-
-            short ingNo = 0;
-            foreach (string line in lines)
+            
+            for (int ingNo = 0; ingNo < 10; ingNo++)
             {
+                
                 // Use a tab to indent each line of the file.
-                available_ingredients[ingNo] = Int32.Parse(line);
+                available_ingredients[ingNo] = Int32.Parse(lines[ingNo]);
 
                 ingNo++;
             }
@@ -628,9 +630,10 @@ namespace WindowsFormsApplication1
             AddNewPannel.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void settingsCancel_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
         }
+        
     }
 }
