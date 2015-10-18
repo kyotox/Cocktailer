@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -260,8 +261,11 @@ namespace WindowsFormsApplication1
             cocktail_ing8.Text += qty_split_copy[7];
             cocktail_ing9.Text += qty_split_copy[8];
             cocktail_ing10.Text += qty_split_copy[9];
-
-            cocktailPhoto.Image = Image.FromFile("./img/" + Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["img"].Value) + ".jpg");
+            string Photofilelocation = "./img/" + Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["img"].Value) + ".jpg";
+            if (File.Exists(Photofilelocation))
+                cocktailPhoto.Image = Image.FromFile(Photofilelocation);
+            else
+                cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -539,8 +543,11 @@ namespace WindowsFormsApplication1
 
                 LoadAll(this, EventArgs.Empty);
                 AddNewPannel.Visible = false;
-                string photoFileName = newCocktailName.Text.Replace(" ", "").ToLower();
-                System.IO.File.Copy(newPhotoLocation, "./img/" + photoFileName + ".jpg");
+                if (newPhotoLocation != null)
+                {
+                    string photoFileName = newCocktailName.Text.Replace(" ", "").ToLower();
+                    System.IO.File.Copy(newPhotoLocation, "./img/" + photoFileName + ".jpg");
+                }
             }
             else
             {
