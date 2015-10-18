@@ -243,8 +243,8 @@ namespace WindowsFormsApplication1
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                panel1.Visible = true;
-                saveNewButton.Visible = false;
+                settingsPanel.Visible = true;
+                AddNewPannel.Visible = false;
                 save_button.Visible = true;
                 string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
@@ -298,55 +298,55 @@ namespace WindowsFormsApplication1
 
 
 
-                comboBox1.ValueMember = "ID";
-                comboBox1.DisplayMember = "Field1";
-                comboBox1.DataSource = combo1;
-                comboBox1.SelectedIndex = available_ingredients[0];
+                setIng1.ValueMember = "ID";
+                setIng1.DisplayMember = "Field1";
+                setIng1.DataSource = combo1;
+                setIng1.SelectedIndex = available_ingredients[0];
 
-                comboBox2.ValueMember = "ID";
-                comboBox2.DisplayMember = "Field1";
-                comboBox2.DataSource = combo2;
-                comboBox2.SelectedIndex = available_ingredients[1];
+                setIng2.ValueMember = "ID";
+                setIng2.DisplayMember = "Field1";
+                setIng2.DataSource = combo2;
+                setIng2.SelectedIndex = available_ingredients[1];
 
-                comboBox3.ValueMember = "ID";
-                comboBox3.DisplayMember = "Field1";
-                comboBox3.DataSource = combo3;
-                comboBox3.SelectedIndex = available_ingredients[2];
+                setIng3.ValueMember = "ID";
+                setIng3.DisplayMember = "Field1";
+                setIng3.DataSource = combo3;
+                setIng3.SelectedIndex = available_ingredients[2];
 
-                comboBox4.ValueMember = "ID";
-                comboBox4.DisplayMember = "Field1";
-                comboBox4.DataSource = combo4;
-                comboBox4.SelectedIndex = available_ingredients[3];
+                setIng4.ValueMember = "ID";
+                setIng4.DisplayMember = "Field1";
+                setIng4.DataSource = combo4;
+                setIng4.SelectedIndex = available_ingredients[3];
 
-                comboBox5.ValueMember = "ID";
-                comboBox5.DisplayMember = "Field1";
-                comboBox5.DataSource = combo5;
-                comboBox5.SelectedIndex = available_ingredients[4];
+                setIng5.ValueMember = "ID";
+                setIng5.DisplayMember = "Field1";
+                setIng5.DataSource = combo5;
+                setIng5.SelectedIndex = available_ingredients[4];
 
-                comboBox6.ValueMember = "ID";
-                comboBox6.DisplayMember = "Field1";
-                comboBox6.DataSource = combo6;
-                comboBox6.SelectedIndex = available_ingredients[5];
+                setIng6.ValueMember = "ID";
+                setIng6.DisplayMember = "Field1";
+                setIng6.DataSource = combo6;
+                setIng6.SelectedIndex = available_ingredients[5];
 
-                comboBox7.ValueMember = "ID";
-                comboBox7.DisplayMember = "Field1";
-                comboBox7.DataSource = combo6;
-                comboBox7.SelectedIndex = available_ingredients[6];
+                setIng7.ValueMember = "ID";
+                setIng7.DisplayMember = "Field1";
+                setIng7.DataSource = combo6;
+                setIng7.SelectedIndex = available_ingredients[6];
 
-                comboBox8.ValueMember = "ID";
-                comboBox8.DisplayMember = "Field1";
-                comboBox8.DataSource = combo8;
-                comboBox8.SelectedIndex = available_ingredients[7];
+                setIng8.ValueMember = "ID";
+                setIng8.DisplayMember = "Field1";
+                setIng8.DataSource = combo8;
+                setIng8.SelectedIndex = available_ingredients[7];
 
-                comboBox9.ValueMember = "ID";
-                comboBox9.DisplayMember = "Field1";
-                comboBox9.DataSource = combo9;
-                comboBox9.SelectedIndex = available_ingredients[8];
+                setIng9.ValueMember = "ID";
+                setIng9.DisplayMember = "Field1";
+                setIng9.DataSource = combo9;
+                setIng9.SelectedIndex = available_ingredients[8];
 
-                comboBox10.ValueMember = "ID";
-                comboBox10.DisplayMember = "Field1";
-                comboBox10.DataSource = combo10;
-                comboBox10.SelectedIndex = available_ingredients[9];
+                setIng10.ValueMember = "ID";
+                setIng10.DisplayMember = "Field1";
+                setIng10.DataSource = combo10;
+                setIng10.SelectedIndex = available_ingredients[9];
 
 
 
@@ -354,19 +354,19 @@ namespace WindowsFormsApplication1
 
         private void save_button_Click(object sender, EventArgs e)
         {
-
+            settingsPanel.Visible = false;
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
-            new_ingredients[0] = comboBox1.SelectedIndex;
-            new_ingredients[1] = comboBox2.SelectedIndex;
-            new_ingredients[2] = comboBox3.SelectedIndex;
-            new_ingredients[3] = comboBox4.SelectedIndex;
-            new_ingredients[4] = comboBox5.SelectedIndex;
-            new_ingredients[5] = comboBox6.SelectedIndex;
-            new_ingredients[6] = comboBox7.SelectedIndex;
-            new_ingredients[7] = comboBox8.SelectedIndex;
-            new_ingredients[8] = comboBox9.SelectedIndex;
-            new_ingredients[9] = comboBox10.SelectedIndex;
+            new_ingredients[0] = setIng1.SelectedIndex;
+            new_ingredients[1] = setIng2.SelectedIndex;
+            new_ingredients[2] = setIng3.SelectedIndex;
+            new_ingredients[3] = setIng4.SelectedIndex;
+            new_ingredients[4] = setIng5.SelectedIndex;
+            new_ingredients[5] = setIng6.SelectedIndex;
+            new_ingredients[6] = setIng7.SelectedIndex;
+            new_ingredients[7] = setIng8.SelectedIndex;
+            new_ingredients[8] = setIng9.SelectedIndex;
+            new_ingredients[9] = setIng10.SelectedIndex;
             bool duplicate = false;
 
             for (int i = 0; i < 10; i++)
@@ -390,7 +390,7 @@ namespace WindowsFormsApplication1
                     MessageBox.Show(ex.Message);
                 }
                 LoadAll(this, EventArgs.Empty);
-                panel1.Visible = false;
+                AddNewPannel.Visible = false;
             }
             else
             {
@@ -401,19 +401,24 @@ namespace WindowsFormsApplication1
 
         private void saveNewButton_Click(object sender, EventArgs e)
         {
-
+            if (newCocktailName.Text == "")
+            {
+                MessageBox.Show("Fill up the name of your cocktail");
+                return;
+            }
+            AddNewPannel.Visible = false;
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
-            new_ingredients[0] = comboBox1.SelectedIndex;
-            new_ingredients[1] = comboBox2.SelectedIndex;
-            new_ingredients[2] = comboBox3.SelectedIndex;
-            new_ingredients[3] = comboBox4.SelectedIndex;
-            new_ingredients[4] = comboBox5.SelectedIndex;
-            new_ingredients[5] = comboBox6.SelectedIndex;
-            new_ingredients[6] = comboBox7.SelectedIndex;
-            new_ingredients[7] = comboBox8.SelectedIndex;
-            new_ingredients[8] = comboBox9.SelectedIndex;
-            new_ingredients[9] = comboBox10.SelectedIndex;
+            new_ingredients[0] = ing1.SelectedIndex;
+            new_ingredients[1] = ing2.SelectedIndex;
+            new_ingredients[2] = ing3.SelectedIndex;
+            new_ingredients[3] = ing4.SelectedIndex;
+            new_ingredients[4] = ing5.SelectedIndex;
+            new_ingredients[5] = ing6.SelectedIndex;
+            new_ingredients[6] = ing7.SelectedIndex;
+            new_ingredients[7] = ing8.SelectedIndex;
+            new_ingredients[8] = ing9.SelectedIndex;
+            new_ingredients[9] = ing10.SelectedIndex;
             bool duplicate = false;
 
 
@@ -472,7 +477,7 @@ namespace WindowsFormsApplication1
 
 
                 LoadAll(this, EventArgs.Empty);
-                panel1.Visible = false;
+                AddNewPannel.Visible = false;
                 string photoFileName = newCocktailName.Text.Replace(" ", "").ToLower();
                 System.IO.File.Copy(newPhotoLocation, "./img/" + photoFileName + ".jpg");
             }
@@ -538,61 +543,63 @@ namespace WindowsFormsApplication1
 
 
 
-            comboBox1.ValueMember = "ID";
-            comboBox1.DisplayMember = "Field1";
-            comboBox1.DataSource = combo1;
-            comboBox1.SelectedIndex = available_ingredients[0];
+            ing1.ValueMember = "ID";
+            ing1.DisplayMember = "Field1";
+            ing1.DataSource = combo1;
+            ing1.SelectedIndex = available_ingredients[0];
 
-            comboBox2.ValueMember = "ID";
-            comboBox2.DisplayMember = "Field1";
-            comboBox2.DataSource = combo2;
-            comboBox2.SelectedIndex = available_ingredients[1];
+            ing2.ValueMember = "ID";
+            ing2.DisplayMember = "Field1";
+            ing2.DataSource = combo2;
+            ing2.SelectedIndex = available_ingredients[1];
 
-            comboBox3.ValueMember = "ID";
-            comboBox3.DisplayMember = "Field1";
-            comboBox3.DataSource = combo3;
-            comboBox3.SelectedIndex = available_ingredients[2];
+            ing3.ValueMember = "ID";
+            ing3.DisplayMember = "Field1";
+            ing3.DataSource = combo3;
+            ing3.SelectedIndex = available_ingredients[2];
 
-            comboBox4.ValueMember = "ID";
-            comboBox4.DisplayMember = "Field1";
-            comboBox4.DataSource = combo4;
-            comboBox4.SelectedIndex = available_ingredients[3];
+            ing4.ValueMember = "ID";
+            ing4.DisplayMember = "Field1";
+            ing4.DataSource = combo4;
+            ing4.SelectedIndex = available_ingredients[3];
 
-            comboBox5.ValueMember = "ID";
-            comboBox5.DisplayMember = "Field1";
-            comboBox5.DataSource = combo5;
-            comboBox5.SelectedIndex = available_ingredients[4];
+            ing5.ValueMember = "ID";
+            ing5.DisplayMember = "Field1";
+            ing5.DataSource = combo5;
+            ing5.SelectedIndex = available_ingredients[4];
 
-            comboBox6.ValueMember = "ID";
-            comboBox6.DisplayMember = "Field1";
-            comboBox6.DataSource = combo6;
-            comboBox6.SelectedIndex = available_ingredients[5];
+            ing6.ValueMember = "ID";
+            ing6.DisplayMember = "Field1";
+            ing6.DataSource = combo6;
+            ing6.SelectedIndex = available_ingredients[5];
 
-            comboBox7.ValueMember = "ID";
-            comboBox7.DisplayMember = "Field1";
-            comboBox7.DataSource = combo6;
-            comboBox7.SelectedIndex = available_ingredients[6];
+            ing7.ValueMember = "ID";
+            ing7.DisplayMember = "Field1";
+            ing7.DataSource = combo6;
+            ing7.SelectedIndex = available_ingredients[6];
 
-            comboBox8.ValueMember = "ID";
-            comboBox8.DisplayMember = "Field1";
-            comboBox8.DataSource = combo8;
-            comboBox8.SelectedIndex = available_ingredients[7];
+            ing8.ValueMember = "ID";
+            ing8.DisplayMember = "Field1";
+            ing8.DataSource = combo8;
+            ing8.SelectedIndex = available_ingredients[7];
 
-            comboBox9.ValueMember = "ID";
-            comboBox9.DisplayMember = "Field1";
-            comboBox9.DataSource = combo9;
-            comboBox9.SelectedIndex = available_ingredients[8];
+            ing9.ValueMember = "ID";
+            ing9.DisplayMember = "Field1";
+            ing9.DataSource = combo9;
+            ing9.SelectedIndex = available_ingredients[8];
 
-            comboBox10.ValueMember = "ID";
-            comboBox10.DisplayMember = "Field1";
-            comboBox10.DataSource = combo10;
-            comboBox10.SelectedIndex = available_ingredients[9];
+            ing10.ValueMember = "ID";
+            ing10.DisplayMember = "Field1";
+            ing10.DataSource = combo10;
+            ing10.SelectedIndex = available_ingredients[9];
 
         }
 
         private void newCocktailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
+            AddNewPannel.Visible = true;
+            settingsPanel.Visible = false;
+
             AddNew_Load();
         }
 
@@ -614,6 +621,16 @@ namespace WindowsFormsApplication1
                 newPhotoLocation = ofd.FileName;
                 picturePreviewBox.Image = Image.FromFile(newPhotoLocation);
             }
+        }
+
+        private void add_cancel_Click(object sender, EventArgs e)
+        {
+            AddNewPannel.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
         }
     }
 }

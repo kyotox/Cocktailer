@@ -49,7 +49,20 @@
             this.cocktail_ing7 = new System.Windows.Forms.Label();
             this.cocktail_ing6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.AddNewPannel = new System.Windows.Forms.Panel();
+            this.quantity10 = new System.Windows.Forms.TextBox();
+            this.quantity9 = new System.Windows.Forms.TextBox();
+            this.quantity8 = new System.Windows.Forms.TextBox();
+            this.quantity7 = new System.Windows.Forms.TextBox();
+            this.quantity6 = new System.Windows.Forms.TextBox();
+            this.quantity5 = new System.Windows.Forms.TextBox();
+            this.quantity4 = new System.Windows.Forms.TextBox();
+            this.quantity3 = new System.Windows.Forms.TextBox();
+            this.quantity2 = new System.Windows.Forms.TextBox();
+            this.quantity1 = new System.Windows.Forms.TextBox();
+            this.browseButton = new System.Windows.Forms.Button();
+            this.newCocktailName = new System.Windows.Forms.TextBox();
+            this.picturePreviewBox = new System.Windows.Forms.PictureBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,35 +75,46 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.saveNewButton = new System.Windows.Forms.Button();
+            this.ing10 = new System.Windows.Forms.ComboBox();
+            this.ing9 = new System.Windows.Forms.ComboBox();
+            this.ing8 = new System.Windows.Forms.ComboBox();
+            this.ing7 = new System.Windows.Forms.ComboBox();
+            this.ing6 = new System.Windows.Forms.ComboBox();
+            this.ing5 = new System.Windows.Forms.ComboBox();
+            this.ing4 = new System.Windows.Forms.ComboBox();
+            this.ing3 = new System.Windows.Forms.ComboBox();
+            this.ing2 = new System.Windows.Forms.ComboBox();
+            this.ing1 = new System.Windows.Forms.ComboBox();
             this.save_button = new System.Windows.Forms.Button();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.picturePreviewBox = new System.Windows.Forms.PictureBox();
-            this.newCocktailName = new System.Windows.Forms.TextBox();
-            this.browseButton = new System.Windows.Forms.Button();
-            this.quantity1 = new System.Windows.Forms.TextBox();
-            this.quantity2 = new System.Windows.Forms.TextBox();
-            this.quantity3 = new System.Windows.Forms.TextBox();
-            this.quantity4 = new System.Windows.Forms.TextBox();
-            this.quantity5 = new System.Windows.Forms.TextBox();
-            this.quantity6 = new System.Windows.Forms.TextBox();
-            this.quantity7 = new System.Windows.Forms.TextBox();
-            this.quantity8 = new System.Windows.Forms.TextBox();
-            this.quantity9 = new System.Windows.Forms.TextBox();
-            this.quantity10 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.setIng10 = new System.Windows.Forms.ComboBox();
+            this.setIng9 = new System.Windows.Forms.ComboBox();
+            this.setIng8 = new System.Windows.Forms.ComboBox();
+            this.setIng7 = new System.Windows.Forms.ComboBox();
+            this.setIng6 = new System.Windows.Forms.ComboBox();
+            this.setIng5 = new System.Windows.Forms.ComboBox();
+            this.setIng4 = new System.Windows.Forms.ComboBox();
+            this.setIng3 = new System.Windows.Forms.ComboBox();
+            this.setIng2 = new System.Windows.Forms.ComboBox();
+            this.setIng1 = new System.Windows.Forms.ComboBox();
+            this.settingsPanel = new System.Windows.Forms.Panel();
+            this.add_cancel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.AddNewPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreviewBox)).BeginInit();
+            this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,7 +126,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(563, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(972, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -277,49 +301,157 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "label1";
             // 
-            // panel1
+            // AddNewPannel
             // 
-            this.panel1.Controls.Add(this.quantity10);
-            this.panel1.Controls.Add(this.quantity9);
-            this.panel1.Controls.Add(this.quantity8);
-            this.panel1.Controls.Add(this.quantity7);
-            this.panel1.Controls.Add(this.quantity6);
-            this.panel1.Controls.Add(this.quantity5);
-            this.panel1.Controls.Add(this.quantity4);
-            this.panel1.Controls.Add(this.quantity3);
-            this.panel1.Controls.Add(this.quantity2);
-            this.panel1.Controls.Add(this.quantity1);
-            this.panel1.Controls.Add(this.browseButton);
-            this.panel1.Controls.Add(this.newCocktailName);
-            this.panel1.Controls.Add(this.picturePreviewBox);
-            this.panel1.Controls.Add(this.NameLabel);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.saveNewButton);
-            this.panel1.Controls.Add(this.save_button);
-            this.panel1.Controls.Add(this.comboBox10);
-            this.panel1.Controls.Add(this.comboBox9);
-            this.panel1.Controls.Add(this.comboBox8);
-            this.panel1.Controls.Add(this.comboBox7);
-            this.panel1.Controls.Add(this.comboBox6);
-            this.panel1.Controls.Add(this.comboBox5);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(2, 277);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(548, 223);
-            this.panel1.TabIndex = 16;
-            this.panel1.Visible = false;
+            this.AddNewPannel.Controls.Add(this.add_cancel);
+            this.AddNewPannel.Controls.Add(this.quantity10);
+            this.AddNewPannel.Controls.Add(this.quantity9);
+            this.AddNewPannel.Controls.Add(this.quantity8);
+            this.AddNewPannel.Controls.Add(this.quantity7);
+            this.AddNewPannel.Controls.Add(this.quantity6);
+            this.AddNewPannel.Controls.Add(this.quantity5);
+            this.AddNewPannel.Controls.Add(this.quantity4);
+            this.AddNewPannel.Controls.Add(this.quantity3);
+            this.AddNewPannel.Controls.Add(this.quantity2);
+            this.AddNewPannel.Controls.Add(this.quantity1);
+            this.AddNewPannel.Controls.Add(this.browseButton);
+            this.AddNewPannel.Controls.Add(this.newCocktailName);
+            this.AddNewPannel.Controls.Add(this.picturePreviewBox);
+            this.AddNewPannel.Controls.Add(this.NameLabel);
+            this.AddNewPannel.Controls.Add(this.label11);
+            this.AddNewPannel.Controls.Add(this.label10);
+            this.AddNewPannel.Controls.Add(this.label9);
+            this.AddNewPannel.Controls.Add(this.label8);
+            this.AddNewPannel.Controls.Add(this.label7);
+            this.AddNewPannel.Controls.Add(this.label6);
+            this.AddNewPannel.Controls.Add(this.label5);
+            this.AddNewPannel.Controls.Add(this.label4);
+            this.AddNewPannel.Controls.Add(this.label3);
+            this.AddNewPannel.Controls.Add(this.label2);
+            this.AddNewPannel.Controls.Add(this.saveNewButton);
+            this.AddNewPannel.Controls.Add(this.ing10);
+            this.AddNewPannel.Controls.Add(this.ing9);
+            this.AddNewPannel.Controls.Add(this.ing8);
+            this.AddNewPannel.Controls.Add(this.ing7);
+            this.AddNewPannel.Controls.Add(this.ing6);
+            this.AddNewPannel.Controls.Add(this.ing5);
+            this.AddNewPannel.Controls.Add(this.ing4);
+            this.AddNewPannel.Controls.Add(this.ing3);
+            this.AddNewPannel.Controls.Add(this.ing2);
+            this.AddNewPannel.Controls.Add(this.ing1);
+            this.AddNewPannel.Location = new System.Drawing.Point(2, 277);
+            this.AddNewPannel.Name = "AddNewPannel";
+            this.AddNewPannel.Size = new System.Drawing.Size(548, 223);
+            this.AddNewPannel.TabIndex = 16;
+            this.AddNewPannel.Visible = false;
+            // 
+            // quantity10
+            // 
+            this.quantity10.Location = new System.Drawing.Point(386, 182);
+            this.quantity10.Name = "quantity10";
+            this.quantity10.Size = new System.Drawing.Size(43, 20);
+            this.quantity10.TabIndex = 35;
+            this.quantity10.Text = "0";
+            // 
+            // quantity9
+            // 
+            this.quantity9.Location = new System.Drawing.Point(386, 155);
+            this.quantity9.Name = "quantity9";
+            this.quantity9.Size = new System.Drawing.Size(43, 20);
+            this.quantity9.TabIndex = 34;
+            this.quantity9.Text = "0";
+            // 
+            // quantity8
+            // 
+            this.quantity8.Location = new System.Drawing.Point(386, 128);
+            this.quantity8.Name = "quantity8";
+            this.quantity8.Size = new System.Drawing.Size(43, 20);
+            this.quantity8.TabIndex = 33;
+            this.quantity8.Text = "0";
+            // 
+            // quantity7
+            // 
+            this.quantity7.Location = new System.Drawing.Point(386, 100);
+            this.quantity7.Name = "quantity7";
+            this.quantity7.Size = new System.Drawing.Size(43, 20);
+            this.quantity7.TabIndex = 32;
+            this.quantity7.Text = "0";
+            // 
+            // quantity6
+            // 
+            this.quantity6.Location = new System.Drawing.Point(386, 73);
+            this.quantity6.Name = "quantity6";
+            this.quantity6.Size = new System.Drawing.Size(43, 20);
+            this.quantity6.TabIndex = 31;
+            this.quantity6.Text = "0";
+            // 
+            // quantity5
+            // 
+            this.quantity5.Location = new System.Drawing.Point(171, 181);
+            this.quantity5.Name = "quantity5";
+            this.quantity5.Size = new System.Drawing.Size(43, 20);
+            this.quantity5.TabIndex = 30;
+            this.quantity5.Text = "0";
+            // 
+            // quantity4
+            // 
+            this.quantity4.Location = new System.Drawing.Point(171, 154);
+            this.quantity4.Name = "quantity4";
+            this.quantity4.Size = new System.Drawing.Size(43, 20);
+            this.quantity4.TabIndex = 29;
+            this.quantity4.Text = "0";
+            // 
+            // quantity3
+            // 
+            this.quantity3.Location = new System.Drawing.Point(171, 127);
+            this.quantity3.Name = "quantity3";
+            this.quantity3.Size = new System.Drawing.Size(43, 20);
+            this.quantity3.TabIndex = 28;
+            this.quantity3.Text = "0";
+            // 
+            // quantity2
+            // 
+            this.quantity2.Location = new System.Drawing.Point(171, 100);
+            this.quantity2.Name = "quantity2";
+            this.quantity2.Size = new System.Drawing.Size(43, 20);
+            this.quantity2.TabIndex = 27;
+            this.quantity2.Text = "0";
+            // 
+            // quantity1
+            // 
+            this.quantity1.Location = new System.Drawing.Point(171, 73);
+            this.quantity1.Name = "quantity1";
+            this.quantity1.Size = new System.Drawing.Size(43, 20);
+            this.quantity1.TabIndex = 26;
+            this.quantity1.Text = "0";
+            // 
+            // browseButton
+            // 
+            this.browseButton.Location = new System.Drawing.Point(455, 116);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.TabIndex = 25;
+            this.browseButton.Text = "Browse";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
+            // newCocktailName
+            // 
+            this.newCocktailName.Location = new System.Drawing.Point(79, 27);
+            this.newCocktailName.Name = "newCocktailName";
+            this.newCocktailName.Size = new System.Drawing.Size(243, 20);
+            this.newCocktailName.TabIndex = 24;
+            // 
+            // picturePreviewBox
+            // 
+            this.picturePreviewBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picturePreviewBox.BackgroundImage")));
+            this.picturePreviewBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picturePreviewBox.Location = new System.Drawing.Point(437, 3);
+            this.picturePreviewBox.Name = "picturePreviewBox";
+            this.picturePreviewBox.Size = new System.Drawing.Size(108, 107);
+            this.picturePreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePreviewBox.TabIndex = 23;
+            this.picturePreviewBox.TabStop = false;
             // 
             // NameLabel
             // 
@@ -433,218 +565,341 @@
             // 
             // saveNewButton
             // 
-            this.saveNewButton.Location = new System.Drawing.Point(470, 188);
+            this.saveNewButton.Location = new System.Drawing.Point(493, 197);
             this.saveNewButton.Name = "saveNewButton";
-            this.saveNewButton.Size = new System.Drawing.Size(75, 23);
+            this.saveNewButton.Size = new System.Drawing.Size(52, 23);
             this.saveNewButton.TabIndex = 11;
             this.saveNewButton.Text = "Save";
             this.saveNewButton.UseVisualStyleBackColor = true;
             this.saveNewButton.Click += new System.EventHandler(this.saveNewButton_Click);
             // 
+            // ing10
+            // 
+            this.ing10.FormattingEnabled = true;
+            this.ing10.Location = new System.Drawing.Point(259, 180);
+            this.ing10.Name = "ing10";
+            this.ing10.Size = new System.Drawing.Size(121, 21);
+            this.ing10.TabIndex = 9;
+            // 
+            // ing9
+            // 
+            this.ing9.FormattingEnabled = true;
+            this.ing9.Location = new System.Drawing.Point(259, 153);
+            this.ing9.Name = "ing9";
+            this.ing9.Size = new System.Drawing.Size(121, 21);
+            this.ing9.TabIndex = 8;
+            // 
+            // ing8
+            // 
+            this.ing8.FormattingEnabled = true;
+            this.ing8.Location = new System.Drawing.Point(259, 126);
+            this.ing8.Name = "ing8";
+            this.ing8.Size = new System.Drawing.Size(121, 21);
+            this.ing8.TabIndex = 7;
+            // 
+            // ing7
+            // 
+            this.ing7.FormattingEnabled = true;
+            this.ing7.Location = new System.Drawing.Point(259, 99);
+            this.ing7.Name = "ing7";
+            this.ing7.Size = new System.Drawing.Size(121, 21);
+            this.ing7.TabIndex = 6;
+            // 
+            // ing6
+            // 
+            this.ing6.FormattingEnabled = true;
+            this.ing6.Location = new System.Drawing.Point(259, 72);
+            this.ing6.Name = "ing6";
+            this.ing6.Size = new System.Drawing.Size(121, 21);
+            this.ing6.TabIndex = 5;
+            // 
+            // ing5
+            // 
+            this.ing5.FormattingEnabled = true;
+            this.ing5.Location = new System.Drawing.Point(44, 179);
+            this.ing5.Name = "ing5";
+            this.ing5.Size = new System.Drawing.Size(121, 21);
+            this.ing5.TabIndex = 4;
+            // 
+            // ing4
+            // 
+            this.ing4.FormattingEnabled = true;
+            this.ing4.Location = new System.Drawing.Point(44, 152);
+            this.ing4.Name = "ing4";
+            this.ing4.Size = new System.Drawing.Size(121, 21);
+            this.ing4.TabIndex = 3;
+            // 
+            // ing3
+            // 
+            this.ing3.FormattingEnabled = true;
+            this.ing3.Location = new System.Drawing.Point(44, 125);
+            this.ing3.Name = "ing3";
+            this.ing3.Size = new System.Drawing.Size(121, 21);
+            this.ing3.TabIndex = 2;
+            // 
+            // ing2
+            // 
+            this.ing2.FormattingEnabled = true;
+            this.ing2.Location = new System.Drawing.Point(44, 98);
+            this.ing2.Name = "ing2";
+            this.ing2.Size = new System.Drawing.Size(121, 21);
+            this.ing2.TabIndex = 1;
+            // 
+            // ing1
+            // 
+            this.ing1.FormattingEnabled = true;
+            this.ing1.Location = new System.Drawing.Point(44, 71);
+            this.ing1.Name = "ing1";
+            this.ing1.Size = new System.Drawing.Size(121, 21);
+            this.ing1.TabIndex = 0;
+            // 
             // save_button
             // 
-            this.save_button.Location = new System.Drawing.Point(470, 188);
+            this.save_button.Location = new System.Drawing.Point(336, 197);
             this.save_button.Name = "save_button";
-            this.save_button.Size = new System.Drawing.Size(75, 23);
+            this.save_button.Size = new System.Drawing.Size(52, 23);
             this.save_button.TabIndex = 10;
             this.save_button.Text = "Save";
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
-            // comboBox10
+            // label12
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(259, 180);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(121, 21);
-            this.comboBox10.TabIndex = 9;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(239, 142);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 18);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "10.";
             // 
-            // comboBox9
+            // label13
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(259, 153);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(121, 21);
-            this.comboBox9.TabIndex = 8;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(239, 115);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 18);
+            this.label13.TabIndex = 54;
+            this.label13.Text = "9.";
             // 
-            // comboBox8
+            // label14
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(259, 126);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 21);
-            this.comboBox8.TabIndex = 7;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(239, 88);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 18);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "8.";
             // 
-            // comboBox7
+            // label15
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(259, 99);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 21);
-            this.comboBox7.TabIndex = 6;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(239, 61);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(22, 18);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "7.";
             // 
-            // comboBox6
+            // label16
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(259, 72);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 5;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(239, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(22, 18);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "6.";
             // 
-            // comboBox5
+            // label17
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(44, 179);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 4;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 141);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(22, 18);
+            this.label17.TabIndex = 50;
+            this.label17.Text = "5.";
             // 
-            // comboBox4
+            // label18
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(44, 152);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 3;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(24, 114);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(22, 18);
+            this.label18.TabIndex = 49;
+            this.label18.Text = "4.";
             // 
-            // comboBox3
+            // label19
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(44, 125);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 2;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(24, 87);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(22, 18);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "3.";
             // 
-            // comboBox2
+            // label20
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(44, 98);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(24, 60);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(22, 18);
+            this.label20.TabIndex = 47;
+            this.label20.Text = "2.";
             // 
-            // comboBox1
+            // label21
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(24, 30);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(22, 18);
+            this.label21.TabIndex = 46;
+            this.label21.Text = "1.";
             // 
-            // picturePreviewBox
+            // setIng10
             // 
-            this.picturePreviewBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picturePreviewBox.BackgroundImage")));
-            this.picturePreviewBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picturePreviewBox.Location = new System.Drawing.Point(437, 3);
-            this.picturePreviewBox.Name = "picturePreviewBox";
-            this.picturePreviewBox.Size = new System.Drawing.Size(108, 107);
-            this.picturePreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picturePreviewBox.TabIndex = 23;
-            this.picturePreviewBox.TabStop = false;
+            this.setIng10.FormattingEnabled = true;
+            this.setIng10.Location = new System.Drawing.Point(267, 139);
+            this.setIng10.Name = "setIng10";
+            this.setIng10.Size = new System.Drawing.Size(121, 21);
+            this.setIng10.TabIndex = 45;
             // 
-            // newCocktailName
+            // setIng9
             // 
-            this.newCocktailName.Location = new System.Drawing.Point(79, 27);
-            this.newCocktailName.Name = "newCocktailName";
-            this.newCocktailName.Size = new System.Drawing.Size(243, 20);
-            this.newCocktailName.TabIndex = 24;
+            this.setIng9.FormattingEnabled = true;
+            this.setIng9.Location = new System.Drawing.Point(267, 112);
+            this.setIng9.Name = "setIng9";
+            this.setIng9.Size = new System.Drawing.Size(121, 21);
+            this.setIng9.TabIndex = 44;
             // 
-            // browseButton
+            // setIng8
             // 
-            this.browseButton.Location = new System.Drawing.Point(455, 116);
-            this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(75, 23);
-            this.browseButton.TabIndex = 25;
-            this.browseButton.Text = "Browse";
-            this.browseButton.UseVisualStyleBackColor = true;
-            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            this.setIng8.FormattingEnabled = true;
+            this.setIng8.Location = new System.Drawing.Point(267, 85);
+            this.setIng8.Name = "setIng8";
+            this.setIng8.Size = new System.Drawing.Size(121, 21);
+            this.setIng8.TabIndex = 43;
             // 
-            // quantity1
+            // setIng7
             // 
-            this.quantity1.Location = new System.Drawing.Point(171, 73);
-            this.quantity1.Name = "quantity1";
-            this.quantity1.Size = new System.Drawing.Size(43, 20);
-            this.quantity1.TabIndex = 26;
-            this.quantity1.Text = "0";
+            this.setIng7.FormattingEnabled = true;
+            this.setIng7.Location = new System.Drawing.Point(267, 58);
+            this.setIng7.Name = "setIng7";
+            this.setIng7.Size = new System.Drawing.Size(121, 21);
+            this.setIng7.TabIndex = 42;
             // 
-            // quantity2
+            // setIng6
             // 
-            this.quantity2.Location = new System.Drawing.Point(171, 100);
-            this.quantity2.Name = "quantity2";
-            this.quantity2.Size = new System.Drawing.Size(43, 20);
-            this.quantity2.TabIndex = 27;
-            this.quantity2.Text = "0";
+            this.setIng6.FormattingEnabled = true;
+            this.setIng6.Location = new System.Drawing.Point(267, 31);
+            this.setIng6.Name = "setIng6";
+            this.setIng6.Size = new System.Drawing.Size(121, 21);
+            this.setIng6.TabIndex = 41;
             // 
-            // quantity3
+            // setIng5
             // 
-            this.quantity3.Location = new System.Drawing.Point(171, 127);
-            this.quantity3.Name = "quantity3";
-            this.quantity3.Size = new System.Drawing.Size(43, 20);
-            this.quantity3.TabIndex = 28;
-            this.quantity3.Text = "0";
+            this.setIng5.FormattingEnabled = true;
+            this.setIng5.Location = new System.Drawing.Point(52, 138);
+            this.setIng5.Name = "setIng5";
+            this.setIng5.Size = new System.Drawing.Size(121, 21);
+            this.setIng5.TabIndex = 40;
             // 
-            // quantity4
+            // setIng4
             // 
-            this.quantity4.Location = new System.Drawing.Point(171, 154);
-            this.quantity4.Name = "quantity4";
-            this.quantity4.Size = new System.Drawing.Size(43, 20);
-            this.quantity4.TabIndex = 29;
-            this.quantity4.Text = "0";
+            this.setIng4.FormattingEnabled = true;
+            this.setIng4.Location = new System.Drawing.Point(52, 111);
+            this.setIng4.Name = "setIng4";
+            this.setIng4.Size = new System.Drawing.Size(121, 21);
+            this.setIng4.TabIndex = 39;
             // 
-            // quantity5
+            // setIng3
             // 
-            this.quantity5.Location = new System.Drawing.Point(171, 181);
-            this.quantity5.Name = "quantity5";
-            this.quantity5.Size = new System.Drawing.Size(43, 20);
-            this.quantity5.TabIndex = 30;
-            this.quantity5.Text = "0";
+            this.setIng3.FormattingEnabled = true;
+            this.setIng3.Location = new System.Drawing.Point(52, 84);
+            this.setIng3.Name = "setIng3";
+            this.setIng3.Size = new System.Drawing.Size(121, 21);
+            this.setIng3.TabIndex = 38;
             // 
-            // quantity6
+            // setIng2
             // 
-            this.quantity6.Location = new System.Drawing.Point(386, 73);
-            this.quantity6.Name = "quantity6";
-            this.quantity6.Size = new System.Drawing.Size(43, 20);
-            this.quantity6.TabIndex = 31;
-            this.quantity6.Text = "0";
+            this.setIng2.FormattingEnabled = true;
+            this.setIng2.Location = new System.Drawing.Point(52, 57);
+            this.setIng2.Name = "setIng2";
+            this.setIng2.Size = new System.Drawing.Size(121, 21);
+            this.setIng2.TabIndex = 37;
             // 
-            // quantity7
+            // setIng1
             // 
-            this.quantity7.Location = new System.Drawing.Point(386, 100);
-            this.quantity7.Name = "quantity7";
-            this.quantity7.Size = new System.Drawing.Size(43, 20);
-            this.quantity7.TabIndex = 32;
-            this.quantity7.Text = "0";
+            this.setIng1.FormattingEnabled = true;
+            this.setIng1.Location = new System.Drawing.Point(52, 30);
+            this.setIng1.Name = "setIng1";
+            this.setIng1.Size = new System.Drawing.Size(121, 21);
+            this.setIng1.TabIndex = 36;
             // 
-            // quantity8
+            // settingsPanel
             // 
-            this.quantity8.Location = new System.Drawing.Point(386, 128);
-            this.quantity8.Name = "quantity8";
-            this.quantity8.Size = new System.Drawing.Size(43, 20);
-            this.quantity8.TabIndex = 33;
-            this.quantity8.Text = "0";
+            this.settingsPanel.Controls.Add(this.button1);
+            this.settingsPanel.Controls.Add(this.setIng6);
+            this.settingsPanel.Controls.Add(this.label12);
+            this.settingsPanel.Controls.Add(this.setIng1);
+            this.settingsPanel.Controls.Add(this.save_button);
+            this.settingsPanel.Controls.Add(this.label13);
+            this.settingsPanel.Controls.Add(this.setIng2);
+            this.settingsPanel.Controls.Add(this.setIng3);
+            this.settingsPanel.Controls.Add(this.label14);
+            this.settingsPanel.Controls.Add(this.setIng4);
+            this.settingsPanel.Controls.Add(this.setIng5);
+            this.settingsPanel.Controls.Add(this.label15);
+            this.settingsPanel.Controls.Add(this.setIng7);
+            this.settingsPanel.Controls.Add(this.setIng8);
+            this.settingsPanel.Controls.Add(this.label16);
+            this.settingsPanel.Controls.Add(this.setIng9);
+            this.settingsPanel.Controls.Add(this.setIng10);
+            this.settingsPanel.Controls.Add(this.label17);
+            this.settingsPanel.Controls.Add(this.label21);
+            this.settingsPanel.Controls.Add(this.label20);
+            this.settingsPanel.Controls.Add(this.label18);
+            this.settingsPanel.Controls.Add(this.label19);
+            this.settingsPanel.Location = new System.Drawing.Point(556, 280);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Size = new System.Drawing.Size(404, 223);
+            this.settingsPanel.TabIndex = 56;
+            this.settingsPanel.Visible = false;
             // 
-            // quantity9
+            // add_cancel
             // 
-            this.quantity9.Location = new System.Drawing.Point(386, 155);
-            this.quantity9.Name = "quantity9";
-            this.quantity9.Size = new System.Drawing.Size(43, 20);
-            this.quantity9.TabIndex = 34;
-            this.quantity9.Text = "0";
+            this.add_cancel.Location = new System.Drawing.Point(437, 197);
+            this.add_cancel.Name = "add_cancel";
+            this.add_cancel.Size = new System.Drawing.Size(52, 23);
+            this.add_cancel.TabIndex = 36;
+            this.add_cancel.Text = "Cancel";
+            this.add_cancel.UseVisualStyleBackColor = true;
+            this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
             // 
-            // quantity10
+            // button1
             // 
-            this.quantity10.Location = new System.Drawing.Point(386, 182);
-            this.quantity10.Name = "quantity10";
-            this.quantity10.Size = new System.Drawing.Size(43, 20);
-            this.quantity10.TabIndex = 35;
-            this.quantity10.Text = "0";
+            this.button1.Location = new System.Drawing.Point(268, 197);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 512);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(972, 512);
+            this.Controls.Add(this.settingsPanel);
+            this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cocktail_ing10);
             this.Controls.Add(this.cocktail_ing9);
@@ -669,9 +924,11 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.AddNewPannel.ResumeLayout(false);
+            this.AddNewPannel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreviewBox)).EndInit();
+            this.settingsPanel.ResumeLayout(false);
+            this.settingsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,17 +956,17 @@
         private System.Windows.Forms.Label cocktail_ing7;
         private System.Windows.Forms.Label cocktail_ing6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel AddNewPannel;
+        private System.Windows.Forms.ComboBox ing10;
+        private System.Windows.Forms.ComboBox ing9;
+        private System.Windows.Forms.ComboBox ing8;
+        private System.Windows.Forms.ComboBox ing7;
+        private System.Windows.Forms.ComboBox ing6;
+        private System.Windows.Forms.ComboBox ing5;
+        private System.Windows.Forms.ComboBox ing4;
+        private System.Windows.Forms.ComboBox ing3;
+        private System.Windows.Forms.ComboBox ing2;
+        private System.Windows.Forms.ComboBox ing1;
         private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -736,6 +993,29 @@
         private System.Windows.Forms.TextBox quantity3;
         private System.Windows.Forms.TextBox quantity2;
         private System.Windows.Forms.TextBox quantity1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox setIng10;
+        private System.Windows.Forms.ComboBox setIng9;
+        private System.Windows.Forms.ComboBox setIng8;
+        private System.Windows.Forms.ComboBox setIng7;
+        private System.Windows.Forms.ComboBox setIng6;
+        private System.Windows.Forms.ComboBox setIng5;
+        private System.Windows.Forms.ComboBox setIng4;
+        private System.Windows.Forms.ComboBox setIng3;
+        private System.Windows.Forms.ComboBox setIng2;
+        private System.Windows.Forms.ComboBox setIng1;
+        private System.Windows.Forms.Panel settingsPanel;
+        private System.Windows.Forms.Button add_cancel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
