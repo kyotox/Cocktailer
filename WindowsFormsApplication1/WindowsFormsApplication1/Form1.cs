@@ -245,7 +245,7 @@ namespace WindowsFormsApplication1
         {
                 settingsPanel.Visible = true;
                 AddNewPannel.Visible = false;
-                save_button.Visible = true;
+
                 string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
                 Int32[] available_ingredients;
@@ -330,7 +330,7 @@ namespace WindowsFormsApplication1
 
                 setIng7.ValueMember = "ID";
                 setIng7.DisplayMember = "Field1";
-                setIng7.DataSource = combo6;
+                setIng7.DataSource = combo7;
                 setIng7.SelectedIndex = available_ingredients[6];
 
                 setIng8.ValueMember = "ID";
@@ -575,7 +575,7 @@ namespace WindowsFormsApplication1
 
             ing7.ValueMember = "ID";
             ing7.DisplayMember = "Field1";
-            ing7.DataSource = combo6;
+            ing7.DataSource = combo7;
             ing7.SelectedIndex = available_ingredients[6];
 
             ing8.ValueMember = "ID";
