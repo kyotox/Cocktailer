@@ -131,6 +131,7 @@
             this.calib1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.settingsCancel = new System.Windows.Forms.Button();
+            this.delCocktail = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
@@ -148,7 +149,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(972, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(555, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -361,7 +362,7 @@
             this.AddNewPannel.Controls.Add(this.ing3);
             this.AddNewPannel.Controls.Add(this.ing2);
             this.AddNewPannel.Controls.Add(this.ing1);
-            this.AddNewPannel.Location = new System.Drawing.Point(0, 26);
+            this.AddNewPannel.Location = new System.Drawing.Point(373, 108);
             this.AddNewPannel.Name = "AddNewPannel";
             this.AddNewPannel.Size = new System.Drawing.Size(551, 241);
             this.AddNewPannel.TabIndex = 16;
@@ -921,7 +922,7 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(421, 19);
+            this.settingsPanel.Location = new System.Drawing.Point(0, 273);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(551, 245);
             this.settingsPanel.TabIndex = 56;
@@ -1115,11 +1116,22 @@
             this.settingsCancel.UseVisualStyleBackColor = true;
             this.settingsCancel.Click += new System.EventHandler(this.settingsCancel_Click);
             // 
+            // delCocktail
+            // 
+            this.delCocktail.Location = new System.Drawing.Point(177, 250);
+            this.delCocktail.Name = "delCocktail";
+            this.delCocktail.Size = new System.Drawing.Size(75, 23);
+            this.delCocktail.TabIndex = 57;
+            this.delCocktail.Text = "Delete";
+            this.delCocktail.UseVisualStyleBackColor = true;
+            this.delCocktail.Click += new System.EventHandler(this.delCocktail_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 512);
+            this.ClientSize = new System.Drawing.Size(555, 521);
+            this.Controls.Add(this.delCocktail);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.label1);
@@ -1260,6 +1272,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button delCocktail;
     }
 }
 

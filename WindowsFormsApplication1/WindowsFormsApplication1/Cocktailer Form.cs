@@ -700,6 +700,23 @@ namespace WindowsFormsApplication1
         {
             settingsPanel.Visible = false;
         }
-        
+
+        private void delCocktail_Click(object sender, EventArgs e)
+        {
+            string connetionString = null;
+            OleDbConnection connection;
+            OleDbDataAdapter oledbAdapter = new OleDbDataAdapter();
+            string sql = null;
+            connetionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb;";
+            connection = new OleDbConnection(connetionString);
+
+            sql = "DELETE from Cocktails WHERE ID =" + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+
+
+            connection.Open();
+            oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
+            oledbAdapter.InsertCommand.ExecuteNonQuery();
+            
+        }
     }
 }
