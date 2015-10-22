@@ -149,7 +149,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(555, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(560, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -172,12 +172,14 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -362,9 +364,9 @@
             this.AddNewPannel.Controls.Add(this.ing3);
             this.AddNewPannel.Controls.Add(this.ing2);
             this.AddNewPannel.Controls.Add(this.ing1);
-            this.AddNewPannel.Location = new System.Drawing.Point(373, 108);
+            this.AddNewPannel.Location = new System.Drawing.Point(0, 26);
             this.AddNewPannel.Name = "AddNewPannel";
-            this.AddNewPannel.Size = new System.Drawing.Size(551, 241);
+            this.AddNewPannel.Size = new System.Drawing.Size(551, 247);
             this.AddNewPannel.TabIndex = 16;
             this.AddNewPannel.Visible = false;
             // 
@@ -688,7 +690,7 @@
             // 
             // save_button
             // 
-            this.save_button.Location = new System.Drawing.Point(415, 195);
+            this.save_button.Location = new System.Drawing.Point(257, 195);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(52, 23);
             this.save_button.TabIndex = 10;
@@ -878,6 +880,7 @@
             // 
             // settingsPanel
             // 
+            this.settingsPanel.Controls.Add(this.save_button);
             this.settingsPanel.Controls.Add(this.button11);
             this.settingsPanel.Controls.Add(this.button10);
             this.settingsPanel.Controls.Add(this.button9);
@@ -904,7 +907,6 @@
             this.settingsPanel.Controls.Add(this.setIng6);
             this.settingsPanel.Controls.Add(this.label12);
             this.settingsPanel.Controls.Add(this.setIng1);
-            this.settingsPanel.Controls.Add(this.save_button);
             this.settingsPanel.Controls.Add(this.label13);
             this.settingsPanel.Controls.Add(this.setIng2);
             this.settingsPanel.Controls.Add(this.setIng3);
@@ -922,9 +924,9 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(0, 273);
+            this.settingsPanel.Location = new System.Drawing.Point(0, 25);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(551, 245);
+            this.settingsPanel.Size = new System.Drawing.Size(551, 248);
             this.settingsPanel.TabIndex = 56;
             this.settingsPanel.Visible = false;
             // 
@@ -1130,8 +1132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 521);
-            this.Controls.Add(this.delCocktail);
+            this.ClientSize = new System.Drawing.Size(560, 330);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.label1);
@@ -1150,6 +1151,7 @@
             this.Controls.Add(this.checkBox15);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.delCocktail);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";

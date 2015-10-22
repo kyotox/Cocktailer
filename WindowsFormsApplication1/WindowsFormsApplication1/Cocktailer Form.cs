@@ -41,7 +41,6 @@ namespace WindowsFormsApplication1
                 available_ingredients[8] = Convert.ToString(setIng9.SelectedIndex);
                 available_ingredients[9] = Convert.ToString(setIng10.SelectedIndex);
 
-
                 string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
                 string strSql = "Select * from Cocktails";
 
@@ -196,7 +195,7 @@ namespace WindowsFormsApplication1
                 {
                     output_string += Convert.ToString(output_pump[i]);
                     output_string += ":";
-                    output_string += Convert.ToString(output_qty[i] * calib_value[i]/calib_mililiters);
+                    output_string += Convert.ToString(output_qty[i] * calib_mililiters / calib_value[i] );
                     output_string += "|";
                 }
             }
@@ -210,6 +209,7 @@ namespace WindowsFormsApplication1
             con.Open();
             cmd.CommandType = CommandType.Text;
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            con.Close();
 
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
@@ -288,10 +288,10 @@ namespace WindowsFormsApplication1
         {
             string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
-            Int32[] available_ingredients;
-            Int32[] calib_values;
-            available_ingredients = new Int32[10];
-            calib_values = new Int32[10];
+            int[] available_ingredients;
+            int[] calib_values;
+            available_ingredients = new int[10];
+            calib_values = new int[10];
 
             short lineNo = 0;
             foreach (string line in lines)
@@ -716,7 +716,20 @@ namespace WindowsFormsApplication1
             connection.Open();
             oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
             oledbAdapter.InsertCommand.ExecuteNonQuery();
-            
+            connection.Close();
+            LoadAll(this, EventArgs.Empty);
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help f2 = new Help();
+            f2.ShowDialog(); // Shows Help
         }
     }
 }
