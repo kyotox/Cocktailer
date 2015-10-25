@@ -26,20 +26,20 @@ namespace WindowsFormsApplication1
             string[] available_ingredients;
             available_ingredients = new string[10];
 
-            LoadSettings();
-            // Load available ingredients from file and cocktails database
+            var ingredients_combobox = settingsPanel.Controls
+                         .OfType<ComboBox>()
+                         .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+            int no = 0;
+            foreach (ComboBox txt in ingredients_combobox)
+            {
+                available_ingredients[no] = Convert.ToString(txt.Text);
+                no++;
+            }
+
+            LoadSettings();         // Load available ingredients from file and cocktails database
+
             try
             {
-                available_ingredients[0] = Convert.ToString(setIng1.SelectedIndex);
-                available_ingredients[1] = Convert.ToString(setIng2.SelectedIndex);
-                available_ingredients[2] = Convert.ToString(setIng3.SelectedIndex);
-                available_ingredients[3] = Convert.ToString(setIng4.SelectedIndex);
-                available_ingredients[4] = Convert.ToString(setIng5.SelectedIndex);
-                available_ingredients[5] = Convert.ToString(setIng6.SelectedIndex);
-                available_ingredients[6] = Convert.ToString(setIng7.SelectedIndex);
-                available_ingredients[7] = Convert.ToString(setIng8.SelectedIndex);
-                available_ingredients[8] = Convert.ToString(setIng9.SelectedIndex);
-                available_ingredients[9] = Convert.ToString(setIng10.SelectedIndex);
 
                 string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
                 string strSql = "Select * from Cocktails";
@@ -52,42 +52,56 @@ namespace WindowsFormsApplication1
                 DataTable cocktails = new DataTable();
                 da.Fill(cocktails);
                 dataGridView1.DataSource = cocktails;
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             // filter the unavailable cocktails if checkbox unchecked
-            if (!checkBox15.Checked)
+            if (!showAll.Checked)
             {
 
                 for (int i = dataGridView1.Rows.Count - 1; i >= 0; i--)
                 {
                     labelName.Text = Convert.ToString(dataGridView1.Rows.Count);
-                    bool display = true;
+                    bool toRemove = false;
+
                     string mix = Convert.ToString(dataGridView1.Rows[i].Cells["mix"].Value);
+                    // mix contains the string from the database containing all ingredients
+                    // ing separated by "|"
+
                     string[] mix_split = mix.Split('|');
+                    // mix_split contains all the ingredient IDs as an array
 
                     foreach (string mix_ing in mix_split)
                     {
+                        // check if all the ingredients from the cocktail are available
+                        // mix_ing should not be empty
+                        // if ingredient not found, toRemove turns true
                         if (mix_ing != "" && !available_ingredients.Contains(mix_ing))
                         {
-                            display = false;
+                            toRemove = true;
                         }
                     }
-                    if (!display)
+
+                    if (!toRemove)
                     {
+                        // the row is removed from view only, not from database
                         dataGridView1.Rows.RemoveAt(i);
                     }
+
                 }
             }
 
+            //stop if no cocktail available
             if (dataGridView1.Rows.Count == 0)
             {
                 return;
+                //Error / suggestion should be added here 
             }
+
             //hide unwanted columns
             dataGridView1.Columns["ID"].Visible = false;
             dataGridView1.Columns["desc"].Visible = false;
@@ -96,106 +110,104 @@ namespace WindowsFormsApplication1
             dataGridView1.Columns["mix"].Visible = false;
             dataGridView1.Columns["Name"].Width = 237;
             dataGridView1.CurrentCell = dataGridView1[1, 0];
-            dataGridView1_CellClick();
+
+            // display the first cocktail in the table
+            selectCocktail();
 
         }
         // select cocktail
-        private void dataGridView1_CellClick()
+        private void selectCocktail()
         {
+            // Get the data from DataGrid
             string mix = Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["mix"].Value);
             string qty = Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["qty"].Value);
 
+            // assign pump for each ingredient
             int[] output_pump;
             output_pump = new int[10]; //here we will save the pump needed for each ingredient of the mix
 
+            // assign qty for each pump
             int[] output_qty;
             output_qty = new int[10];
 
+            // split mix string
             string[] mix_split = mix.Split('|');
             short ing_no = 0;
-            
+
             // split the mix field in all the ingredients and check at which pump is each one
             foreach (string mix_ing in mix_split)
             {
                 if (mix_ing != "")
                 {
-                    try
+                    string[] available_ingredients;
+                    available_ingredients = new string[10];
+                    var ingredients_combobox = settingsPanel.Controls
+                                    .OfType<ComboBox>()
+                                    .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+                    // get the available ingredients from the ComboBoxes and put them into an array
+                    int no = 0;
+                    foreach (ComboBox txt in ingredients_combobox)
                     {
-                        string[] available_ingredients;
-                        available_ingredients = new string[10];
-                        available_ingredients[0] = Convert.ToString(setIng1.SelectedIndex);
-                        available_ingredients[1] = Convert.ToString(setIng2.SelectedIndex);
-                        available_ingredients[2] = Convert.ToString(setIng3.SelectedIndex);
-                        available_ingredients[3] = Convert.ToString(setIng4.SelectedIndex);
-                        available_ingredients[4] = Convert.ToString(setIng5.SelectedIndex);
-                        available_ingredients[5] = Convert.ToString(setIng6.SelectedIndex);
-                        available_ingredients[6] = Convert.ToString(setIng7.SelectedIndex);
-                        available_ingredients[7] = Convert.ToString(setIng8.SelectedIndex);
-                        available_ingredients[8] = Convert.ToString(setIng9.SelectedIndex);
-                        available_ingredients[9] = Convert.ToString(setIng10.SelectedIndex);
+                        available_ingredients[no] = Convert.ToString(txt.SelectedIndex);
+                        no++;
+                    }
 
-                        // check at which pump we have each ingredient
-                        for (int motor_no=0; motor_no < 10;motor_no++)
+                    // check at which pump we have each ingredient
+                    for (int motor_no = 0; motor_no < 10; motor_no++)
+                    {
+
+                        if (available_ingredients[motor_no] == mix_ing)
                         {
-                            
-                                if (available_ingredients[motor_no] == mix_ing)
-                                {
-                                    output_pump[ing_no] = motor_no+1;
-                                // +1 because in Arduino the motors are labeled from 1 to 10
-                                }
-                                
+                            output_pump[ing_no] = motor_no + 1;
                         }
 
-
-
-
                     }
 
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
                     ing_no++; //go to next ingredient in the mix
                 }
-                
+
             }
 
-
+            // initiate calibration array
             Int16[] calib_value;
             calib_value = new Int16[10];
-            calib_value[0] = Convert.ToInt16(calib1.Text);
-            calib_value[1] = Convert.ToInt16(calib2.Text);
-            calib_value[2] = Convert.ToInt16(calib3.Text);
-            calib_value[3] = Convert.ToInt16(calib4.Text);
-            calib_value[4] = Convert.ToInt16(calib5.Text);
-            calib_value[5] = Convert.ToInt16(calib6.Text);
-            calib_value[6] = Convert.ToInt16(calib7.Text);
-            calib_value[7] = Convert.ToInt16(calib8.Text);
-            calib_value[8] = Convert.ToInt16(calib9.Text);
-            calib_value[9] = Convert.ToInt16(calib10.Text);
 
+            var calibration_textboxes = settingsPanel.Controls
+                            .OfType<TextBox>()
+                            .Where(txt => txt.Name.ToLower().StartsWith("calib"));
+
+            // get the calibration value for each pump and put them into an array
+            int textBoxNo = 0;
+            foreach (TextBox txt in calibration_textboxes)
+            {
+                calib_value[textBoxNo] = Convert.ToInt16(txt.Text);
+                textBoxNo++;
+            }
+
+            // split the quantity needed for each ingredient
             string[] qty_split = qty.Split('|');
             ing_no = 0;
 
-            foreach (string s_q in qty_split)
+            foreach (string quantity in qty_split)
             {
 
-                if (s_q != "")
+                if (quantity != "") // quantity can't ever be empty, but let's check
                 {
-                    output_qty[ing_no-1] = Convert.ToInt16(s_q);
+                    output_qty[ing_no] = Convert.ToInt16(quantity);
                 }
-                ing_no++;
+                ing_no++; // go further
             }
 
             string output_string = "";
 
+            // create the output string
             for (int i = 0; i < 10; i++)
             {
-                if (output_pump[i] > 0)
+                if (output_pump[i] > 0 && output_qty[i] > 0)
                 {
                     output_string += Convert.ToString(output_pump[i]);
                     output_string += ":";
-                    output_string += Convert.ToString(output_qty[i] * calib_mililiters / calib_value[i] );
+                    output_string += Convert.ToString(output_qty[i] * calib_mililiters / calib_value[i]);
                     output_string += "|";
                 }
             }
@@ -210,58 +222,53 @@ namespace WindowsFormsApplication1
             cmd.CommandType = CommandType.Text;
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             con.Close();
-
+            // populate data table
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Field1", typeof(string));
             da.Fill(dt);
 
-            label1.Text = output_string;
+            // display the output
+            output.Text = output_string;
+
+            // display cocktail content and photo
             labelName.Text = Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["Name"].Value);
-            string[] mix_split_copy;
-            mix_split_copy = new string[10];
 
-            string[] qty_split_copy;
-            qty_split_copy = new string[10];
+            var ingredient_label = cocktailDisplay.Controls
+                .OfType<Label>()
+                .Where(txt => txt.Name.ToLower().StartsWith("cocktail_ing"));
 
-            for (int i = 1; i < 11; i++)
+            // cast the IEnumerable into an array
+            Label[] ingredient = ingredient_label.Cast<Label>().ToArray();
+           
+            // Put "" in all the labels to be clean
+
+            for (int i = 0; i < 10; i++)
             {
-                if ((i < mix_split.Length) && (mix_split[i] != "0"))
-                {
-                    mix_split_copy[i-1] = mix_split[i];
-                    qty_split_copy[i-1] = " - " + qty_split[i] + "ml";
+                ingredient[i].Text = "";
+            }
 
-                }
-                else
+            int label_number = 0;
+
+            // going through all the ingredients and display them without leaving spaces
+            // in case the cocktail created had spaces like ing1, ing2, ing8 and ing10
+
+            for (int i = 0; i < 10; i++)
+            {
+                string ingredient_name = dt.Rows[Convert.ToInt16(mix_split[i])]["Field1"].ToString();
+
+                if (ingredient_name != "")
                 {
-                    mix_split_copy[i-1] = "0";
-                    qty_split_copy[i-1] = "";
+                    ingredient[label_number].Text = ingredient_name;
+                    ingredient[label_number].Text += " - " + qty_split[i] + " ml";
+                    label_number++;
                 }
             }
 
-            cocktail_ing1.Text = dt.Rows[Convert.ToInt16(mix_split_copy[0])]["Field1"].ToString();
-            cocktail_ing2.Text = dt.Rows[Convert.ToInt16(mix_split_copy[1])]["Field1"].ToString();
-            cocktail_ing3.Text = dt.Rows[Convert.ToInt16(mix_split_copy[2])]["Field1"].ToString();
-            cocktail_ing4.Text = dt.Rows[Convert.ToInt16(mix_split_copy[3])]["Field1"].ToString();
-            cocktail_ing5.Text = dt.Rows[Convert.ToInt16(mix_split_copy[4])]["Field1"].ToString();
-            cocktail_ing6.Text = dt.Rows[Convert.ToInt16(mix_split_copy[5])]["Field1"].ToString();
-            cocktail_ing7.Text = dt.Rows[Convert.ToInt16(mix_split_copy[6])]["Field1"].ToString();
-            cocktail_ing8.Text = dt.Rows[Convert.ToInt16(mix_split_copy[7])]["Field1"].ToString();
-            cocktail_ing9.Text = dt.Rows[Convert.ToInt16(mix_split_copy[8])]["Field1"].ToString();
-            cocktail_ing10.Text = dt.Rows[Convert.ToInt16(mix_split_copy[9])]["Field1"].ToString();
-
-
-            cocktail_ing1.Text += qty_split_copy[0];
-            cocktail_ing2.Text += qty_split_copy[1];
-            cocktail_ing3.Text += qty_split_copy[2];
-            cocktail_ing4.Text += qty_split_copy[3];
-            cocktail_ing5.Text += qty_split_copy[4];
-            cocktail_ing6.Text += qty_split_copy[5];
-            cocktail_ing7.Text += qty_split_copy[6];
-            cocktail_ing8.Text += qty_split_copy[7];
-            cocktail_ing9.Text += qty_split_copy[8];
-            cocktail_ing10.Text += qty_split_copy[9];
+            // display photo of the cocktail
             string Photofilelocation = "./img/" + Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["img"].Value) + ".jpg";
+
+            // if no photo found, "NOPHOTO" displayed
             if (File.Exists(Photofilelocation))
                 cocktailPhoto.Image = Image.FromFile(Photofilelocation);
             else
@@ -270,22 +277,25 @@ namespace WindowsFormsApplication1
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1_CellClick();
+            selectCocktail();
         }
 
-        private void checkBox15_CheckedChanged(object sender, EventArgs e)
+        private void ShowAll_CheckedChanged(object sender, EventArgs e)
         {
+            //reload all
             LoadAll(this, EventArgs.Empty);
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // display Settings Panel, hide AddNew
             settingsPanel.Visible = true;
             AddNewPannel.Visible = false;
         }
 
         private void LoadSettings()
         {
+            // read the document
             string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
             int[] available_ingredients;
@@ -294,6 +304,7 @@ namespace WindowsFormsApplication1
             calib_values = new int[10];
 
             short lineNo = 0;
+            // first 10 rows are ingredients IDs and the next 10, calibration values
             foreach (string line in lines)
             {
                 if (lineNo < 10)
@@ -318,120 +329,76 @@ namespace WindowsFormsApplication1
             dt.Columns.Add("Field1", typeof(string));
             da.Fill(dt);
 
-            DataTable combo1 = new DataTable();
-            combo1 = dt.Copy();
-            DataTable combo2 = new DataTable();
-            combo2 = dt.Copy();
-            DataTable combo3 = new DataTable();
-            combo3 = dt.Copy();
-            DataTable combo4 = new DataTable();
-            combo4 = dt.Copy();
-            DataTable combo5 = new DataTable();
-            combo5 = dt.Copy();
-            DataTable combo6 = new DataTable();
-            combo6 = dt.Copy();
-            DataTable combo7 = new DataTable();
-            combo7 = dt.Copy();
-            DataTable combo8 = new DataTable();
-            combo8 = dt.Copy();
-            DataTable combo9 = new DataTable();
-            combo9 = dt.Copy();
-            DataTable combo10 = new DataTable();
-            combo10 = dt.Copy();
+            DataTable[] combo;
+            combo = new DataTable [10];
 
+            // populate combo boxes and select the needed ingredient
+            // each combo box needs another data table
 
+            var combo_boxes = settingsPanel.Controls
+                           .OfType<ComboBox>()
+                           .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+            
+            int ing = 0;
+            foreach (ComboBox txt in combo_boxes)
+            {
+                combo[ing] = dt.Copy();
 
-            setIng1.ValueMember = "ID";
-            setIng1.DisplayMember = "Field1";
-            setIng1.DataSource = combo1;
-            setIng1.SelectedIndex = available_ingredients[0];
-            calib1.Text = Convert.ToString(calib_values[0]);
+                txt.ValueMember = "ID";
+                txt.DisplayMember = "Field1";
+                txt.DataSource = combo[ing];
+                txt.SelectedIndex = available_ingredients[ing];
+                ing++;
+            }
 
-            setIng2.ValueMember = "ID";
-            setIng2.DisplayMember = "Field1";
-            setIng2.DataSource = combo2;
-            setIng2.SelectedIndex = available_ingredients[1];
-            calib2.Text = Convert.ToString(calib_values[1]);
-
-            setIng3.ValueMember = "ID";
-            setIng3.DisplayMember = "Field1";
-            setIng3.DataSource = combo3;
-            setIng3.SelectedIndex = available_ingredients[2];
-            calib3.Text = Convert.ToString(calib_values[2]);
-
-            setIng4.ValueMember = "ID";
-            setIng4.DisplayMember = "Field1";
-            setIng4.DataSource = combo4;
-            setIng4.SelectedIndex = available_ingredients[3];
-            calib4.Text = Convert.ToString(calib_values[3]);
-
-            setIng5.ValueMember = "ID";
-            setIng5.DisplayMember = "Field1";
-            setIng5.DataSource = combo5;
-            setIng5.SelectedIndex = available_ingredients[4];
-            calib5.Text = Convert.ToString(calib_values[4]);
-
-            setIng6.ValueMember = "ID";
-            setIng6.DisplayMember = "Field1";
-            setIng6.DataSource = combo6;
-            setIng6.SelectedIndex = available_ingredients[5];
-            calib6.Text = Convert.ToString(calib_values[5]);
-
-            setIng7.ValueMember = "ID";
-            setIng7.DisplayMember = "Field1";
-            setIng7.DataSource = combo7;
-            setIng7.SelectedIndex = available_ingredients[6];
-            calib7.Text = Convert.ToString(calib_values[6]);
-
-            setIng8.ValueMember = "ID";
-            setIng8.DisplayMember = "Field1";
-            setIng8.DataSource = combo8;
-            setIng8.SelectedIndex = available_ingredients[7];
-            calib8.Text = Convert.ToString(calib_values[7]);
-
-            setIng9.ValueMember = "ID";
-            setIng9.DisplayMember = "Field1";
-            setIng9.DataSource = combo9;
-            setIng9.SelectedIndex = available_ingredients[8];
-            calib9.Text = Convert.ToString(calib_values[8]);
-
-            setIng10.ValueMember = "ID";
-            setIng10.DisplayMember = "Field1";
-            setIng10.DataSource = combo10;
-            setIng10.SelectedIndex = available_ingredients[9];
-            calib10.Text = Convert.ToString(calib_values[9]);
+            // populate the calibration textboxes
+            var calib_Textboxes = settingsPanel.Controls
+                           .OfType<TextBox>()
+                           .Where(txt => txt.Name.ToLower().StartsWith("calib"));
+            
+            ing = 0;
+            foreach (TextBox txt in calib_Textboxes)
+            {
+                txt.Text = Convert.ToString(calib_values[ing]);
+                ing++;
+            }
+            
 
         }
+
         private void save_button_Click(object sender, EventArgs e)
         {
+            // close seetings panel 
             settingsPanel.Visible = false;
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
-            new_ingredients[0] = setIng1.SelectedIndex;
-            new_ingredients[1] = setIng2.SelectedIndex;
-            new_ingredients[2] = setIng3.SelectedIndex;
-            new_ingredients[3] = setIng4.SelectedIndex;
-            new_ingredients[4] = setIng5.SelectedIndex;
-            new_ingredients[5] = setIng6.SelectedIndex;
-            new_ingredients[6] = setIng7.SelectedIndex;
-            new_ingredients[7] = setIng8.SelectedIndex;
-            new_ingredients[8] = setIng9.SelectedIndex;
-            new_ingredients[9] = setIng10.SelectedIndex;
 
+            // get information about the selected ingredient and calibration for each pump
+            var combo_boxes = settingsPanel.Controls
+                           .OfType<ComboBox>()
+                           .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+            
+            int pump = 0;
+            foreach (ComboBox txt in combo_boxes)
+            {
+                new_ingredients[pump] = txt.SelectedIndex;
+                pump++;
+            }
 
+            var calib_textboxes = settingsPanel.Controls
+                           .OfType<TextBox>()
+                           .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+            
+            pump = 0;
             Int16[] calib_value;
             calib_value = new Int16[10];
-            calib_value[0] = Convert.ToInt16(calib1.Text);
-            calib_value[1] = Convert.ToInt16(calib2.Text);
-            calib_value[2] = Convert.ToInt16(calib3.Text);
-            calib_value[3] = Convert.ToInt16(calib4.Text);
-            calib_value[4] = Convert.ToInt16(calib5.Text);
-            calib_value[5] = Convert.ToInt16(calib6.Text);
-            calib_value[6] = Convert.ToInt16(calib7.Text);
-            calib_value[7] = Convert.ToInt16(calib8.Text);
-            calib_value[8] = Convert.ToInt16(calib9.Text);
-            calib_value[9] = Convert.ToInt16(calib10.Text);
-
+            foreach (TextBox txt in calib_textboxes)
+            {
+                calib_value[pump] = Convert.ToInt16(txt.Text);
+                pump++;
+            }
+            
+            // start assuming we don't have a duplicate
             bool duplicate = false;
 
             for (int i = 0; i < 10; i++)
@@ -439,10 +406,13 @@ namespace WindowsFormsApplication1
                 for (int j = i + 1; j < 10; j++)
                 {
                     if ((new_ingredients[i] == new_ingredients[j]) && (new_ingredients[i] != 0))
+                        // verify all the ingredients for duplicates
                         duplicate = true;
                 }
 
             }
+
+            // give error if duplicates
             if (!duplicate)
             {
                 try
@@ -454,8 +424,8 @@ namespace WindowsFormsApplication1
                 {
                     MessageBox.Show(ex.Message);
                 }
+                // Reload
                 LoadAll(this, EventArgs.Empty);
-                AddNewPannel.Visible = false;
             }
             else
             {
@@ -466,12 +436,13 @@ namespace WindowsFormsApplication1
 
         private void saveNewButton_Click(object sender, EventArgs e)
         {
+            // needs a name first
             if (newCocktailName.Text == "")
             {
                 MessageBox.Show("Fill up the name of your cocktail");
                 return;
             }
-            AddNewPannel.Visible = false;
+
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
             new_ingredients[0] = ing1.SelectedIndex;
@@ -518,9 +489,9 @@ namespace WindowsFormsApplication1
                 string sql = null;
                 connetionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb;";
                 connection = new OleDbConnection(connetionString);
-                string mix = "|";
-                string qty = "|";
-                for (int i=0; i<10;i++)
+                string mix = "";
+                string qty = "";
+                for (int i = 0; i < 10; i++)
                 {
                     mix += new_ingredients[i];
                     mix += "|";
@@ -534,6 +505,9 @@ namespace WindowsFormsApplication1
                     oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
                     oledbAdapter.InsertCommand.ExecuteNonQuery();
                     MessageBox.Show("Row(s) Inserted !! ");
+
+                    // hide the add new panel
+                    AddNewPannel.Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -563,10 +537,10 @@ namespace WindowsFormsApplication1
 
             Int32[] available_ingredients;
             available_ingredients = new Int32[10];
-            
+
             for (int ingNo = 0; ingNo < 10; ingNo++)
             {
-                
+
                 // Use a tab to indent each line of the file.
                 available_ingredients[ingNo] = Int32.Parse(lines[ingNo]);
 
@@ -639,7 +613,7 @@ namespace WindowsFormsApplication1
             ing6.ValueMember = "ID";
             ing6.DisplayMember = "Field1";
             ing6.DataSource = combo6;
-            ing6.SelectedIndex =0;
+            ing6.SelectedIndex = 0;
 
             ing7.ValueMember = "ID";
             ing7.DisplayMember = "Field1";
@@ -678,7 +652,7 @@ namespace WindowsFormsApplication1
 
         private void LoadFile()
         {
-            
+
             OpenFileDialog ofd = new OpenFileDialog();
             string PictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             ofd.InitialDirectory = PictureFolder;
@@ -731,5 +705,6 @@ namespace WindowsFormsApplication1
             Help f2 = new Help();
             f2.ShowDialog(); // Shows Help
         }
+
     }
 }
