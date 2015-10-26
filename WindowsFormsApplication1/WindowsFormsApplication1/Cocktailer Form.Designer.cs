@@ -36,20 +36,19 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.showAll = new System.Windows.Forms.CheckBox();
-            this.cocktailPhoto = new System.Windows.Forms.PictureBox();
             this.output = new System.Windows.Forms.Label();
             this.AddNewPannel = new System.Windows.Forms.Panel();
             this.add_cancel = new System.Windows.Forms.Button();
-            this.quantity10 = new System.Windows.Forms.TextBox();
-            this.quantity9 = new System.Windows.Forms.TextBox();
-            this.quantity8 = new System.Windows.Forms.TextBox();
-            this.quantity7 = new System.Windows.Forms.TextBox();
-            this.quantity6 = new System.Windows.Forms.TextBox();
-            this.quantity5 = new System.Windows.Forms.TextBox();
-            this.quantity4 = new System.Windows.Forms.TextBox();
-            this.quantity3 = new System.Windows.Forms.TextBox();
-            this.quantity2 = new System.Windows.Forms.TextBox();
             this.quantity1 = new System.Windows.Forms.TextBox();
+            this.quantity2 = new System.Windows.Forms.TextBox();
+            this.quantity3 = new System.Windows.Forms.TextBox();
+            this.quantity4 = new System.Windows.Forms.TextBox();
+            this.quantity5 = new System.Windows.Forms.TextBox();
+            this.quantity6 = new System.Windows.Forms.TextBox();
+            this.quantity7 = new System.Windows.Forms.TextBox();
+            this.quantity8 = new System.Windows.Forms.TextBox();
+            this.quantity9 = new System.Windows.Forms.TextBox();
+            this.quantity10 = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
             this.newCocktailName = new System.Windows.Forms.TextBox();
             this.picturePreviewBox = new System.Windows.Forms.PictureBox();
@@ -65,16 +64,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.saveNewButton = new System.Windows.Forms.Button();
-            this.ing10 = new System.Windows.Forms.ComboBox();
-            this.ing9 = new System.Windows.Forms.ComboBox();
-            this.ing8 = new System.Windows.Forms.ComboBox();
-            this.ing7 = new System.Windows.Forms.ComboBox();
-            this.ing6 = new System.Windows.Forms.ComboBox();
-            this.ing5 = new System.Windows.Forms.ComboBox();
-            this.ing4 = new System.Windows.Forms.ComboBox();
-            this.ing3 = new System.Windows.Forms.ComboBox();
-            this.ing2 = new System.Windows.Forms.ComboBox();
             this.ing1 = new System.Windows.Forms.ComboBox();
+            this.ing2 = new System.Windows.Forms.ComboBox();
+            this.ing3 = new System.Windows.Forms.ComboBox();
+            this.ing4 = new System.Windows.Forms.ComboBox();
+            this.ing5 = new System.Windows.Forms.ComboBox();
+            this.ing6 = new System.Windows.Forms.ComboBox();
+            this.ing7 = new System.Windows.Forms.ComboBox();
+            this.ing8 = new System.Windows.Forms.ComboBox();
+            this.ing9 = new System.Windows.Forms.ComboBox();
+            this.ing10 = new System.Windows.Forms.ComboBox();
             this.save_button = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -97,15 +96,15 @@
             this.setIng2 = new System.Windows.Forms.ComboBox();
             this.setIng1 = new System.Windows.Forms.ComboBox();
             this.settingsPanel = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.calib_button10 = new System.Windows.Forms.Button();
+            this.calib_button9 = new System.Windows.Forms.Button();
+            this.calib_button8 = new System.Windows.Forms.Button();
+            this.calib_button7 = new System.Windows.Forms.Button();
+            this.calib_button6 = new System.Windows.Forms.Button();
+            this.calib_button5 = new System.Windows.Forms.Button();
+            this.calib_button4 = new System.Windows.Forms.Button();
+            this.calib_button3 = new System.Windows.Forms.Button();
+            this.calib_button2 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.calib10 = new System.Windows.Forms.TextBox();
@@ -118,28 +117,33 @@
             this.calib3 = new System.Windows.Forms.TextBox();
             this.calib2 = new System.Windows.Forms.TextBox();
             this.calib1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.calib_button1 = new System.Windows.Forms.Button();
             this.settingsCancel = new System.Windows.Forms.Button();
             this.delCocktail = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
-            this.cocktailDisplay = new System.Windows.Forms.Panel();
-            this.cocktail_ing1 = new System.Windows.Forms.Label();
-            this.cocktail_ing2 = new System.Windows.Forms.Label();
-            this.cocktail_ing3 = new System.Windows.Forms.Label();
-            this.cocktail_ing4 = new System.Windows.Forms.Label();
-            this.cocktail_ing5 = new System.Windows.Forms.Label();
-            this.cocktail_ing6 = new System.Windows.Forms.Label();
-            this.cocktail_ing7 = new System.Windows.Forms.Label();
-            this.cocktail_ing8 = new System.Windows.Forms.Label();
-            this.cocktail_ing9 = new System.Windows.Forms.Label();
             this.cocktail_ing10 = new System.Windows.Forms.Label();
+            this.cocktail_ing9 = new System.Windows.Forms.Label();
+            this.cocktail_ing8 = new System.Windows.Forms.Label();
+            this.cocktail_ing7 = new System.Windows.Forms.Label();
+            this.cocktail_ing6 = new System.Windows.Forms.Label();
+            this.cocktail_ing5 = new System.Windows.Forms.Label();
+            this.cocktailPhoto = new System.Windows.Forms.PictureBox();
+            this.cocktail_ing4 = new System.Windows.Forms.Label();
+            this.cocktail_ing3 = new System.Windows.Forms.Label();
+            this.cocktail_ing2 = new System.Windows.Forms.Label();
+            this.cocktail_ing1 = new System.Windows.Forms.Label();
+            this.cocktailDisplay = new System.Windows.Forms.Panel();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.Start_button = new System.Windows.Forms.Button();
+            this.ComHistory = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
             this.AddNewPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreviewBox)).BeginInit();
             this.settingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).BeginInit();
             this.cocktailDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -200,30 +204,21 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // checkBox15
+            // showAll
             // 
             this.showAll.AutoSize = true;
             this.showAll.Location = new System.Drawing.Point(0, 250);
-            this.showAll.Name = "checkBox15";
+            this.showAll.Name = "showAll";
             this.showAll.Size = new System.Drawing.Size(67, 17);
             this.showAll.TabIndex = 2;
             this.showAll.Text = "Show All";
             this.showAll.UseVisualStyleBackColor = true;
             this.showAll.CheckedChanged += new System.EventHandler(this.ShowAll_CheckedChanged);
             // 
-            // cocktailPhoto
-            // 
-            this.cocktailPhoto.Location = new System.Drawing.Point(410, 39);
-            this.cocktailPhoto.Name = "cocktailPhoto";
-            this.cocktailPhoto.Size = new System.Drawing.Size(141, 213);
-            this.cocktailPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cocktailPhoto.TabIndex = 4;
-            this.cocktailPhoto.TabStop = false;
-            // 
             // output
             // 
             this.output.AutoSize = true;
-            this.output.Location = new System.Drawing.Point(258, 242);
+            this.output.Location = new System.Drawing.Point(258, 255);
             this.output.Name = "output";
             this.output.Size = new System.Drawing.Size(35, 13);
             this.output.TabIndex = 15;
@@ -232,16 +227,16 @@
             // AddNewPannel
             // 
             this.AddNewPannel.Controls.Add(this.add_cancel);
-            this.AddNewPannel.Controls.Add(this.quantity10);
-            this.AddNewPannel.Controls.Add(this.quantity9);
-            this.AddNewPannel.Controls.Add(this.quantity8);
-            this.AddNewPannel.Controls.Add(this.quantity7);
-            this.AddNewPannel.Controls.Add(this.quantity6);
-            this.AddNewPannel.Controls.Add(this.quantity5);
-            this.AddNewPannel.Controls.Add(this.quantity4);
-            this.AddNewPannel.Controls.Add(this.quantity3);
-            this.AddNewPannel.Controls.Add(this.quantity2);
             this.AddNewPannel.Controls.Add(this.quantity1);
+            this.AddNewPannel.Controls.Add(this.quantity2);
+            this.AddNewPannel.Controls.Add(this.quantity3);
+            this.AddNewPannel.Controls.Add(this.quantity4);
+            this.AddNewPannel.Controls.Add(this.quantity5);
+            this.AddNewPannel.Controls.Add(this.quantity6);
+            this.AddNewPannel.Controls.Add(this.quantity7);
+            this.AddNewPannel.Controls.Add(this.quantity8);
+            this.AddNewPannel.Controls.Add(this.quantity9);
+            this.AddNewPannel.Controls.Add(this.quantity10);
             this.AddNewPannel.Controls.Add(this.browseButton);
             this.AddNewPannel.Controls.Add(this.newCocktailName);
             this.AddNewPannel.Controls.Add(this.picturePreviewBox);
@@ -257,16 +252,16 @@
             this.AddNewPannel.Controls.Add(this.label3);
             this.AddNewPannel.Controls.Add(this.label2);
             this.AddNewPannel.Controls.Add(this.saveNewButton);
-            this.AddNewPannel.Controls.Add(this.ing10);
-            this.AddNewPannel.Controls.Add(this.ing9);
-            this.AddNewPannel.Controls.Add(this.ing8);
-            this.AddNewPannel.Controls.Add(this.ing7);
-            this.AddNewPannel.Controls.Add(this.ing6);
-            this.AddNewPannel.Controls.Add(this.ing5);
-            this.AddNewPannel.Controls.Add(this.ing4);
-            this.AddNewPannel.Controls.Add(this.ing3);
-            this.AddNewPannel.Controls.Add(this.ing2);
             this.AddNewPannel.Controls.Add(this.ing1);
+            this.AddNewPannel.Controls.Add(this.ing2);
+            this.AddNewPannel.Controls.Add(this.ing3);
+            this.AddNewPannel.Controls.Add(this.ing4);
+            this.AddNewPannel.Controls.Add(this.ing5);
+            this.AddNewPannel.Controls.Add(this.ing6);
+            this.AddNewPannel.Controls.Add(this.ing7);
+            this.AddNewPannel.Controls.Add(this.ing8);
+            this.AddNewPannel.Controls.Add(this.ing9);
+            this.AddNewPannel.Controls.Add(this.ing10);
             this.AddNewPannel.Location = new System.Drawing.Point(0, 291);
             this.AddNewPannel.Name = "AddNewPannel";
             this.AddNewPannel.Size = new System.Drawing.Size(551, 247);
@@ -282,70 +277,15 @@
             this.add_cancel.Text = "Cancel";
             this.add_cancel.UseVisualStyleBackColor = true;
             this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
+            this.add_cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.add_cancel_KeyDown);
             // 
-            // quantity10
+            // quantity1
             // 
-            this.quantity10.Location = new System.Drawing.Point(386, 182);
-            this.quantity10.Name = "quantity10";
-            this.quantity10.Size = new System.Drawing.Size(43, 20);
-            this.quantity10.TabIndex = 35;
-            this.quantity10.Text = "0";
-            // 
-            // quantity9
-            // 
-            this.quantity9.Location = new System.Drawing.Point(386, 155);
-            this.quantity9.Name = "quantity9";
-            this.quantity9.Size = new System.Drawing.Size(43, 20);
-            this.quantity9.TabIndex = 34;
-            this.quantity9.Text = "0";
-            // 
-            // quantity8
-            // 
-            this.quantity8.Location = new System.Drawing.Point(386, 128);
-            this.quantity8.Name = "quantity8";
-            this.quantity8.Size = new System.Drawing.Size(43, 20);
-            this.quantity8.TabIndex = 33;
-            this.quantity8.Text = "0";
-            // 
-            // quantity7
-            // 
-            this.quantity7.Location = new System.Drawing.Point(386, 100);
-            this.quantity7.Name = "quantity7";
-            this.quantity7.Size = new System.Drawing.Size(43, 20);
-            this.quantity7.TabIndex = 32;
-            this.quantity7.Text = "0";
-            // 
-            // quantity6
-            // 
-            this.quantity6.Location = new System.Drawing.Point(386, 73);
-            this.quantity6.Name = "quantity6";
-            this.quantity6.Size = new System.Drawing.Size(43, 20);
-            this.quantity6.TabIndex = 31;
-            this.quantity6.Text = "0";
-            // 
-            // quantity5
-            // 
-            this.quantity5.Location = new System.Drawing.Point(171, 181);
-            this.quantity5.Name = "quantity5";
-            this.quantity5.Size = new System.Drawing.Size(43, 20);
-            this.quantity5.TabIndex = 30;
-            this.quantity5.Text = "0";
-            // 
-            // quantity4
-            // 
-            this.quantity4.Location = new System.Drawing.Point(171, 154);
-            this.quantity4.Name = "quantity4";
-            this.quantity4.Size = new System.Drawing.Size(43, 20);
-            this.quantity4.TabIndex = 29;
-            this.quantity4.Text = "0";
-            // 
-            // quantity3
-            // 
-            this.quantity3.Location = new System.Drawing.Point(171, 127);
-            this.quantity3.Name = "quantity3";
-            this.quantity3.Size = new System.Drawing.Size(43, 20);
-            this.quantity3.TabIndex = 28;
-            this.quantity3.Text = "0";
+            this.quantity1.Location = new System.Drawing.Point(171, 73);
+            this.quantity1.Name = "quantity1";
+            this.quantity1.Size = new System.Drawing.Size(43, 20);
+            this.quantity1.TabIndex = 26;
+            this.quantity1.Text = "0";
             // 
             // quantity2
             // 
@@ -355,13 +295,69 @@
             this.quantity2.TabIndex = 27;
             this.quantity2.Text = "0";
             // 
-            // quantity1
+            // quantity3
             // 
-            this.quantity1.Location = new System.Drawing.Point(171, 73);
-            this.quantity1.Name = "quantity1";
-            this.quantity1.Size = new System.Drawing.Size(43, 20);
-            this.quantity1.TabIndex = 26;
-            this.quantity1.Text = "0";
+            this.quantity3.Location = new System.Drawing.Point(171, 127);
+            this.quantity3.Name = "quantity3";
+            this.quantity3.Size = new System.Drawing.Size(43, 20);
+            this.quantity3.TabIndex = 28;
+            this.quantity3.Text = "0";
+            // 
+            // quantity4
+            // 
+            this.quantity4.Location = new System.Drawing.Point(171, 154);
+            this.quantity4.Name = "quantity4";
+            this.quantity4.Size = new System.Drawing.Size(43, 20);
+            this.quantity4.TabIndex = 29;
+            this.quantity4.Text = "0";
+            // 
+            // quantity5
+            // 
+            this.quantity5.Location = new System.Drawing.Point(171, 181);
+            this.quantity5.Name = "quantity5";
+            this.quantity5.Size = new System.Drawing.Size(43, 20);
+            this.quantity5.TabIndex = 30;
+            this.quantity5.Text = "0";
+            // 
+            // quantity6
+            // 
+            this.quantity6.Location = new System.Drawing.Point(386, 73);
+            this.quantity6.Name = "quantity6";
+            this.quantity6.Size = new System.Drawing.Size(43, 20);
+            this.quantity6.TabIndex = 31;
+            this.quantity6.Text = "0";
+            // 
+            // quantity7
+            // 
+            this.quantity7.Location = new System.Drawing.Point(386, 100);
+            this.quantity7.Name = "quantity7";
+            this.quantity7.Size = new System.Drawing.Size(43, 20);
+            this.quantity7.TabIndex = 32;
+            this.quantity7.Text = "0";
+            // 
+            // quantity8
+            // 
+            this.quantity8.Location = new System.Drawing.Point(386, 128);
+            this.quantity8.Name = "quantity8";
+            this.quantity8.Size = new System.Drawing.Size(43, 20);
+            this.quantity8.TabIndex = 33;
+            this.quantity8.Text = "0";
+            // 
+            // quantity9
+            // 
+            this.quantity9.Location = new System.Drawing.Point(386, 155);
+            this.quantity9.Name = "quantity9";
+            this.quantity9.Size = new System.Drawing.Size(43, 20);
+            this.quantity9.TabIndex = 34;
+            this.quantity9.Text = "0";
+            // 
+            // quantity10
+            // 
+            this.quantity10.Location = new System.Drawing.Point(386, 182);
+            this.quantity10.Name = "quantity10";
+            this.quantity10.Size = new System.Drawing.Size(43, 20);
+            this.quantity10.TabIndex = 35;
+            this.quantity10.Text = "0";
             // 
             // browseButton
             // 
@@ -382,12 +378,12 @@
             // 
             // picturePreviewBox
             // 
-            this.picturePreviewBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picturePreviewBox.BackgroundImage")));
-            this.picturePreviewBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picturePreviewBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picturePreviewBox.Image = ((System.Drawing.Image)(resources.GetObject("picturePreviewBox.Image")));
             this.picturePreviewBox.Location = new System.Drawing.Point(437, 3);
             this.picturePreviewBox.Name = "picturePreviewBox";
             this.picturePreviewBox.Size = new System.Drawing.Size(108, 107);
-            this.picturePreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picturePreviewBox.TabIndex = 23;
             this.picturePreviewBox.TabStop = false;
             // 
@@ -511,85 +507,95 @@
             this.saveNewButton.UseVisualStyleBackColor = true;
             this.saveNewButton.Click += new System.EventHandler(this.saveNewButton_Click);
             // 
-            // ing10
+            // ing1
             // 
-            this.ing10.FormattingEnabled = true;
-            this.ing10.Location = new System.Drawing.Point(259, 180);
-            this.ing10.Name = "ing10";
-            this.ing10.Size = new System.Drawing.Size(121, 21);
-            this.ing10.TabIndex = 9;
-            // 
-            // ing9
-            // 
-            this.ing9.FormattingEnabled = true;
-            this.ing9.Location = new System.Drawing.Point(259, 153);
-            this.ing9.Name = "ing9";
-            this.ing9.Size = new System.Drawing.Size(121, 21);
-            this.ing9.TabIndex = 8;
-            // 
-            // ing8
-            // 
-            this.ing8.FormattingEnabled = true;
-            this.ing8.Location = new System.Drawing.Point(259, 126);
-            this.ing8.Name = "ing8";
-            this.ing8.Size = new System.Drawing.Size(121, 21);
-            this.ing8.TabIndex = 7;
-            // 
-            // ing7
-            // 
-            this.ing7.FormattingEnabled = true;
-            this.ing7.Location = new System.Drawing.Point(259, 99);
-            this.ing7.Name = "ing7";
-            this.ing7.Size = new System.Drawing.Size(121, 21);
-            this.ing7.TabIndex = 6;
-            // 
-            // ing6
-            // 
-            this.ing6.FormattingEnabled = true;
-            this.ing6.Location = new System.Drawing.Point(259, 72);
-            this.ing6.Name = "ing6";
-            this.ing6.Size = new System.Drawing.Size(121, 21);
-            this.ing6.TabIndex = 5;
-            // 
-            // ing5
-            // 
-            this.ing5.FormattingEnabled = true;
-            this.ing5.Location = new System.Drawing.Point(44, 179);
-            this.ing5.Name = "ing5";
-            this.ing5.Size = new System.Drawing.Size(121, 21);
-            this.ing5.TabIndex = 4;
-            // 
-            // ing4
-            // 
-            this.ing4.FormattingEnabled = true;
-            this.ing4.Location = new System.Drawing.Point(44, 152);
-            this.ing4.Name = "ing4";
-            this.ing4.Size = new System.Drawing.Size(121, 21);
-            this.ing4.TabIndex = 3;
-            // 
-            // ing3
-            // 
-            this.ing3.FormattingEnabled = true;
-            this.ing3.Location = new System.Drawing.Point(44, 125);
-            this.ing3.Name = "ing3";
-            this.ing3.Size = new System.Drawing.Size(121, 21);
-            this.ing3.TabIndex = 2;
+            this.ing1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing1.FormattingEnabled = true;
+            this.ing1.Location = new System.Drawing.Point(44, 71);
+            this.ing1.Name = "ing1";
+            this.ing1.Size = new System.Drawing.Size(121, 21);
+            this.ing1.TabIndex = 0;
             // 
             // ing2
             // 
+            this.ing2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ing2.FormattingEnabled = true;
             this.ing2.Location = new System.Drawing.Point(44, 98);
             this.ing2.Name = "ing2";
             this.ing2.Size = new System.Drawing.Size(121, 21);
             this.ing2.TabIndex = 1;
             // 
-            // ing1
+            // ing3
             // 
-            this.ing1.FormattingEnabled = true;
-            this.ing1.Location = new System.Drawing.Point(44, 71);
-            this.ing1.Name = "ing1";
-            this.ing1.Size = new System.Drawing.Size(121, 21);
-            this.ing1.TabIndex = 0;
+            this.ing3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing3.FormattingEnabled = true;
+            this.ing3.Location = new System.Drawing.Point(44, 125);
+            this.ing3.Name = "ing3";
+            this.ing3.Size = new System.Drawing.Size(121, 21);
+            this.ing3.TabIndex = 2;
+            // 
+            // ing4
+            // 
+            this.ing4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing4.FormattingEnabled = true;
+            this.ing4.Location = new System.Drawing.Point(44, 152);
+            this.ing4.Name = "ing4";
+            this.ing4.Size = new System.Drawing.Size(121, 21);
+            this.ing4.TabIndex = 3;
+            // 
+            // ing5
+            // 
+            this.ing5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing5.FormattingEnabled = true;
+            this.ing5.Location = new System.Drawing.Point(44, 179);
+            this.ing5.Name = "ing5";
+            this.ing5.Size = new System.Drawing.Size(121, 21);
+            this.ing5.TabIndex = 4;
+            // 
+            // ing6
+            // 
+            this.ing6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing6.FormattingEnabled = true;
+            this.ing6.Location = new System.Drawing.Point(259, 72);
+            this.ing6.Name = "ing6";
+            this.ing6.Size = new System.Drawing.Size(121, 21);
+            this.ing6.TabIndex = 5;
+            // 
+            // ing7
+            // 
+            this.ing7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing7.FormattingEnabled = true;
+            this.ing7.Location = new System.Drawing.Point(259, 99);
+            this.ing7.Name = "ing7";
+            this.ing7.Size = new System.Drawing.Size(121, 21);
+            this.ing7.TabIndex = 6;
+            // 
+            // ing8
+            // 
+            this.ing8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing8.FormattingEnabled = true;
+            this.ing8.Location = new System.Drawing.Point(259, 126);
+            this.ing8.Name = "ing8";
+            this.ing8.Size = new System.Drawing.Size(121, 21);
+            this.ing8.TabIndex = 7;
+            // 
+            // ing9
+            // 
+            this.ing9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing9.FormattingEnabled = true;
+            this.ing9.Location = new System.Drawing.Point(259, 153);
+            this.ing9.Name = "ing9";
+            this.ing9.Size = new System.Drawing.Size(121, 21);
+            this.ing9.TabIndex = 8;
+            // 
+            // ing10
+            // 
+            this.ing10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ing10.FormattingEnabled = true;
+            this.ing10.Location = new System.Drawing.Point(259, 180);
+            this.ing10.Name = "ing10";
+            this.ing10.Size = new System.Drawing.Size(121, 21);
+            this.ing10.TabIndex = 9;
             // 
             // save_button
             // 
@@ -703,6 +709,7 @@
             // 
             // setIng10
             // 
+            this.setIng10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng10.FormattingEnabled = true;
             this.setIng10.Location = new System.Drawing.Point(328, 137);
             this.setIng10.Name = "setIng10";
@@ -711,6 +718,7 @@
             // 
             // setIng9
             // 
+            this.setIng9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng9.FormattingEnabled = true;
             this.setIng9.Location = new System.Drawing.Point(328, 110);
             this.setIng9.Name = "setIng9";
@@ -719,6 +727,7 @@
             // 
             // setIng8
             // 
+            this.setIng8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng8.FormattingEnabled = true;
             this.setIng8.Location = new System.Drawing.Point(328, 83);
             this.setIng8.Name = "setIng8";
@@ -727,6 +736,7 @@
             // 
             // setIng7
             // 
+            this.setIng7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng7.FormattingEnabled = true;
             this.setIng7.Location = new System.Drawing.Point(328, 56);
             this.setIng7.Name = "setIng7";
@@ -735,6 +745,7 @@
             // 
             // setIng6
             // 
+            this.setIng6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng6.FormattingEnabled = true;
             this.setIng6.Location = new System.Drawing.Point(328, 29);
             this.setIng6.Name = "setIng6";
@@ -743,6 +754,7 @@
             // 
             // setIng5
             // 
+            this.setIng5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng5.FormattingEnabled = true;
             this.setIng5.Location = new System.Drawing.Point(56, 137);
             this.setIng5.Name = "setIng5";
@@ -751,6 +763,7 @@
             // 
             // setIng4
             // 
+            this.setIng4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng4.FormattingEnabled = true;
             this.setIng4.Location = new System.Drawing.Point(56, 110);
             this.setIng4.Name = "setIng4";
@@ -759,6 +772,7 @@
             // 
             // setIng3
             // 
+            this.setIng3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng3.FormattingEnabled = true;
             this.setIng3.Location = new System.Drawing.Point(56, 83);
             this.setIng3.Name = "setIng3";
@@ -767,6 +781,7 @@
             // 
             // setIng2
             // 
+            this.setIng2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng2.FormattingEnabled = true;
             this.setIng2.Location = new System.Drawing.Point(56, 56);
             this.setIng2.Name = "setIng2";
@@ -775,6 +790,7 @@
             // 
             // setIng1
             // 
+            this.setIng1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.setIng1.FormattingEnabled = true;
             this.setIng1.Location = new System.Drawing.Point(56, 30);
             this.setIng1.Name = "setIng1";
@@ -784,15 +800,15 @@
             // settingsPanel
             // 
             this.settingsPanel.Controls.Add(this.save_button);
-            this.settingsPanel.Controls.Add(this.button11);
-            this.settingsPanel.Controls.Add(this.button10);
-            this.settingsPanel.Controls.Add(this.button9);
-            this.settingsPanel.Controls.Add(this.button8);
-            this.settingsPanel.Controls.Add(this.button7);
-            this.settingsPanel.Controls.Add(this.button6);
-            this.settingsPanel.Controls.Add(this.button5);
-            this.settingsPanel.Controls.Add(this.button4);
-            this.settingsPanel.Controls.Add(this.button3);
+            this.settingsPanel.Controls.Add(this.calib_button10);
+            this.settingsPanel.Controls.Add(this.calib_button9);
+            this.settingsPanel.Controls.Add(this.calib_button8);
+            this.settingsPanel.Controls.Add(this.calib_button7);
+            this.settingsPanel.Controls.Add(this.calib_button6);
+            this.settingsPanel.Controls.Add(this.calib_button5);
+            this.settingsPanel.Controls.Add(this.calib_button4);
+            this.settingsPanel.Controls.Add(this.calib_button3);
+            this.settingsPanel.Controls.Add(this.calib_button2);
             this.settingsPanel.Controls.Add(this.label23);
             this.settingsPanel.Controls.Add(this.label22);
             this.settingsPanel.Controls.Add(this.calib10);
@@ -805,7 +821,7 @@
             this.settingsPanel.Controls.Add(this.calib3);
             this.settingsPanel.Controls.Add(this.calib2);
             this.settingsPanel.Controls.Add(this.calib1);
-            this.settingsPanel.Controls.Add(this.button2);
+            this.settingsPanel.Controls.Add(this.calib_button1);
             this.settingsPanel.Controls.Add(this.settingsCancel);
             this.settingsPanel.Controls.Add(this.label12);
             this.settingsPanel.Controls.Add(this.setIng1);
@@ -827,92 +843,101 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(566, 42);
+            this.settingsPanel.Location = new System.Drawing.Point(551, 37);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(551, 248);
             this.settingsPanel.TabIndex = 56;
             this.settingsPanel.Visible = false;
             // 
-            // button11
+            // calib_button10
             // 
-            this.button11.Location = new System.Drawing.Point(509, 136);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(39, 23);
-            this.button11.TabIndex = 77;
-            this.button11.Text = "Calib";
-            this.button11.UseVisualStyleBackColor = true;
+            this.calib_button10.Location = new System.Drawing.Point(509, 136);
+            this.calib_button10.Name = "calib_button10";
+            this.calib_button10.Size = new System.Drawing.Size(39, 23);
+            this.calib_button10.TabIndex = 77;
+            this.calib_button10.Text = "Calib";
+            this.calib_button10.UseVisualStyleBackColor = true;
+            this.calib_button10.Click += new System.EventHandler(this.calib_button10_Click);
             // 
-            // button10
+            // calib_button9
             // 
-            this.button10.Location = new System.Drawing.Point(509, 110);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(39, 23);
-            this.button10.TabIndex = 76;
-            this.button10.Text = "Calib";
-            this.button10.UseVisualStyleBackColor = true;
+            this.calib_button9.Location = new System.Drawing.Point(509, 110);
+            this.calib_button9.Name = "calib_button9";
+            this.calib_button9.Size = new System.Drawing.Size(39, 23);
+            this.calib_button9.TabIndex = 76;
+            this.calib_button9.Text = "Calib";
+            this.calib_button9.UseVisualStyleBackColor = true;
+            this.calib_button9.Click += new System.EventHandler(this.calib_button9_Click);
             // 
-            // button9
+            // calib_button8
             // 
-            this.button9.Location = new System.Drawing.Point(509, 83);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(39, 23);
-            this.button9.TabIndex = 75;
-            this.button9.Text = "Calib";
-            this.button9.UseVisualStyleBackColor = true;
+            this.calib_button8.Location = new System.Drawing.Point(509, 83);
+            this.calib_button8.Name = "calib_button8";
+            this.calib_button8.Size = new System.Drawing.Size(39, 23);
+            this.calib_button8.TabIndex = 75;
+            this.calib_button8.Text = "Calib";
+            this.calib_button8.UseVisualStyleBackColor = true;
+            this.calib_button8.Click += new System.EventHandler(this.calib_button8_Click);
             // 
-            // button8
+            // calib_button7
             // 
-            this.button8.Location = new System.Drawing.Point(509, 57);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(39, 23);
-            this.button8.TabIndex = 74;
-            this.button8.Text = "Calib";
-            this.button8.UseVisualStyleBackColor = true;
+            this.calib_button7.Location = new System.Drawing.Point(509, 57);
+            this.calib_button7.Name = "calib_button7";
+            this.calib_button7.Size = new System.Drawing.Size(39, 23);
+            this.calib_button7.TabIndex = 74;
+            this.calib_button7.Text = "Calib";
+            this.calib_button7.UseVisualStyleBackColor = true;
+            this.calib_button7.Click += new System.EventHandler(this.calib_button7_Click);
             // 
-            // button7
+            // calib_button6
             // 
-            this.button7.Location = new System.Drawing.Point(509, 28);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(39, 23);
-            this.button7.TabIndex = 73;
-            this.button7.Text = "Calib";
-            this.button7.UseVisualStyleBackColor = true;
+            this.calib_button6.Location = new System.Drawing.Point(509, 28);
+            this.calib_button6.Name = "calib_button6";
+            this.calib_button6.Size = new System.Drawing.Size(39, 23);
+            this.calib_button6.TabIndex = 73;
+            this.calib_button6.Text = "Calib";
+            this.calib_button6.UseVisualStyleBackColor = true;
+            this.calib_button6.Click += new System.EventHandler(this.calib_button6_Click);
             // 
-            // button6
+            // calib_button5
             // 
-            this.button6.Location = new System.Drawing.Point(238, 137);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(39, 23);
-            this.button6.TabIndex = 72;
-            this.button6.Text = "Calib";
-            this.button6.UseVisualStyleBackColor = true;
+            this.calib_button5.Location = new System.Drawing.Point(238, 137);
+            this.calib_button5.Name = "calib_button5";
+            this.calib_button5.Size = new System.Drawing.Size(39, 23);
+            this.calib_button5.TabIndex = 72;
+            this.calib_button5.Text = "Calib";
+            this.calib_button5.UseVisualStyleBackColor = true;
+            this.calib_button5.Click += new System.EventHandler(this.calib_button5_Click);
             // 
-            // button5
+            // calib_button4
             // 
-            this.button5.Location = new System.Drawing.Point(238, 109);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(39, 23);
-            this.button5.TabIndex = 71;
-            this.button5.Text = "Calib";
-            this.button5.UseVisualStyleBackColor = true;
+            this.calib_button4.Location = new System.Drawing.Point(238, 109);
+            this.calib_button4.Name = "calib_button4";
+            this.calib_button4.Size = new System.Drawing.Size(39, 23);
+            this.calib_button4.TabIndex = 71;
+            this.calib_button4.Text = "Calib";
+            this.calib_button4.UseVisualStyleBackColor = true;
+            this.calib_button4.Click += new System.EventHandler(this.calib_button4_Click);
             // 
-            // button4
+            // calib_button3
             // 
-            this.button4.Location = new System.Drawing.Point(238, 83);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(39, 23);
-            this.button4.TabIndex = 70;
-            this.button4.Text = "Calib";
-            this.button4.UseVisualStyleBackColor = true;
+            this.calib_button3.Location = new System.Drawing.Point(238, 83);
+            this.calib_button3.Name = "calib_button3";
+            this.calib_button3.Size = new System.Drawing.Size(39, 23);
+            this.calib_button3.TabIndex = 70;
+            this.calib_button3.Text = "Calib";
+            this.calib_button3.UseVisualStyleBackColor = true;
+            this.calib_button3.Click += new System.EventHandler(this.calib_button3_Click);
             // 
-            // button3
+            // calib_button2
             // 
-            this.button3.Location = new System.Drawing.Point(238, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 23);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "Calib";
-            this.button3.UseVisualStyleBackColor = true;
+            this.calib_button2.Location = new System.Drawing.Point(238, 56);
+            this.calib_button2.Name = "calib_button2";
+            this.calib_button2.Size = new System.Drawing.Size(39, 23);
+            this.calib_button2.TabIndex = 69;
+            this.calib_button2.Text = "Calib";
+            this.calib_button2.UseVisualStyleBackColor = true;
+            this.calib_button2.Click += new System.EventHandler(this.calib_button2_Click);
             // 
             // label23
             // 
@@ -1002,14 +1027,15 @@
             this.calib1.Size = new System.Drawing.Size(49, 20);
             this.calib1.TabIndex = 57;
             // 
-            // button2
+            // calib_button1
             // 
-            this.button2.Location = new System.Drawing.Point(238, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(39, 23);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "Calib";
-            this.button2.UseVisualStyleBackColor = true;
+            this.calib_button1.Location = new System.Drawing.Point(238, 27);
+            this.calib_button1.Name = "calib_button1";
+            this.calib_button1.Size = new System.Drawing.Size(39, 23);
+            this.calib_button1.TabIndex = 56;
+            this.calib_button1.Text = "Calib";
+            this.calib_button1.UseVisualStyleBackColor = true;
+            this.calib_button1.Click += new System.EventHandler(this.calib_button1_Click);
             // 
             // settingsCancel
             // 
@@ -1034,11 +1060,114 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(52, 8);
+            this.labelName.Location = new System.Drawing.Point(100, 5);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.Size = new System.Drawing.Size(68, 13);
             this.labelName.TabIndex = 3;
-            this.labelName.Text = "label1";
+            this.labelName.Text = "Cocktail Title";
+            // 
+            // cocktail_ing10
+            // 
+            this.cocktail_ing10.AutoSize = true;
+            this.cocktail_ing10.Location = new System.Drawing.Point(16, 172);
+            this.cocktail_ing10.Name = "cocktail_ing10";
+            this.cocktail_ing10.Size = new System.Drawing.Size(69, 13);
+            this.cocktail_ing10.TabIndex = 14;
+            this.cocktail_ing10.Text = "Ingredient 10";
+            // 
+            // cocktail_ing9
+            // 
+            this.cocktail_ing9.AutoSize = true;
+            this.cocktail_ing9.Location = new System.Drawing.Point(16, 157);
+            this.cocktail_ing9.Name = "cocktail_ing9";
+            this.cocktail_ing9.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing9.TabIndex = 13;
+            this.cocktail_ing9.Text = "Ingredient 9";
+            // 
+            // cocktail_ing8
+            // 
+            this.cocktail_ing8.AutoSize = true;
+            this.cocktail_ing8.Location = new System.Drawing.Point(16, 142);
+            this.cocktail_ing8.Name = "cocktail_ing8";
+            this.cocktail_ing8.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing8.TabIndex = 12;
+            this.cocktail_ing8.Text = "Ingredient 8";
+            // 
+            // cocktail_ing7
+            // 
+            this.cocktail_ing7.AutoSize = true;
+            this.cocktail_ing7.Location = new System.Drawing.Point(16, 127);
+            this.cocktail_ing7.Name = "cocktail_ing7";
+            this.cocktail_ing7.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing7.TabIndex = 11;
+            this.cocktail_ing7.Text = "Ingredient 7";
+            // 
+            // cocktail_ing6
+            // 
+            this.cocktail_ing6.AutoSize = true;
+            this.cocktail_ing6.Location = new System.Drawing.Point(16, 112);
+            this.cocktail_ing6.Name = "cocktail_ing6";
+            this.cocktail_ing6.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing6.TabIndex = 10;
+            this.cocktail_ing6.Text = "Ingredient 6";
+            // 
+            // cocktail_ing5
+            // 
+            this.cocktail_ing5.AutoSize = true;
+            this.cocktail_ing5.Location = new System.Drawing.Point(16, 98);
+            this.cocktail_ing5.Name = "cocktail_ing5";
+            this.cocktail_ing5.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing5.TabIndex = 9;
+            this.cocktail_ing5.Text = "Ingredient 5";
+            // 
+            // cocktailPhoto
+            // 
+            this.cocktailPhoto.Enabled = false;
+            this.cocktailPhoto.Image = ((System.Drawing.Image)(resources.GetObject("cocktailPhoto.Image")));
+            this.cocktailPhoto.InitialImage = null;
+            this.cocktailPhoto.Location = new System.Drawing.Point(143, 34);
+            this.cocktailPhoto.MaximumSize = new System.Drawing.Size(141, 179);
+            this.cocktailPhoto.Name = "cocktailPhoto";
+            this.cocktailPhoto.Size = new System.Drawing.Size(141, 179);
+            this.cocktailPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cocktailPhoto.TabIndex = 4;
+            this.cocktailPhoto.TabStop = false;
+            // 
+            // cocktail_ing4
+            // 
+            this.cocktail_ing4.AutoSize = true;
+            this.cocktail_ing4.Location = new System.Drawing.Point(16, 83);
+            this.cocktail_ing4.Name = "cocktail_ing4";
+            this.cocktail_ing4.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing4.TabIndex = 8;
+            this.cocktail_ing4.Text = "Ingredient 4";
+            // 
+            // cocktail_ing3
+            // 
+            this.cocktail_ing3.AutoSize = true;
+            this.cocktail_ing3.Location = new System.Drawing.Point(16, 68);
+            this.cocktail_ing3.Name = "cocktail_ing3";
+            this.cocktail_ing3.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing3.TabIndex = 7;
+            this.cocktail_ing3.Text = "Ingredient 3";
+            // 
+            // cocktail_ing2
+            // 
+            this.cocktail_ing2.AutoSize = true;
+            this.cocktail_ing2.Location = new System.Drawing.Point(16, 53);
+            this.cocktail_ing2.Name = "cocktail_ing2";
+            this.cocktail_ing2.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing2.TabIndex = 6;
+            this.cocktail_ing2.Text = "Ingredient 2";
+            // 
+            // cocktail_ing1
+            // 
+            this.cocktail_ing1.AutoSize = true;
+            this.cocktail_ing1.Location = new System.Drawing.Point(16, 38);
+            this.cocktail_ing1.Name = "cocktail_ing1";
+            this.cocktail_ing1.Size = new System.Drawing.Size(63, 13);
+            this.cocktail_ing1.TabIndex = 5;
+            this.cocktail_ing1.Text = "Ingredient 1";
             // 
             // cocktailDisplay
             // 
@@ -1046,6 +1175,7 @@
             this.cocktailDisplay.Controls.Add(this.cocktail_ing2);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing3);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing4);
+            this.cocktailDisplay.Controls.Add(this.cocktailPhoto);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing5);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing6);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing7);
@@ -1053,130 +1183,68 @@
             this.cocktailDisplay.Controls.Add(this.cocktail_ing9);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing10);
             this.cocktailDisplay.Controls.Add(this.labelName);
-            this.cocktailDisplay.Location = new System.Drawing.Point(258, 27);
+            this.cocktailDisplay.Location = new System.Drawing.Point(261, 37);
             this.cocktailDisplay.Name = "cocktailDisplay";
-            this.cocktailDisplay.Size = new System.Drawing.Size(142, 212);
+            this.cocktailDisplay.Size = new System.Drawing.Size(284, 212);
             this.cocktailDisplay.TabIndex = 58;
             // 
-            // cocktail_ing1
+            // fileSystemWatcher1
             // 
-            this.cocktail_ing1.AutoSize = true;
-            this.cocktail_ing1.Location = new System.Drawing.Point(16, 38);
-            this.cocktail_ing1.Name = "cocktail_ing1";
-            this.cocktail_ing1.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing1.TabIndex = 5;
-            this.cocktail_ing1.Text = "label1";
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // cocktail_ing2
+            // Start_button
             // 
-            this.cocktail_ing2.AutoSize = true;
-            this.cocktail_ing2.Location = new System.Drawing.Point(16, 53);
-            this.cocktail_ing2.Name = "cocktail_ing2";
-            this.cocktail_ing2.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing2.TabIndex = 6;
-            this.cocktail_ing2.Text = "label1";
+            this.Start_button.Location = new System.Drawing.Point(437, 250);
+            this.Start_button.Name = "Start_button";
+            this.Start_button.Size = new System.Drawing.Size(75, 23);
+            this.Start_button.TabIndex = 60;
+            this.Start_button.Text = "Start";
+            this.Start_button.UseVisualStyleBackColor = true;
+            this.Start_button.Click += new System.EventHandler(this.Start_button_Click);
             // 
-            // cocktail_ing3
+            // ComHistory
             // 
-            this.cocktail_ing3.AutoSize = true;
-            this.cocktail_ing3.Location = new System.Drawing.Point(16, 68);
-            this.cocktail_ing3.Name = "cocktail_ing3";
-            this.cocktail_ing3.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing3.TabIndex = 7;
-            this.cocktail_ing3.Text = "label2";
-            // 
-            // cocktail_ing4
-            // 
-            this.cocktail_ing4.AutoSize = true;
-            this.cocktail_ing4.Location = new System.Drawing.Point(16, 83);
-            this.cocktail_ing4.Name = "cocktail_ing4";
-            this.cocktail_ing4.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing4.TabIndex = 8;
-            this.cocktail_ing4.Text = "label3";
-            // 
-            // cocktail_ing5
-            // 
-            this.cocktail_ing5.AutoSize = true;
-            this.cocktail_ing5.Location = new System.Drawing.Point(16, 98);
-            this.cocktail_ing5.Name = "cocktail_ing5";
-            this.cocktail_ing5.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing5.TabIndex = 9;
-            this.cocktail_ing5.Text = "label4";
-            // 
-            // cocktail_ing6
-            // 
-            this.cocktail_ing6.AutoSize = true;
-            this.cocktail_ing6.Location = new System.Drawing.Point(16, 112);
-            this.cocktail_ing6.Name = "cocktail_ing6";
-            this.cocktail_ing6.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing6.TabIndex = 10;
-            this.cocktail_ing6.Text = "label1";
-            // 
-            // cocktail_ing7
-            // 
-            this.cocktail_ing7.AutoSize = true;
-            this.cocktail_ing7.Location = new System.Drawing.Point(16, 127);
-            this.cocktail_ing7.Name = "cocktail_ing7";
-            this.cocktail_ing7.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing7.TabIndex = 11;
-            this.cocktail_ing7.Text = "label8";
-            // 
-            // cocktail_ing8
-            // 
-            this.cocktail_ing8.AutoSize = true;
-            this.cocktail_ing8.Location = new System.Drawing.Point(16, 142);
-            this.cocktail_ing8.Name = "cocktail_ing8";
-            this.cocktail_ing8.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing8.TabIndex = 12;
-            this.cocktail_ing8.Text = "label7";
-            // 
-            // cocktail_ing9
-            // 
-            this.cocktail_ing9.AutoSize = true;
-            this.cocktail_ing9.Location = new System.Drawing.Point(16, 157);
-            this.cocktail_ing9.Name = "cocktail_ing9";
-            this.cocktail_ing9.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing9.TabIndex = 13;
-            this.cocktail_ing9.Text = "label6";
-            // 
-            // cocktail_ing10
-            // 
-            this.cocktail_ing10.AutoSize = true;
-            this.cocktail_ing10.Location = new System.Drawing.Point(16, 172);
-            this.cocktail_ing10.Name = "cocktail_ing10";
-            this.cocktail_ing10.Size = new System.Drawing.Size(35, 13);
-            this.cocktail_ing10.TabIndex = 14;
-            this.cocktail_ing10.Text = "label5";
+            this.ComHistory.Location = new System.Drawing.Point(613, 301);
+            this.ComHistory.Multiline = true;
+            this.ComHistory.Name = "ComHistory";
+            this.ComHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ComHistory.Size = new System.Drawing.Size(291, 100);
+            this.ComHistory.TabIndex = 61;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 611);
+            this.Controls.Add(this.ComHistory);
+            this.Controls.Add(this.Start_button);
             this.Controls.Add(this.cocktailDisplay);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.output);
-            this.Controls.Add(this.cocktailPhoto);
             this.Controls.Add(this.showAll);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.delCocktail);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LoadAll);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).EndInit();
             this.AddNewPannel.ResumeLayout(false);
             this.AddNewPannel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePreviewBox)).EndInit();
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cocktailPhoto)).EndInit();
             this.cocktailDisplay.ResumeLayout(false);
             this.cocktailDisplay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1191,19 +1259,18 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox showAll;
-        private System.Windows.Forms.PictureBox cocktailPhoto;
         private System.Windows.Forms.Label output;
         private System.Windows.Forms.Panel AddNewPannel;
-        private System.Windows.Forms.ComboBox ing10;
-        private System.Windows.Forms.ComboBox ing9;
-        private System.Windows.Forms.ComboBox ing8;
-        private System.Windows.Forms.ComboBox ing7;
-        private System.Windows.Forms.ComboBox ing6;
-        private System.Windows.Forms.ComboBox ing5;
-        private System.Windows.Forms.ComboBox ing4;
-        private System.Windows.Forms.ComboBox ing3;
-        private System.Windows.Forms.ComboBox ing2;
         private System.Windows.Forms.ComboBox ing1;
+        private System.Windows.Forms.ComboBox ing2;
+        private System.Windows.Forms.ComboBox ing3;
+        private System.Windows.Forms.ComboBox ing4;
+        private System.Windows.Forms.ComboBox ing5;
+        private System.Windows.Forms.ComboBox ing6;
+        private System.Windows.Forms.ComboBox ing7;
+        private System.Windows.Forms.ComboBox ing8;
+        private System.Windows.Forms.ComboBox ing9;
+        private System.Windows.Forms.ComboBox ing10;
         private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -1265,29 +1332,33 @@
         private System.Windows.Forms.TextBox calib3;
         private System.Windows.Forms.TextBox calib2;
         private System.Windows.Forms.TextBox calib1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button calib_button1;
+        private System.Windows.Forms.Button calib_button10;
+        private System.Windows.Forms.Button calib_button9;
+        private System.Windows.Forms.Button calib_button8;
+        private System.Windows.Forms.Button calib_button7;
+        private System.Windows.Forms.Button calib_button6;
+        private System.Windows.Forms.Button calib_button5;
+        private System.Windows.Forms.Button calib_button4;
+        private System.Windows.Forms.Button calib_button3;
+        private System.Windows.Forms.Button calib_button2;
         private System.Windows.Forms.Button delCocktail;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Panel cocktailDisplay;
-        private System.Windows.Forms.Label cocktail_ing1;
-        private System.Windows.Forms.Label cocktail_ing2;
-        private System.Windows.Forms.Label cocktail_ing3;
-        private System.Windows.Forms.Label cocktail_ing4;
-        private System.Windows.Forms.Label cocktail_ing5;
-        private System.Windows.Forms.Label cocktail_ing6;
-        private System.Windows.Forms.Label cocktail_ing7;
-        private System.Windows.Forms.Label cocktail_ing8;
-        private System.Windows.Forms.Label cocktail_ing9;
         private System.Windows.Forms.Label cocktail_ing10;
+        private System.Windows.Forms.Label cocktail_ing9;
+        private System.Windows.Forms.Label cocktail_ing8;
+        private System.Windows.Forms.Label cocktail_ing7;
+        private System.Windows.Forms.Label cocktail_ing6;
+        private System.Windows.Forms.Label cocktail_ing5;
+        private System.Windows.Forms.PictureBox cocktailPhoto;
+        private System.Windows.Forms.Label cocktail_ing4;
+        private System.Windows.Forms.Label cocktail_ing3;
+        private System.Windows.Forms.Label cocktail_ing2;
+        private System.Windows.Forms.Label cocktail_ing1;
+        private System.Windows.Forms.Panel cocktailDisplay;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button Start_button;
+        private System.Windows.Forms.TextBox ComHistory;
     }
 }
 

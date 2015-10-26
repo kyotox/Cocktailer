@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace WindowsFormsApplication1
     {
         string newPhotoLocation;
         Int16 calib_mililiters = 50;
+        
         public Form1()
         {
             InitializeComponent();
@@ -203,6 +205,8 @@ namespace WindowsFormsApplication1
             // create the output string
             for (int i = 0; i < 10; i++)
             {
+                if (calib_value[i] == 0)
+                    calib_value[i] = 50;
                 if (output_pump[i] > 0 && output_qty[i] > 0)
                 {
                     output_string += Convert.ToString(output_pump[i]);
@@ -240,7 +244,7 @@ namespace WindowsFormsApplication1
 
             // cast the IEnumerable into an array
             Label[] ingredient = ingredient_label.Cast<Label>().ToArray();
-           
+
             // Put "" in all the labels to be clean
 
             for (int i = 0; i < 10; i++)
@@ -273,6 +277,19 @@ namespace WindowsFormsApplication1
                 cocktailPhoto.Image = Image.FromFile(Photofilelocation);
             else
                 cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
+
+
+            int getWidth = cocktailPhoto.Image.Width;
+            int getHeight = cocktailPhoto.Image.Height;
+            int maxH = 179;
+            int maxW = 141;
+
+            var ratioX = (double)maxW / getWidth;
+            var ratioY = (double)maxH / getHeight;
+            var ratio = Math.Max(ratioX, ratioY);
+
+            cocktailPhoto.Width = (int)(getWidth * ratio);
+            cocktailPhoto.Height = (int)(getHeight * ratio);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -330,7 +347,7 @@ namespace WindowsFormsApplication1
             da.Fill(dt);
 
             DataTable[] combo;
-            combo = new DataTable [10];
+            combo = new DataTable[10];
 
             // populate combo boxes and select the needed ingredient
             // each combo box needs another data table
@@ -338,7 +355,7 @@ namespace WindowsFormsApplication1
             var combo_boxes = settingsPanel.Controls
                            .OfType<ComboBox>()
                            .Where(txt => txt.Name.ToLower().StartsWith("seting"));
-            
+
             int ing = 0;
             foreach (ComboBox txt in combo_boxes)
             {
@@ -355,21 +372,20 @@ namespace WindowsFormsApplication1
             var calib_Textboxes = settingsPanel.Controls
                            .OfType<TextBox>()
                            .Where(txt => txt.Name.ToLower().StartsWith("calib"));
-            
+
             ing = 0;
             foreach (TextBox txt in calib_Textboxes)
             {
                 txt.Text = Convert.ToString(calib_values[ing]);
                 ing++;
             }
-            
+
 
         }
 
         private void save_button_Click(object sender, EventArgs e)
         {
-            // close seetings panel 
-            settingsPanel.Visible = false;
+            
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
 
@@ -377,7 +393,7 @@ namespace WindowsFormsApplication1
             var combo_boxes = settingsPanel.Controls
                            .OfType<ComboBox>()
                            .Where(txt => txt.Name.ToLower().StartsWith("seting"));
-            
+
             int pump = 0;
             foreach (ComboBox txt in combo_boxes)
             {
@@ -387,8 +403,8 @@ namespace WindowsFormsApplication1
 
             var calib_textboxes = settingsPanel.Controls
                            .OfType<TextBox>()
-                           .Where(txt => txt.Name.ToLower().StartsWith("seting"));
-            
+                           .Where(txt => txt.Name.ToLower().StartsWith("calib"));
+
             pump = 0;
             Int16[] calib_value;
             calib_value = new Int16[10];
@@ -397,7 +413,7 @@ namespace WindowsFormsApplication1
                 calib_value[pump] = Convert.ToInt16(txt.Text);
                 pump++;
             }
-            
+
             // start assuming we don't have a duplicate
             bool duplicate = false;
 
@@ -426,6 +442,8 @@ namespace WindowsFormsApplication1
                 }
                 // Reload
                 LoadAll(this, EventArgs.Empty);
+                // close seetings panel 
+                settingsPanel.Visible = false;
             }
             else
             {
@@ -443,33 +461,38 @@ namespace WindowsFormsApplication1
                 return;
             }
 
+            // make an array with all the ingredients selected from combo boxes
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
-            new_ingredients[0] = ing1.SelectedIndex;
-            new_ingredients[1] = ing2.SelectedIndex;
-            new_ingredients[2] = ing3.SelectedIndex;
-            new_ingredients[3] = ing4.SelectedIndex;
-            new_ingredients[4] = ing5.SelectedIndex;
-            new_ingredients[5] = ing6.SelectedIndex;
-            new_ingredients[6] = ing7.SelectedIndex;
-            new_ingredients[7] = ing8.SelectedIndex;
-            new_ingredients[8] = ing9.SelectedIndex;
-            new_ingredients[9] = ing10.SelectedIndex;
-            bool duplicate = false;
+
+            var combo_boxes = AddNewPannel.Controls
+                          .OfType<ComboBox>()
+                          .Where(txt => txt.Name.ToLower().StartsWith("ing"));
+
+            int ing = 0;
+            foreach (ComboBox txt in combo_boxes)
+            {
+                new_ingredients[ing] = txt.SelectedIndex;
+                ing++;
+            }
 
 
+            // make an array with all the quantities written in the text boxes
             Int32[] new_quantity;
             new_quantity = new Int32[10];
-            new_quantity[0] = Convert.ToInt32(quantity1.Text);
-            new_quantity[1] = Convert.ToInt32(quantity2.Text);
-            new_quantity[2] = Convert.ToInt32(quantity3.Text);
-            new_quantity[3] = Convert.ToInt32(quantity4.Text);
-            new_quantity[4] = Convert.ToInt32(quantity5.Text);
-            new_quantity[5] = Convert.ToInt32(quantity6.Text);
-            new_quantity[6] = Convert.ToInt32(quantity7.Text);
-            new_quantity[7] = Convert.ToInt32(quantity8.Text);
-            new_quantity[8] = Convert.ToInt32(quantity9.Text);
-            new_quantity[9] = Convert.ToInt32(quantity10.Text);
+            var quantity_boxes = AddNewPannel.Controls
+                          .OfType<TextBox>()
+                          .Where(txt => txt.Name.ToLower().StartsWith("quantity"));
+
+            ing = 0;
+            foreach (TextBox txt in quantity_boxes)
+            {
+                new_quantity[ing] = Convert.ToInt32(txt.Text);
+                ing++;
+            }
+
+            // let's check for duplicates now
+            bool duplicate = false;
 
             for (int i = 0; i < 10; i++)
             {
@@ -480,6 +503,8 @@ namespace WindowsFormsApplication1
                 }
 
             }
+
+            // if no duplicate found
             if (!duplicate)
             {
 
@@ -491,6 +516,10 @@ namespace WindowsFormsApplication1
                 connection = new OleDbConnection(connetionString);
                 string mix = "";
                 string qty = "";
+
+                // format both ingredients (IDs) and quantities as xx|xx|xx and yy|yy|yy
+                // we keep also the zeros, for easier handleing
+
                 for (int i = 0; i < 10; i++)
                 {
                     mix += new_ingredients[i];
@@ -498,13 +527,26 @@ namespace WindowsFormsApplication1
                     qty += new_quantity[i];
                     qty += "|";
                 }
-                sql = "insert into Cocktails (name, [desc], img, mix, qty) VALUES('" + newCocktailName.Text + "', 'abc', '" + newCocktailName.Text.Replace(" ", "").ToLower() + "', '" + mix + "', '" + qty + "')";
+
+                // if any photo selected, copy it to local folder 
+                // using the name of the cocktail without spaces and lowercases
+                string photoFileName = "";
+                if (newPhotoLocation != null)
+                {
+                    photoFileName = newCocktailName.Text.Replace(" ", "").ToLower();
+                    photoFileName = Regex.Replace(photoFileName, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
+                    System.IO.File.Copy(newPhotoLocation, "./img/" + photoFileName + ".jpg");
+                }
+
+                // insert into DB
+
+                sql = "insert into Cocktails (name, [desc], img, mix, qty) VALUES('" + newCocktailName.Text + "', 'abc', '" + photoFileName + "', '" + mix + "', '" + qty + "')";
                 try
                 {
                     connection.Open();
                     oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
                     oledbAdapter.InsertCommand.ExecuteNonQuery();
-                    MessageBox.Show("Row(s) Inserted !! ");
+                    MessageBox.Show("Cocktail added! ");
 
                     // hide the add new panel
                     AddNewPannel.Visible = false;
@@ -514,14 +556,9 @@ namespace WindowsFormsApplication1
                     MessageBox.Show(ex.ToString());
                 }
 
-
+                // reload to display the new cocktail
                 LoadAll(this, EventArgs.Empty);
-                AddNewPannel.Visible = false;
-                if (newPhotoLocation != null)
-                {
-                    string photoFileName = newCocktailName.Text.Replace(" ", "").ToLower();
-                    System.IO.File.Copy(newPhotoLocation, "./img/" + photoFileName + ".jpg");
-                }
+
             }
             else
             {
@@ -529,22 +566,18 @@ namespace WindowsFormsApplication1
             }
         }
 
+        // load the addNew panel
         private void AddNew_Load()
         {
-            save_button.Visible = false;
-            saveNewButton.Visible = true;
             string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
 
             Int32[] available_ingredients;
             available_ingredients = new Int32[10];
 
+            // load the file into an array
             for (int ingNo = 0; ingNo < 10; ingNo++)
             {
-
-                // Use a tab to indent each line of the file.
                 available_ingredients[ingNo] = Int32.Parse(lines[ingNo]);
-
-                ingNo++;
             }
 
             //load ingredients lirary
@@ -561,108 +594,58 @@ namespace WindowsFormsApplication1
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Field1", typeof(string));
             da.Fill(dt);
+            DataTable[] combo;
+            combo = new DataTable[10];
 
-            DataTable combo1 = new DataTable();
-            combo1 = dt.Copy();
-            DataTable combo2 = new DataTable();
-            combo2 = dt.Copy();
-            DataTable combo3 = new DataTable();
-            combo3 = dt.Copy();
-            DataTable combo4 = new DataTable();
-            combo4 = dt.Copy();
-            DataTable combo5 = new DataTable();
-            combo5 = dt.Copy();
-            DataTable combo6 = new DataTable();
-            combo6 = dt.Copy();
-            DataTable combo7 = new DataTable();
-            combo7 = dt.Copy();
-            DataTable combo8 = new DataTable();
-            combo8 = dt.Copy();
-            DataTable combo9 = new DataTable();
-            combo9 = dt.Copy();
-            DataTable combo10 = new DataTable();
-            combo10 = dt.Copy();
+            // populate combo boxes and select the null ingredient
+            // each combo box needs another data table
 
+            var combo_boxes = AddNewPannel.Controls
+                           .OfType<ComboBox>()
+                           .Where(txt => txt.Name.ToLower().StartsWith("ing"));
+
+            int ing = 0;
+            foreach (ComboBox txt in combo_boxes)
+            {
+                combo[ing] = dt.Copy();
+
+                txt.ValueMember = "ID";
+                txt.DisplayMember = "Field1";
+                txt.DataSource = combo[ing];
+                txt.SelectedIndex = 0;
+                ing++;
 
 
-            ing1.ValueMember = "ID";
-            ing1.DisplayMember = "Field1";
-            ing1.DataSource = combo1;
-            ing1.SelectedIndex = 0;
-
-            ing2.ValueMember = "ID";
-            ing2.DisplayMember = "Field1";
-            ing2.DataSource = combo2;
-            ing2.SelectedIndex = 0;
-
-            ing3.ValueMember = "ID";
-            ing3.DisplayMember = "Field1";
-            ing3.DataSource = combo3;
-            ing3.SelectedIndex = 0;
-
-            ing4.ValueMember = "ID";
-            ing4.DisplayMember = "Field1";
-            ing4.DataSource = combo4;
-            ing4.SelectedIndex = 0;
-
-            ing5.ValueMember = "ID";
-            ing5.DisplayMember = "Field1";
-            ing5.DataSource = combo5;
-            ing5.SelectedIndex = 0;
-
-            ing6.ValueMember = "ID";
-            ing6.DisplayMember = "Field1";
-            ing6.DataSource = combo6;
-            ing6.SelectedIndex = 0;
-
-            ing7.ValueMember = "ID";
-            ing7.DisplayMember = "Field1";
-            ing7.DataSource = combo7;
-            ing7.SelectedIndex = 0;
-
-            ing8.ValueMember = "ID";
-            ing8.DisplayMember = "Field1";
-            ing8.DataSource = combo8;
-            ing8.SelectedIndex = 0;
-
-            ing9.ValueMember = "ID";
-            ing9.DisplayMember = "Field1";
-            ing9.DataSource = combo9;
-            ing9.SelectedIndex = 0;
-
-            ing10.ValueMember = "ID";
-            ing10.DisplayMember = "Field1";
-            ing10.DataSource = combo10;
-            ing10.SelectedIndex = 0;
+            }
 
         }
 
+        // show the Add Cocktail panel
         private void newCocktailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNewPannel.Visible = true;
+            AddNew_Load();
             settingsPanel.Visible = false;
 
-            AddNew_Load();
         }
 
+        // let the user select a picture
         private void browseButton_Click(object sender, EventArgs e)
-        {
-            LoadFile();
-        }
-
-        private void LoadFile()
         {
 
             OpenFileDialog ofd = new OpenFileDialog();
-            string PictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            string PictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             ofd.InitialDirectory = PictureFolder;
             ofd.Filter = "Pictures|*.jpg;*.bmp;*.png";
             System.Windows.Forms.DialogResult dr = ofd.ShowDialog();
+
+            // now save the picture and show thumbnail
             if (dr == DialogResult.OK)
             {
                 newPhotoLocation = ofd.FileName;
                 picturePreviewBox.Image = Image.FromFile(newPhotoLocation);
             }
+
         }
 
         private void add_cancel_Click(object sender, EventArgs e)
@@ -706,5 +689,81 @@ namespace WindowsFormsApplication1
             f2.ShowDialog(); // Shows Help
         }
 
+        private void add_cancel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.L)
+                AddNewPannel.Visible = false;
+        }
+        
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            { 
+                AddNewPannel.Visible = false;
+                settingsPanel.Visible = false;
+            }
+            if ((e.KeyCode == Keys.Enter) && AddNewPannel.Visible)
+                saveNewButton_Click(this, EventArgs.Empty);
+
+            if ((e.KeyCode == Keys.Enter) && settingsPanel.Visible)
+                save_button_Click(this, EventArgs.Empty);
+        }
+
+        private void Start_button_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText(output.Text + "\r\n");
+        }
+
+        private void calib_button1_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:50|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button2_Click(object sender, EventArgs e)
+        {
+
+             ComHistory.AppendText("1:0|2:50|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button3_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:50|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button4_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:50|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button5_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:50|6:0|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button6_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:50|7:0|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button7_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:50|8:0|9:0|10:0|\r\n");
+        }
+
+        private void calib_button8_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:50|9:0|10:0|\r\n");
+        }
+
+        private void calib_button9_Click(object sender, EventArgs e)
+        {
+             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:50|10:0|\r\n");
+        }
+
+        private void calib_button10_Click(object sender, EventArgs e)
+        {
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:50|\r\n");
+        }
     }
 }
