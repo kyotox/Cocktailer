@@ -193,8 +193,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Maroon;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridView1.Location = new System.Drawing.Point(12, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -207,7 +210,7 @@
             // showAll
             // 
             this.showAll.AutoSize = true;
-            this.showAll.Location = new System.Drawing.Point(0, 250);
+            this.showAll.Location = new System.Drawing.Point(185, 255);
             this.showAll.Name = "showAll";
             this.showAll.Size = new System.Drawing.Size(67, 17);
             this.showAll.TabIndex = 2;
@@ -218,7 +221,7 @@
             // output
             // 
             this.output.AutoSize = true;
-            this.output.Location = new System.Drawing.Point(258, 255);
+            this.output.Location = new System.Drawing.Point(12, 277);
             this.output.Name = "output";
             this.output.Size = new System.Drawing.Size(35, 13);
             this.output.TabIndex = 15;
@@ -277,7 +280,6 @@
             this.add_cancel.Text = "Cancel";
             this.add_cancel.UseVisualStyleBackColor = true;
             this.add_cancel.Click += new System.EventHandler(this.add_cancel_Click);
-            this.add_cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.add_cancel_KeyDown);
             // 
             // quantity1
             // 
@@ -1049,7 +1051,7 @@
             // 
             // delCocktail
             // 
-            this.delCocktail.Location = new System.Drawing.Point(177, 250);
+            this.delCocktail.Location = new System.Drawing.Point(12, 251);
             this.delCocktail.Name = "delCocktail";
             this.delCocktail.Size = new System.Drawing.Size(75, 23);
             this.delCocktail.TabIndex = 57;
@@ -1059,17 +1061,20 @@
             // 
             // labelName
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(100, 5);
+            this.labelName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelName.Font = new System.Drawing.Font("Tahoma", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.labelName.Location = new System.Drawing.Point(0, 4);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(68, 13);
+            this.labelName.Size = new System.Drawing.Size(284, 38);
             this.labelName.TabIndex = 3;
             this.labelName.Text = "Cocktail Title";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cocktail_ing10
             // 
             this.cocktail_ing10.AutoSize = true;
-            this.cocktail_ing10.Location = new System.Drawing.Point(16, 172);
+            this.cocktail_ing10.Location = new System.Drawing.Point(20, 195);
             this.cocktail_ing10.Name = "cocktail_ing10";
             this.cocktail_ing10.Size = new System.Drawing.Size(69, 13);
             this.cocktail_ing10.TabIndex = 14;
@@ -1078,7 +1083,7 @@
             // cocktail_ing9
             // 
             this.cocktail_ing9.AutoSize = true;
-            this.cocktail_ing9.Location = new System.Drawing.Point(16, 157);
+            this.cocktail_ing9.Location = new System.Drawing.Point(20, 180);
             this.cocktail_ing9.Name = "cocktail_ing9";
             this.cocktail_ing9.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing9.TabIndex = 13;
@@ -1087,7 +1092,7 @@
             // cocktail_ing8
             // 
             this.cocktail_ing8.AutoSize = true;
-            this.cocktail_ing8.Location = new System.Drawing.Point(16, 142);
+            this.cocktail_ing8.Location = new System.Drawing.Point(20, 165);
             this.cocktail_ing8.Name = "cocktail_ing8";
             this.cocktail_ing8.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing8.TabIndex = 12;
@@ -1096,7 +1101,7 @@
             // cocktail_ing7
             // 
             this.cocktail_ing7.AutoSize = true;
-            this.cocktail_ing7.Location = new System.Drawing.Point(16, 127);
+            this.cocktail_ing7.Location = new System.Drawing.Point(20, 150);
             this.cocktail_ing7.Name = "cocktail_ing7";
             this.cocktail_ing7.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing7.TabIndex = 11;
@@ -1105,7 +1110,7 @@
             // cocktail_ing6
             // 
             this.cocktail_ing6.AutoSize = true;
-            this.cocktail_ing6.Location = new System.Drawing.Point(16, 112);
+            this.cocktail_ing6.Location = new System.Drawing.Point(20, 135);
             this.cocktail_ing6.Name = "cocktail_ing6";
             this.cocktail_ing6.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing6.TabIndex = 10;
@@ -1114,7 +1119,7 @@
             // cocktail_ing5
             // 
             this.cocktail_ing5.AutoSize = true;
-            this.cocktail_ing5.Location = new System.Drawing.Point(16, 98);
+            this.cocktail_ing5.Location = new System.Drawing.Point(20, 121);
             this.cocktail_ing5.Name = "cocktail_ing5";
             this.cocktail_ing5.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing5.TabIndex = 9;
@@ -1125,7 +1130,7 @@
             this.cocktailPhoto.Enabled = false;
             this.cocktailPhoto.Image = ((System.Drawing.Image)(resources.GetObject("cocktailPhoto.Image")));
             this.cocktailPhoto.InitialImage = null;
-            this.cocktailPhoto.Location = new System.Drawing.Point(143, 34);
+            this.cocktailPhoto.Location = new System.Drawing.Point(140, 59);
             this.cocktailPhoto.MaximumSize = new System.Drawing.Size(141, 179);
             this.cocktailPhoto.Name = "cocktailPhoto";
             this.cocktailPhoto.Size = new System.Drawing.Size(141, 179);
@@ -1136,7 +1141,7 @@
             // cocktail_ing4
             // 
             this.cocktail_ing4.AutoSize = true;
-            this.cocktail_ing4.Location = new System.Drawing.Point(16, 83);
+            this.cocktail_ing4.Location = new System.Drawing.Point(20, 106);
             this.cocktail_ing4.Name = "cocktail_ing4";
             this.cocktail_ing4.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing4.TabIndex = 8;
@@ -1145,7 +1150,7 @@
             // cocktail_ing3
             // 
             this.cocktail_ing3.AutoSize = true;
-            this.cocktail_ing3.Location = new System.Drawing.Point(16, 68);
+            this.cocktail_ing3.Location = new System.Drawing.Point(20, 91);
             this.cocktail_ing3.Name = "cocktail_ing3";
             this.cocktail_ing3.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing3.TabIndex = 7;
@@ -1154,7 +1159,7 @@
             // cocktail_ing2
             // 
             this.cocktail_ing2.AutoSize = true;
-            this.cocktail_ing2.Location = new System.Drawing.Point(16, 53);
+            this.cocktail_ing2.Location = new System.Drawing.Point(20, 76);
             this.cocktail_ing2.Name = "cocktail_ing2";
             this.cocktail_ing2.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing2.TabIndex = 6;
@@ -1163,7 +1168,7 @@
             // cocktail_ing1
             // 
             this.cocktail_ing1.AutoSize = true;
-            this.cocktail_ing1.Location = new System.Drawing.Point(16, 38);
+            this.cocktail_ing1.Location = new System.Drawing.Point(20, 61);
             this.cocktail_ing1.Name = "cocktail_ing1";
             this.cocktail_ing1.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing1.TabIndex = 5;
@@ -1172,6 +1177,7 @@
             // cocktailDisplay
             // 
             this.cocktailDisplay.Controls.Add(this.cocktail_ing1);
+            this.cocktailDisplay.Controls.Add(this.Start_button);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing2);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing3);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing4);
@@ -1183,9 +1189,9 @@
             this.cocktailDisplay.Controls.Add(this.cocktail_ing9);
             this.cocktailDisplay.Controls.Add(this.cocktail_ing10);
             this.cocktailDisplay.Controls.Add(this.labelName);
-            this.cocktailDisplay.Location = new System.Drawing.Point(261, 37);
+            this.cocktailDisplay.Location = new System.Drawing.Point(261, 27);
             this.cocktailDisplay.Name = "cocktailDisplay";
-            this.cocktailDisplay.Size = new System.Drawing.Size(284, 212);
+            this.cocktailDisplay.Size = new System.Drawing.Size(284, 263);
             this.cocktailDisplay.TabIndex = 58;
             // 
             // fileSystemWatcher1
@@ -1195,9 +1201,9 @@
             // 
             // Start_button
             // 
-            this.Start_button.Location = new System.Drawing.Point(437, 250);
+            this.Start_button.Location = new System.Drawing.Point(6, 235);
             this.Start_button.Name = "Start_button";
-            this.Start_button.Size = new System.Drawing.Size(75, 23);
+            this.Start_button.Size = new System.Drawing.Size(128, 23);
             this.Start_button.TabIndex = 60;
             this.Start_button.Text = "Start";
             this.Start_button.UseVisualStyleBackColor = true;
@@ -1208,6 +1214,7 @@
             this.ComHistory.Location = new System.Drawing.Point(613, 301);
             this.ComHistory.Multiline = true;
             this.ComHistory.Name = "ComHistory";
+            this.ComHistory.ReadOnly = true;
             this.ComHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ComHistory.Size = new System.Drawing.Size(291, 100);
             this.ComHistory.TabIndex = 61;
@@ -1216,9 +1223,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(1079, 611);
             this.Controls.Add(this.ComHistory);
-            this.Controls.Add(this.Start_button);
             this.Controls.Add(this.cocktailDisplay);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.AddNewPannel);
@@ -1227,6 +1234,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.delCocktail);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";

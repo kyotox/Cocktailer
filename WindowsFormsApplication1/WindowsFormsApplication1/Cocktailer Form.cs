@@ -25,6 +25,8 @@ namespace WindowsFormsApplication1
 
         private void LoadAll(object sender, EventArgs e)
         {
+            SetCollors();
+
             string[] available_ingredients;
             available_ingredients = new string[10];
 
@@ -117,6 +119,45 @@ namespace WindowsFormsApplication1
             selectCocktail();
 
         }
+
+        private void SetCollors()
+        {
+            var buttons = Controls
+                        .OfType<Button>();
+            foreach (Button txt in buttons)
+            {
+               // txt.ForeColor = Color.Black;
+            }
+
+            buttons = settingsPanel.Controls
+                         .OfType<Button>()
+                         .Where(txt => txt.Name.StartsWith(""));
+            foreach (Button txt in buttons)
+            {
+                txt.ForeColor = Color.Black;
+            }
+            buttons = AddNewPannel.Controls
+                         .OfType<Button>()
+                         .Where(txt => txt.Name.StartsWith(""));
+            foreach (Button txt in buttons)
+            {
+                txt.ForeColor = Color.Black;
+            }
+
+            buttons = cocktailDisplay.Controls
+                         .OfType<Button>()
+                         .Where(txt => txt.Name.StartsWith(""));
+            foreach (Button txt in buttons)
+            {
+                txt.ForeColor = Color.Black;
+            }
+
+
+            dataGridView1.ForeColor = Color.Black;
+
+
+        }
+
         // select cocktail
         private void selectCocktail()
         {
@@ -648,54 +689,58 @@ namespace WindowsFormsApplication1
 
         }
 
+        //cancel button add new
         private void add_cancel_Click(object sender, EventArgs e)
         {
             AddNewPannel.Visible = false;
         }
 
+        //cancel button settings panel
         private void settingsCancel_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
         }
 
+        //delete cocktail button
         private void delCocktail_Click(object sender, EventArgs e)
         {
-            string connetionString = null;
-            OleDbConnection connection;
-            OleDbDataAdapter oledbAdapter = new OleDbDataAdapter();
-            string sql = null;
-            connetionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb;";
-            connection = new OleDbConnection(connetionString);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the selected cocktail?", "Delete", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string connetionString = null;
+                OleDbConnection connection;
+                OleDbDataAdapter oledbAdapter = new OleDbDataAdapter();
+                string sql = null;
+                connetionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb;";
+                connection = new OleDbConnection(connetionString);
 
-            sql = "DELETE from Cocktails WHERE ID =" + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                sql = "DELETE from Cocktails WHERE ID =" + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
 
 
-            connection.Open();
-            oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
-            oledbAdapter.InsertCommand.ExecuteNonQuery();
-            connection.Close();
-            LoadAll(this, EventArgs.Empty);
+                connection.Open();
+                oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
+                oledbAdapter.InsertCommand.ExecuteNonQuery();
+                connection.Close();
+                LoadAll(this, EventArgs.Empty);
+            }
+            
 
         }
 
+        // quit
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //help
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help f2 = new Help();
             f2.ShowDialog(); // Shows Help
         }
-
-        private void add_cancel_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.L)
-                AddNewPannel.Visible = false;
-        }
-        
-
+                
+        // handle keyboard for shortcuts
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -710,11 +755,12 @@ namespace WindowsFormsApplication1
                 save_button_Click(this, EventArgs.Empty);
         }
 
+        //start
         private void Start_button_Click(object sender, EventArgs e)
         {
              ComHistory.AppendText(output.Text + "\r\n");
         }
-
+        // calibration buttons
         private void calib_button1_Click(object sender, EventArgs e)
         {
              ComHistory.AppendText("1:50|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
