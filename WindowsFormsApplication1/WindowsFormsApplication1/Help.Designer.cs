@@ -39,7 +39,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(480, 293);
             this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("http://dragoschiotoroiu.ro/PHP1/index2.php", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("http://dragoschiotoroiu.ro/PHP1/help.html", System.UriKind.Absolute);
             // 
             // Help
             // 
@@ -47,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 293);
             this.Controls.Add(this.webBrowser1);
+            this.KeyPreview = true;
             this.Name = "Help";
             this.Text = "Help";
             this.ResumeLayout(false);

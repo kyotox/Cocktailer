@@ -155,7 +155,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1079, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(558, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -265,9 +265,9 @@
             this.AddNewPannel.Controls.Add(this.ing8);
             this.AddNewPannel.Controls.Add(this.ing9);
             this.AddNewPannel.Controls.Add(this.ing10);
-            this.AddNewPannel.Location = new System.Drawing.Point(0, 291);
+            this.AddNewPannel.Location = new System.Drawing.Point(0, 26);
             this.AddNewPannel.Name = "AddNewPannel";
-            this.AddNewPannel.Size = new System.Drawing.Size(551, 247);
+            this.AddNewPannel.Size = new System.Drawing.Size(551, 265);
             this.AddNewPannel.TabIndex = 16;
             this.AddNewPannel.Visible = false;
             // 
@@ -845,9 +845,9 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(551, 37);
+            this.settingsPanel.Location = new System.Drawing.Point(0, 27);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(551, 248);
+            this.settingsPanel.Size = new System.Drawing.Size(551, 264);
             this.settingsPanel.TabIndex = 56;
             this.settingsPanel.Visible = false;
             // 
@@ -1211,7 +1211,7 @@
             // 
             // ComHistory
             // 
-            this.ComHistory.Location = new System.Drawing.Point(613, 301);
+            this.ComHistory.Location = new System.Drawing.Point(108, 297);
             this.ComHistory.Multiline = true;
             this.ComHistory.Name = "ComHistory";
             this.ComHistory.ReadOnly = true;
@@ -1224,11 +1224,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(1079, 611);
+            this.ClientSize = new System.Drawing.Size(558, 405);
+            this.Controls.Add(this.AddNewPannel);
+            this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.ComHistory);
             this.Controls.Add(this.cocktailDisplay);
-            this.Controls.Add(this.settingsPanel);
-            this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.output);
             this.Controls.Add(this.showAll);
             this.Controls.Add(this.dataGridView1);
