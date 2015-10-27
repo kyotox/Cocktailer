@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newCocktailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,9 +134,16 @@
             this.cocktail_ing2 = new System.Windows.Forms.Label();
             this.cocktail_ing1 = new System.Windows.Forms.Label();
             this.cocktailDisplay = new System.Windows.Forms.Panel();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.Start_button = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.ComHistory = new System.Windows.Forms.TextBox();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.serialPortsAvailable = new System.Windows.Forms.ComboBox();
+            this.comStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.connectTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.AddNewPannel.SuspendLayout();
@@ -1194,11 +1202,6 @@
             this.cocktailDisplay.Size = new System.Drawing.Size(284, 263);
             this.cocktailDisplay.TabIndex = 58;
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
             // Start_button
             // 
             this.Start_button.Location = new System.Drawing.Point(6, 235);
@@ -1209,9 +1212,14 @@
             this.Start_button.UseVisualStyleBackColor = true;
             this.Start_button.Click += new System.EventHandler(this.Start_button_Click);
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // ComHistory
             // 
-            this.ComHistory.Location = new System.Drawing.Point(108, 297);
+            this.ComHistory.Location = new System.Drawing.Point(260, 297);
             this.ComHistory.Multiline = true;
             this.ComHistory.Name = "ComHistory";
             this.ComHistory.ReadOnly = true;
@@ -1219,12 +1227,73 @@
             this.ComHistory.Size = new System.Drawing.Size(291, 100);
             this.ComHistory.TabIndex = 61;
             // 
+            // serialPort1
+            // 
+            this.serialPort1.PortName = "COM3";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 305);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Status:";
+            // 
+            // serialPortsAvailable
+            // 
+            this.serialPortsAvailable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.serialPortsAvailable.FormattingEnabled = true;
+            this.serialPortsAvailable.Location = new System.Drawing.Point(28, 348);
+            this.serialPortsAvailable.Name = "serialPortsAvailable";
+            this.serialPortsAvailable.Size = new System.Drawing.Size(121, 21);
+            this.serialPortsAvailable.TabIndex = 63;
+            // 
+            // comStatus
+            // 
+            this.comStatus.AutoSize = true;
+            this.comStatus.Location = new System.Drawing.Point(71, 305);
+            this.comStatus.Name = "comStatus";
+            this.comStatus.Size = new System.Drawing.Size(78, 13);
+            this.comStatus.TabIndex = 64;
+            this.comStatus.Text = "Not connected";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(155, 348);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 23);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(155, 374);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 66;
+            this.button2.Text = "Connect";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // connectTimer
+            // 
+            this.connectTimer.Interval = 2000;
+            this.connectTimer.Tick += new System.EventHandler(this.connectTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(558, 405);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comStatus);
+            this.Controls.Add(this.serialPortsAvailable);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.AddNewPannel);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.ComHistory);
@@ -1368,6 +1437,13 @@
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button Start_button;
         private System.Windows.Forms.TextBox ComHistory;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ComboBox serialPortsAvailable;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label comStatus;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer connectTimer;
     }
 }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,7 +18,8 @@ namespace WindowsFormsApplication1
     {
         string newPhotoLocation;
         Int16 calib_mililiters = 50;
-        
+        int connect_retry = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +28,8 @@ namespace WindowsFormsApplication1
         private void LoadAll(object sender, EventArgs e)
         {
             SetCollors();
+
+            SerialPortInit();
 
             string[] available_ingredients;
             available_ingredients = new string[10];
@@ -120,13 +124,29 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void SerialPortInit()
+        {
+            //serialPort1.Open();
+            string[] ports = SerialPort.GetPortNames();
+            serialPortsAvailable.Items.Clear();
+
+            foreach (string port in ports)
+            {
+                serialPortsAvailable.Items.Add(port);
+            }
+            if (ports.Length > 0)
+                serialPortsAvailable.SelectedIndex = 0;
+            else
+                comStatus.Text = "No COMPORT detected";
+        }
+
         private void SetCollors()
         {
             var buttons = Controls
                         .OfType<Button>();
             foreach (Button txt in buttons)
             {
-               // txt.ForeColor = Color.Black;
+                txt.ForeColor = Color.Black;
             }
 
             buttons = settingsPanel.Controls
@@ -426,7 +446,7 @@ namespace WindowsFormsApplication1
 
         private void save_button_Click(object sender, EventArgs e)
         {
-            
+
             Int32[] new_ingredients;
             new_ingredients = new Int32[10];
 
@@ -723,7 +743,7 @@ namespace WindowsFormsApplication1
                 connection.Close();
                 LoadAll(this, EventArgs.Empty);
             }
-            
+
 
         }
 
@@ -739,12 +759,12 @@ namespace WindowsFormsApplication1
             Help f2 = new Help();
             f2.ShowDialog(); // Shows Help
         }
-                
+
         // handle keyboard for shortcuts
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-            { 
+            {
                 AddNewPannel.Visible = false;
                 settingsPanel.Visible = false;
             }
@@ -758,58 +778,101 @@ namespace WindowsFormsApplication1
         //start
         private void Start_button_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText(output.Text + "\r\n");
+            ComHistory.AppendText(output.Text + "\r\n");
+            //serialPort1.Write(output.Text);
         }
         // calibration buttons
         private void calib_button1_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:50|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:50|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button2_Click(object sender, EventArgs e)
         {
 
-             ComHistory.AppendText("1:0|2:50|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:50|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button3_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:50|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:50|4:0|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button4_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:50|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:50|5:0|6:0|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button5_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:50|6:0|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:50|6:0|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button6_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:50|7:0|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:50|7:0|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button7_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:50|8:0|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:50|8:0|9:0|10:0|\r\n");
         }
 
         private void calib_button8_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:50|9:0|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:50|9:0|10:0|\r\n");
         }
 
         private void calib_button9_Click(object sender, EventArgs e)
         {
-             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:50|10:0|\r\n");
+            ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:50|10:0|\r\n");
         }
 
         private void calib_button10_Click(object sender, EventArgs e)
         {
             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:50|\r\n");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SerialPortInit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            serialPort1.PortName = Convert.ToString(serialPortsAvailable.SelectedItem);
+            connectTimer.Enabled = true;
+            
+        }
+
+        private void connectTimer_Tick(object sender, EventArgs e)
+        {
+            if (connect_retry < 5)
+            {
+                try
+                {
+                    serialPort1.Open();
+                }
+                catch
+                { }
+                if (serialPort1.IsOpen)
+                {
+                    comStatus.Text = "Connected";
+                    connectTimer.Enabled = false;
+
+                }
+                else
+                {
+                    comStatus.Text = "Connecting (" + Convert.ToString(connect_retry) +")";
+                    connect_retry++;
+                }
+            }
+            else
+            {
+                connect_retry = 0;
+                connectTimer.Enabled = false;
+                comStatus.Text = "Connection error";
+            }
         }
     }
 }
