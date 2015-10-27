@@ -17,42 +17,39 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        string newPhotoLocation;
-        Int16 calib_mililiters = 50;
-        int connect_retry = 0;
+        string newPhotoLocation; // location of the picture selected that is going to be copied
+
+        Int16 calib_mililiters = 50; // quantity sent for calibration purpose
+
+        int connect_retry = 0; // used for com port connection retry
+        
+        // variables for updater buffer
         string[,] updateDownloadList;
         int downcount_target = 0;
         int downcount_now = 0;
         bool updateandclose = false;
+        // end updater buffer 
 
         public Form1()
         {
             InitializeComponent();
-            updateDownloadList = new string[500, 2];
+
+            SerialPortInit();
+
+            updateDownloadList = new string[500, 2];    //initiate the string for the updater buffer
         }
 
         private void LoadAll(object sender, EventArgs e)
         {
             SetCollors();
 
-            SerialPortInit();
 
             string[] available_ingredients;
             available_ingredients = new string[10];
 
-            var ingredients_combobox = settingsPanel.Controls
-                         .OfType<ComboBox>()
-                         .Where(txt => txt.Name.ToLower().StartsWith("seting"));
-            int no = 0;
-            foreach (ComboBox txt in ingredients_combobox)
-            {
-                available_ingredients[no] = Convert.ToString(txt.Text);
-                no++;
-            }
-
             LoadSettings();         // Load available ingredients from file and cocktails database
 
-            try
+            try // load all cocktails from DB and add them to datagridview
             {
 
                 string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
@@ -114,8 +111,9 @@ namespace WindowsFormsApplication1
             //stop if no cocktail available
             if (dataGridView1.Rows.Count == 0)
             {
+                MessageBox.Show("No cocktail available. Add more ingredients");
                 return;
-                //Error / suggestion should be added here 
+                
             }
 
             //hide unwanted columns
@@ -134,13 +132,13 @@ namespace WindowsFormsApplication1
 
         private void SerialPortInit()
         {
-            //serialPort1.Open();
+            // populate the combobox with available com ports
             string[] ports = SerialPort.GetPortNames();
-            serialPortsAvailable.Items.Clear();
+            serialPortsAvailable.Items.Clear(); //clean it first
 
             foreach (string port in ports)
             {
-                serialPortsAvailable.Items.Add(port);
+                serialPortsAvailable.Items.Add(port); //add one by one
             }
             if (ports.Length > 0)
                 serialPortsAvailable.SelectedIndex = 0;
@@ -150,6 +148,7 @@ namespace WindowsFormsApplication1
 
         private void SetCollors()
         {
+            // colors for main form
             var buttons = Controls
                         .OfType<Button>();
             foreach (Button txt in buttons)
@@ -157,6 +156,7 @@ namespace WindowsFormsApplication1
                 txt.ForeColor = Color.Black;
             }
 
+            //colors for settings panel
             buttons = settingsPanel.Controls
                          .OfType<Button>()
                          .Where(txt => txt.Name.StartsWith(""));
@@ -164,6 +164,8 @@ namespace WindowsFormsApplication1
             {
                 txt.ForeColor = Color.Black;
             }
+
+            //colors for add new pannel
             buttons = AddNewPannel.Controls
                          .OfType<Button>()
                          .Where(txt => txt.Name.StartsWith(""));
@@ -172,6 +174,7 @@ namespace WindowsFormsApplication1
                 txt.ForeColor = Color.Black;
             }
 
+            //  colors for cocktail display panel
             buttons = cocktailDisplay.Controls
                          .OfType<Button>()
                          .Where(txt => txt.Name.StartsWith(""));
@@ -180,7 +183,7 @@ namespace WindowsFormsApplication1
                 txt.ForeColor = Color.Black;
             }
 
-
+            // colors for table
             dataGridView1.ForeColor = Color.Black;
 
 
@@ -638,17 +641,7 @@ namespace WindowsFormsApplication1
         // load the addNew panel
         private void AddNew_Load()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"available_ing.txt");
-
-            Int32[] available_ingredients;
-            available_ingredients = new Int32[10];
-
-            // load the file into an array
-            for (int ingNo = 0; ingNo < 10; ingNo++)
-            {
-                available_ingredients[ingNo] = Int32.Parse(lines[ingNo]);
-            }
-
+           
             //load ingredients lirary
             string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
             string strSql = "Select * from Ingredients";
@@ -663,6 +656,8 @@ namespace WindowsFormsApplication1
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Field1", typeof(string));
             da.Fill(dt);
+
+            // each combobox needs a different datatable. I made an array of 10 datatables
             DataTable[] combo;
             combo = new DataTable[10];
 
@@ -841,21 +836,21 @@ namespace WindowsFormsApplication1
             ComHistory.AppendText("1:0|2:0|3:0|4:0|5:0|6:0|7:0|8:0|9:0|10:50|\r\n");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void refresh_ports_button(object sender, EventArgs e)
         {
-            SerialPortInit();
+            SerialPortInit(); // research for com ports
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void connect_comport(object sender, EventArgs e)
         {
             serialPort1.PortName = Convert.ToString(serialPortsAvailable.SelectedItem);
-            connectTimer.Enabled = true;
+            connectTimer.Enabled = true; // will retry 5 times, pause of 1 sec. The timer will give an error or confirmation
 
         }
 
         private void connectTimer_Tick(object sender, EventArgs e)
         {
-            if (connect_retry < 5)
+            if (connect_retry < 5) // if limit not reached, let's try again
             {
                 try
                 {
@@ -865,18 +860,20 @@ namespace WindowsFormsApplication1
                 { }
                 if (serialPort1.IsOpen)
                 {
-                    comStatus.Text = "Connected";
-                    connectTimer.Enabled = false;
+                    comStatus.Text = "Connected"; //success
+                    connectTimer.Enabled = false; // no need of timer anymore
 
                 }
                 else
                 {
                     comStatus.Text = "Connecting (" + Convert.ToString(connect_retry) + ")";
+                    // display connecting fallowed by the retry count
                     connect_retry++;
                 }
             }
             else
             {
+                // didn't worked. Let's reset everything and display an error
                 connect_retry = 0;
                 connectTimer.Enabled = false;
                 comStatus.Text = "Connection error";
@@ -885,27 +882,34 @@ namespace WindowsFormsApplication1
 
         private void update_Click(object sender, EventArgs e)
         {
+            // initiate the update session
             if (downcount_target == downcount_now)
+            // verify if any update in progress.
+            // when the 2 variables are equal, the procedure starts, otherwise they are turned to 0 and the process will stop when
+            // the file currently downloading is done.
             {
-                update.Text = "Stop Update";
-                string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/";
-                string user = "dragos";
-                string pass = "parola210593";
+                update.Text = "Stop Update"; // change the button function
+                string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/"; // curent DB source
+                string user = "dragos"; // THIS NEEDS TO BE CHANGED
+                string pass = "parola210593"; // THIS NEEDS TO BE CHANGED
                 DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb", AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
                 cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
-                foreach (string file in GetFileList(filelocation + "img/", user, pass))
+
+                foreach (string file in GetFileList(filelocation + "img/", user, pass)) 
+                    //we get a list of files with FTP, but we download them with WebClient because that works in background
                 {
-                    if (file.EndsWith("jpg"))
+                    if (file.EndsWith("jpg")) // get the files one by one, only the ones that are JPG
                     {
+                        // the fallowing functions is just adding the files that needs to be downloaded in a buffer
                         DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/img/" + file, AppDomain.CurrentDomain.BaseDirectory + "/img/" + file);
 
                     }
 
                 }
-
+                // this actually starts the transfer of the first file, which will trigger all the fallowing transfers
                 DownloadNextFile(downcount_target);
             }
-            else
+            else // turn both variables 0 so the downloader will stop after the current file
             {
                 downcount_now = 0;
                 downcount_target = 0;
@@ -913,6 +917,8 @@ namespace WindowsFormsApplication1
 
 
         }
+
+        // gets the filelist using FTP connection
         public string[] GetFileList(string filelocation, string user, string pass)
         {
             string[] downloadFiles;
@@ -957,6 +963,7 @@ namespace WindowsFormsApplication1
             }
         }
 
+        // just adds the files to the buffer and increases the location value
         public void DownloadFileWeb(string filelocation, string savepath)
         {
             updateDownloadList[downcount_target, 0] = filelocation;
@@ -964,19 +971,23 @@ namespace WindowsFormsApplication1
             downcount_target++;
         }
 
+        // start file download
         private void DownloadNextFile(int downcount_target)
         {
-            if (downcount_target > downcount_now)
+            if (downcount_target > downcount_now) // if we did not downloaded all of the files in the buffer
+                // We assume that the downloading cannot be faster than adding the items in the buffer - could be done better
             {
-
                 WebClient downloader = new WebClient();
                 downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
                 downloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloader_DownloadProgressChanged);
                 downloader.DownloadFileAsync(new Uri(updateDownloadList[downcount_now, 0]), updateDownloadList[downcount_now, 1]);
-                downcount_now++;
+                downcount_now++; // go to next file in the list
             }
             else
             {
+                // we are done. Let's display the confirmation, reset the counters, 
+                // change the button back to UPDATE and reload the table
+
                 downcount_now = 0;
                 downcount_target = 0;
                 comStatus.Text = "Update completed";
@@ -985,6 +996,7 @@ namespace WindowsFormsApplication1
             }
         }
 
+        // function not in use. Alternative for webclient download
         private void DownloadFtpFile(string filelocation, string savePath, string user, string pass)
         {
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(filelocation);
@@ -1011,6 +1023,7 @@ namespace WindowsFormsApplication1
             }
         }
 
+        // keep track of the progress of each file.
         void downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             comStatus.Text = "Updating:" + Convert.ToString(e.ProgressPercentage) + "%";
@@ -1018,23 +1031,21 @@ namespace WindowsFormsApplication1
 
         void downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-
-
-
-
+            
             if (e.Error != null)
-                comStatus.Text = "DB Update failed";
+                comStatus.Text = "DB Update failed"; 
             else
             {
-                if (updateandclose)
+                if (updateandclose) // this is activated by closing the window while updating
                 {
+                    // we stop the download after the current file to avoid file coruption
                     downcount_target = 0;
                     downcount_now = 0;
-                    this.Close();
+                    this.Close(); // we finally close the windows as requested
                 }
                 else
                 {
-                    DownloadNextFile(downcount_target);
+                    DownloadNextFile(downcount_target); //go to next file
                 }
             }
 
@@ -1042,9 +1053,10 @@ namespace WindowsFormsApplication1
 
         }
 
+        // prevents closing the form while updating
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!updateandclose)
+            if (!updateandclose) // no confirmation needed when we close the form from code
             {
                 string message = "You really want to quit?";
 
@@ -1052,14 +1064,16 @@ namespace WindowsFormsApplication1
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (res != DialogResult.Yes)
                 {
-
                     e.Cancel = true;
+                    // go on, close the form
                     return;
                 }
                 else
                 {
+                    // wait, there might be a pending download
                     if (downcount_now < downcount_target)
                     {
+                        // the application will close after finishing the transfer in progress
                         e.Cancel = true;
                         updateandclose = true;
                         return;

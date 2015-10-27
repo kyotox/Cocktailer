@@ -141,8 +141,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.serialPortsAvailable = new System.Windows.Forms.ComboBox();
             this.comStatus = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.refresh_ports = new System.Windows.Forms.Button();
+            this.Connect_button = new System.Windows.Forms.Button();
             this.connectTimer = new System.Windows.Forms.Timer(this.components);
             this.update = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -1259,25 +1259,25 @@
             this.comStatus.TabIndex = 64;
             this.comStatus.Text = "Not connected";
             // 
-            // button1
+            // refresh_ports
             // 
-            this.button1.Location = new System.Drawing.Point(155, 348);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.refresh_ports.Location = new System.Drawing.Point(155, 348);
+            this.refresh_ports.Name = "refresh_ports";
+            this.refresh_ports.Size = new System.Drawing.Size(59, 23);
+            this.refresh_ports.TabIndex = 65;
+            this.refresh_ports.Text = "Refresh";
+            this.refresh_ports.UseVisualStyleBackColor = true;
+            this.refresh_ports.Click += new System.EventHandler(this.refresh_ports_button);
             // 
-            // button2
+            // Connect_button
             // 
-            this.button2.Location = new System.Drawing.Point(155, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 66;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Connect_button.Location = new System.Drawing.Point(155, 374);
+            this.Connect_button.Name = "Connect_button";
+            this.Connect_button.Size = new System.Drawing.Size(59, 23);
+            this.Connect_button.TabIndex = 66;
+            this.Connect_button.Text = "Connect";
+            this.Connect_button.UseVisualStyleBackColor = true;
+            this.Connect_button.Click += new System.EventHandler(this.connect_comport);
             // 
             // connectTimer
             // 
@@ -1301,8 +1301,8 @@
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(558, 405);
             this.Controls.Add(this.update);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Connect_button);
+            this.Controls.Add(this.refresh_ports);
             this.Controls.Add(this.comStatus);
             this.Controls.Add(this.serialPortsAvailable);
             this.Controls.Add(this.label1);
@@ -1454,8 +1454,8 @@
         private System.Windows.Forms.ComboBox serialPortsAvailable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label comStatus;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button refresh_ports;
+        private System.Windows.Forms.Button Connect_button;
         private System.Windows.Forms.Timer connectTimer;
         private System.Windows.Forms.Button update;
     }
