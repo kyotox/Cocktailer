@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -58,6 +59,8 @@ namespace WindowsFormsApplication1
                 cmd.CommandType = CommandType.Text;
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 DataTable cocktails = new DataTable();
+                con.Close();
+
                 da.Fill(cocktails);
                 dataGridView1.DataSource = cocktails;
 
@@ -406,7 +409,7 @@ namespace WindowsFormsApplication1
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Field1", typeof(string));
             da.Fill(dt);
-
+            con.Close();
             DataTable[] combo;
             combo = new DataTable[10];
 
@@ -842,7 +845,7 @@ namespace WindowsFormsApplication1
         {
             serialPort1.PortName = Convert.ToString(serialPortsAvailable.SelectedItem);
             connectTimer.Enabled = true;
-            
+
         }
 
         private void connectTimer_Tick(object sender, EventArgs e)
@@ -863,7 +866,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    comStatus.Text = "Connecting (" + Convert.ToString(connect_retry) +")";
+                    comStatus.Text = "Connecting (" + Convert.ToString(connect_retry) + ")";
                     connect_retry++;
                 }
             }
@@ -872,6 +875,33 @@ namespace WindowsFormsApplication1
                 connect_retry = 0;
                 connectTimer.Enabled = false;
                 comStatus.Text = "Connection error";
+            }
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+
+            string url = "http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb";
+            WebClient downloader = new WebClient();
+            downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
+            downloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloader_DownloadProgressChanged);
+            downloader.DownloadFileAsync(new Uri(url), AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
+
+        }
+
+        void downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            comStatus.Text = "Updating:" + Convert.ToString(e.ProgressPercentage) + "%";
+        }
+
+        void downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null)
+                comStatus.Text = "DB Update failed";
+            else
+            {
+                comStatus.Text = "DB Update completed";
+                LoadAll(this, EventArgs.Empty);
             }
         }
     }

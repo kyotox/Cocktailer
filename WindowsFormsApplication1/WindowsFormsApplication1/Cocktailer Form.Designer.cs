@@ -144,6 +144,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.connectTimer = new System.Windows.Forms.Timer(this.components);
+            this.update = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.AddNewPannel.SuspendLayout();
@@ -1283,12 +1284,23 @@
             this.connectTimer.Interval = 2000;
             this.connectTimer.Tick += new System.EventHandler(this.connectTimer_Tick);
             // 
+            // update
+            // 
+            this.update.Location = new System.Drawing.Point(483, 1);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.TabIndex = 67;
+            this.update.Text = "update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(558, 405);
+            this.Controls.Add(this.update);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comStatus);
@@ -1444,6 +1456,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer connectTimer;
+        private System.Windows.Forms.Button update;
     }
 }
 
