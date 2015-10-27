@@ -20,10 +20,14 @@ namespace WindowsFormsApplication1
         string newPhotoLocation;
         Int16 calib_mililiters = 50;
         int connect_retry = 0;
+        string[,] updateDownloadList;
+        int downcount_target = 0;
+        int downcount_now = 0;
 
         public Form1()
         {
             InitializeComponent();
+            updateDownloadList = new string[500, 2];
         }
 
         private void LoadAll(object sender, EventArgs e)
@@ -883,20 +887,19 @@ namespace WindowsFormsApplication1
             string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/";
             string user = "dragos";
             string pass = "parola210593";
-
+            DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb", AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
+            cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
             foreach (string file in GetFileList(filelocation + "img/", user, pass))
             {
-                DownloadFtpFile(filelocation + "/CocktailsDB.accdb", "./CocktailsDB.accdb", user, pass);
-                comStatus.Text = "Downloaded DB";
                 if (file.EndsWith("jpg"))
                 {
-                    comStatus.Text = "Downloading " + file;
-                    DownloadFtpFile(filelocation + "img/" + file, "./img/" + file, user, pass);
+                    DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/img/" + file, AppDomain.CurrentDomain.BaseDirectory + "/img/" + file);
 
                 }
 
             }
-            comStatus.Text = "Downloaded completed";
+
+            DownloadNextFile(downcount_target);
 
 
         }
@@ -946,13 +949,31 @@ namespace WindowsFormsApplication1
 
         public void DownloadFileWeb(string filelocation, string savepath)
         {
-            string url = filelocation;
-            WebClient downloader = new WebClient();
-            downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
-            downloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloader_DownloadProgressChanged);
-            downloader.DownloadFileAsync(new Uri(url), savepath);
-
+            updateDownloadList[downcount_target, 0] = filelocation;
+            updateDownloadList[downcount_target, 1] = savepath;
+            downcount_target++;
         }
+
+        private void DownloadNextFile(int downcount_target)
+        {
+            if (downcount_target > downcount_now)
+            {
+
+                WebClient downloader = new WebClient();
+                downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
+                downloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloader_DownloadProgressChanged);
+                downloader.DownloadFileAsync(new Uri(updateDownloadList[downcount_now, 0]), updateDownloadList[downcount_now, 1]);
+                downcount_now++;
+            }
+            else
+            {
+                downcount_now = 0;
+                downcount_target = 0;
+                comStatus.Text = "Update completed";
+                LoadAll(this, EventArgs.Empty);
+            }
+        }
+
         private void DownloadFtpFile(string filelocation, string savePath, string user, string pass)
         {
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(filelocation);
@@ -990,9 +1011,23 @@ namespace WindowsFormsApplication1
                 comStatus.Text = "DB Update failed";
             else
             {
-                comStatus.Text = "DB Update completed";
-                LoadAll(this, EventArgs.Empty);
+                DownloadNextFile(downcount_target);
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string message = "You really want to quit?";
+            if (downcount_now < downcount_target)
+                message = "An update is in progress. Closing this window might make the software unusable. Are you sure you want to quit?";
+            var res = MessageBox.Show(this, message, "Exit",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (res != DialogResult.Yes)
+            {
+                e.Cancel = true;
+                return;
+            }
+
         }
     }
 }
