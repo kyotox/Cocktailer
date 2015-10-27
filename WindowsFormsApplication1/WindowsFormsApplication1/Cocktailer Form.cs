@@ -880,13 +880,103 @@ namespace WindowsFormsApplication1
 
         private void update_Click(object sender, EventArgs e)
         {
+            string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/";
+            string user = "dragos";
+            string pass = "parola210593";
 
-            string url = "http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb";
+            foreach (string file in GetFileList(filelocation + "img/", user, pass))
+            {
+                DownloadFtpFile(filelocation + "/CocktailsDB.accdb", "./CocktailsDB.accdb", user, pass);
+                comStatus.Text = "Downloaded DB";
+                if (file.EndsWith("jpg"))
+                {
+                    comStatus.Text = "Downloading " + file;
+                    DownloadFtpFile(filelocation + "img/" + file, "./img/" + file, user, pass);
+
+                }
+
+            }
+            comStatus.Text = "Downloaded completed";
+
+
+        }
+        public string[] GetFileList(string filelocation, string user, string pass)
+        {
+            string[] downloadFiles;
+            StringBuilder result = new StringBuilder();
+            WebResponse response = null;
+            StreamReader reader = null;
+            try
+            {
+                FtpWebRequest reqFTP;
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(filelocation));
+                reqFTP.UseBinary = true;
+                reqFTP.Credentials = new NetworkCredential(user, pass);
+                reqFTP.Method = WebRequestMethods.Ftp.ListDirectory;
+                reqFTP.Proxy = null;
+                reqFTP.KeepAlive = false;
+                reqFTP.UsePassive = false;
+                response = reqFTP.GetResponse();
+                reader = new StreamReader(response.GetResponseStream());
+                string line = reader.ReadLine();
+                while (line != null)
+                {
+                    result.Append(line);
+                    result.Append("\n");
+                    line = reader.ReadLine();
+                }
+                // to remove the trailing '\n'
+                result.Remove(result.ToString().LastIndexOf('\n'), 1);
+                return result.ToString().Split('\n');
+            }
+            catch
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (response != null)
+                {
+                    response.Close();
+                }
+                downloadFiles = null;
+                return downloadFiles;
+            }
+        }
+
+        public void DownloadFileWeb(string filelocation, string savepath)
+        {
+            string url = filelocation;
             WebClient downloader = new WebClient();
             downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
             downloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(downloader_DownloadProgressChanged);
-            downloader.DownloadFileAsync(new Uri(url), AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
+            downloader.DownloadFileAsync(new Uri(url), savepath);
 
+        }
+        private void DownloadFtpFile(string filelocation, string savePath, string user, string pass)
+        {
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(filelocation);
+            request.Method = WebRequestMethods.Ftp.DownloadFile;
+            request.Credentials = new NetworkCredential(user, pass);
+            request.UseBinary = true;
+
+            using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+            {
+                using (Stream rs = response.GetResponseStream())
+                {
+                    using (FileStream ws = new FileStream(savePath, FileMode.Create))
+                    {
+                        byte[] buffer = new byte[2048];
+                        int bytesRead = rs.Read(buffer, 0, buffer.Length);
+
+                        while (bytesRead > 0)
+                        {
+                            ws.Write(buffer, 0, bytesRead);
+                            bytesRead = rs.Read(buffer, 0, buffer.Length);
+                        }
+                    }
+                }
+            }
         }
 
         void downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -906,3 +996,4 @@ namespace WindowsFormsApplication1
         }
     }
 }
+
