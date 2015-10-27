@@ -37,7 +37,6 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.showAll = new System.Windows.Forms.CheckBox();
-            this.output = new System.Windows.Forms.Label();
             this.AddNewPannel = new System.Windows.Forms.Panel();
             this.add_cancel = new System.Windows.Forms.Button();
             this.quantity1 = new System.Windows.Forms.TextBox();
@@ -145,6 +144,8 @@
             this.Connect_button = new System.Windows.Forms.Button();
             this.connectTimer = new System.Windows.Forms.Timer(this.components);
             this.update = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.output = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.AddNewPannel.SuspendLayout();
@@ -164,7 +165,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(558, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(573, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -227,15 +228,6 @@
             this.showAll.UseVisualStyleBackColor = true;
             this.showAll.CheckedChanged += new System.EventHandler(this.ShowAll_CheckedChanged);
             // 
-            // output
-            // 
-            this.output.AutoSize = true;
-            this.output.Location = new System.Drawing.Point(12, 277);
-            this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(35, 13);
-            this.output.TabIndex = 15;
-            this.output.Text = "label1";
-            // 
             // AddNewPannel
             // 
             this.AddNewPannel.Controls.Add(this.add_cancel);
@@ -274,7 +266,7 @@
             this.AddNewPannel.Controls.Add(this.ing8);
             this.AddNewPannel.Controls.Add(this.ing9);
             this.AddNewPannel.Controls.Add(this.ing10);
-            this.AddNewPannel.Location = new System.Drawing.Point(0, 26);
+            this.AddNewPannel.Location = new System.Drawing.Point(6, 27);
             this.AddNewPannel.Name = "AddNewPannel";
             this.AddNewPannel.Size = new System.Drawing.Size(551, 265);
             this.AddNewPannel.TabIndex = 16;
@@ -854,7 +846,7 @@
             this.settingsPanel.Controls.Add(this.label20);
             this.settingsPanel.Controls.Add(this.label18);
             this.settingsPanel.Controls.Add(this.label19);
-            this.settingsPanel.Location = new System.Drawing.Point(0, 27);
+            this.settingsPanel.Location = new System.Drawing.Point(3, 25);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(551, 264);
             this.settingsPanel.TabIndex = 56;
@@ -1073,7 +1065,7 @@
             this.labelName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelName.Font = new System.Drawing.Font("Tahoma", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.labelName.Location = new System.Drawing.Point(0, 4);
+            this.labelName.Location = new System.Drawing.Point(0, 3);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(284, 38);
             this.labelName.TabIndex = 3;
@@ -1083,7 +1075,7 @@
             // cocktail_ing10
             // 
             this.cocktail_ing10.AutoSize = true;
-            this.cocktail_ing10.Location = new System.Drawing.Point(20, 195);
+            this.cocktail_ing10.Location = new System.Drawing.Point(13, 193);
             this.cocktail_ing10.Name = "cocktail_ing10";
             this.cocktail_ing10.Size = new System.Drawing.Size(69, 13);
             this.cocktail_ing10.TabIndex = 14;
@@ -1092,7 +1084,7 @@
             // cocktail_ing9
             // 
             this.cocktail_ing9.AutoSize = true;
-            this.cocktail_ing9.Location = new System.Drawing.Point(20, 180);
+            this.cocktail_ing9.Location = new System.Drawing.Point(13, 178);
             this.cocktail_ing9.Name = "cocktail_ing9";
             this.cocktail_ing9.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing9.TabIndex = 13;
@@ -1101,7 +1093,7 @@
             // cocktail_ing8
             // 
             this.cocktail_ing8.AutoSize = true;
-            this.cocktail_ing8.Location = new System.Drawing.Point(20, 165);
+            this.cocktail_ing8.Location = new System.Drawing.Point(13, 163);
             this.cocktail_ing8.Name = "cocktail_ing8";
             this.cocktail_ing8.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing8.TabIndex = 12;
@@ -1110,7 +1102,7 @@
             // cocktail_ing7
             // 
             this.cocktail_ing7.AutoSize = true;
-            this.cocktail_ing7.Location = new System.Drawing.Point(20, 150);
+            this.cocktail_ing7.Location = new System.Drawing.Point(13, 148);
             this.cocktail_ing7.Name = "cocktail_ing7";
             this.cocktail_ing7.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing7.TabIndex = 11;
@@ -1119,7 +1111,7 @@
             // cocktail_ing6
             // 
             this.cocktail_ing6.AutoSize = true;
-            this.cocktail_ing6.Location = new System.Drawing.Point(20, 135);
+            this.cocktail_ing6.Location = new System.Drawing.Point(13, 133);
             this.cocktail_ing6.Name = "cocktail_ing6";
             this.cocktail_ing6.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing6.TabIndex = 10;
@@ -1128,7 +1120,7 @@
             // cocktail_ing5
             // 
             this.cocktail_ing5.AutoSize = true;
-            this.cocktail_ing5.Location = new System.Drawing.Point(20, 121);
+            this.cocktail_ing5.Location = new System.Drawing.Point(13, 119);
             this.cocktail_ing5.Name = "cocktail_ing5";
             this.cocktail_ing5.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing5.TabIndex = 9;
@@ -1136,6 +1128,7 @@
             // 
             // cocktailPhoto
             // 
+            this.cocktailPhoto.BackColor = System.Drawing.Color.White;
             this.cocktailPhoto.Enabled = false;
             this.cocktailPhoto.Image = ((System.Drawing.Image)(resources.GetObject("cocktailPhoto.Image")));
             this.cocktailPhoto.InitialImage = null;
@@ -1150,7 +1143,7 @@
             // cocktail_ing4
             // 
             this.cocktail_ing4.AutoSize = true;
-            this.cocktail_ing4.Location = new System.Drawing.Point(20, 106);
+            this.cocktail_ing4.Location = new System.Drawing.Point(13, 104);
             this.cocktail_ing4.Name = "cocktail_ing4";
             this.cocktail_ing4.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing4.TabIndex = 8;
@@ -1159,7 +1152,7 @@
             // cocktail_ing3
             // 
             this.cocktail_ing3.AutoSize = true;
-            this.cocktail_ing3.Location = new System.Drawing.Point(20, 91);
+            this.cocktail_ing3.Location = new System.Drawing.Point(13, 89);
             this.cocktail_ing3.Name = "cocktail_ing3";
             this.cocktail_ing3.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing3.TabIndex = 7;
@@ -1168,7 +1161,7 @@
             // cocktail_ing2
             // 
             this.cocktail_ing2.AutoSize = true;
-            this.cocktail_ing2.Location = new System.Drawing.Point(20, 76);
+            this.cocktail_ing2.Location = new System.Drawing.Point(13, 74);
             this.cocktail_ing2.Name = "cocktail_ing2";
             this.cocktail_ing2.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing2.TabIndex = 6;
@@ -1177,7 +1170,7 @@
             // cocktail_ing1
             // 
             this.cocktail_ing1.AutoSize = true;
-            this.cocktail_ing1.Location = new System.Drawing.Point(20, 61);
+            this.cocktail_ing1.Location = new System.Drawing.Point(13, 59);
             this.cocktail_ing1.Name = "cocktail_ing1";
             this.cocktail_ing1.Size = new System.Drawing.Size(63, 13);
             this.cocktail_ing1.TabIndex = 5;
@@ -1200,12 +1193,12 @@
             this.cocktailDisplay.Controls.Add(this.labelName);
             this.cocktailDisplay.Location = new System.Drawing.Point(261, 27);
             this.cocktailDisplay.Name = "cocktailDisplay";
-            this.cocktailDisplay.Size = new System.Drawing.Size(284, 263);
+            this.cocktailDisplay.Size = new System.Drawing.Size(284, 247);
             this.cocktailDisplay.TabIndex = 58;
             // 
             // Start_button
             // 
-            this.Start_button.Location = new System.Drawing.Point(6, 235);
+            this.Start_button.Location = new System.Drawing.Point(6, 215);
             this.Start_button.Name = "Start_button";
             this.Start_button.Size = new System.Drawing.Size(128, 23);
             this.Start_button.TabIndex = 60;
@@ -1220,7 +1213,7 @@
             // 
             // ComHistory
             // 
-            this.ComHistory.Location = new System.Drawing.Point(260, 297);
+            this.ComHistory.Location = new System.Drawing.Point(260, 305);
             this.ComHistory.Multiline = true;
             this.ComHistory.Name = "ComHistory";
             this.ComHistory.ReadOnly = true;
@@ -1294,12 +1287,30 @@
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
+            // label24
+            // 
+            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label24.Location = new System.Drawing.Point(9, 292);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(549, 162);
+            this.label24.TabIndex = 68;
+            // 
+            // output
+            // 
+            this.output.AutoSize = true;
+            this.output.Location = new System.Drawing.Point(263, 277);
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(35, 13);
+            this.output.TabIndex = 15;
+            this.output.Text = "label1";
+            this.output.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(558, 405);
+            this.ClientSize = new System.Drawing.Size(573, 481);
             this.Controls.Add(this.update);
             this.Controls.Add(this.Connect_button);
             this.Controls.Add(this.refresh_ports);
@@ -1315,6 +1326,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.delCocktail);
+            this.Controls.Add(this.label24);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
@@ -1350,7 +1362,6 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox showAll;
-        private System.Windows.Forms.Label output;
         private System.Windows.Forms.Panel AddNewPannel;
         private System.Windows.Forms.ComboBox ing1;
         private System.Windows.Forms.ComboBox ing2;
@@ -1458,6 +1469,8 @@
         private System.Windows.Forms.Button Connect_button;
         private System.Windows.Forms.Timer connectTimer;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label output;
     }
 }
 

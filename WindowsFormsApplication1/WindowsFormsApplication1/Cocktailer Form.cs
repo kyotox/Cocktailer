@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         Int16 calib_mililiters = 50; // quantity sent for calibration purpose
 
         int connect_retry = 0; // used for com port connection retry
-        
+
         // variables for updater buffer
         string[,] updateDownloadList;
         int downcount_target = 0;
@@ -48,6 +48,16 @@ namespace WindowsFormsApplication1
             available_ingredients = new string[10];
 
             LoadSettings();         // Load available ingredients from file and cocktails database
+
+            var ingredients_combobox = settingsPanel.Controls
+                         .OfType<ComboBox>()
+                         .Where(txt => txt.Name.ToLower().StartsWith("seting"));
+            int no = 0;
+            foreach (ComboBox txt in ingredients_combobox)
+            {
+                available_ingredients[no] = Convert.ToString(txt.SelectedIndex);
+                no++;
+            }
 
             try // load all cocktails from DB and add them to datagridview
             {
@@ -93,13 +103,14 @@ namespace WindowsFormsApplication1
                         // check if all the ingredients from the cocktail are available
                         // mix_ing should not be empty
                         // if ingredient not found, toRemove turns true
-                        if (mix_ing != "" && !available_ingredients.Contains(mix_ing))
+                        if (mix_ing != "0" && mix_ing != "" && !available_ingredients.Contains(mix_ing))
                         {
                             toRemove = true;
+                            break;
                         }
                     }
 
-                    if (!toRemove)
+                    if (toRemove)
                     {
                         // the row is removed from view only, not from database
                         dataGridView1.Rows.RemoveAt(i);
@@ -113,12 +124,11 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("No cocktail available. Add more ingredients");
                 return;
-                
+
             }
 
             //hide unwanted columns
             dataGridView1.Columns["ID"].Visible = false;
-            dataGridView1.Columns["desc"].Visible = false;
             dataGridView1.Columns["img"].Visible = false;
             dataGridView1.Columns["qty"].Visible = false;
             dataGridView1.Columns["mix"].Visible = false;
@@ -619,6 +629,7 @@ namespace WindowsFormsApplication1
                     oledbAdapter.InsertCommand = new OleDbCommand(sql, connection);
                     oledbAdapter.InsertCommand.ExecuteNonQuery();
                     MessageBox.Show("Cocktail added! ");
+                    connection.Close();
 
                     // hide the add new panel
                     AddNewPannel.Visible = false;
@@ -641,7 +652,7 @@ namespace WindowsFormsApplication1
         // load the addNew panel
         private void AddNew_Load()
         {
-           
+
             //load ingredients lirary
             string strProvider = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = CocktailsDB.accdb";
             string strSql = "Select * from Ingredients";
@@ -651,6 +662,7 @@ namespace WindowsFormsApplication1
             con.Open();
             cmd.CommandType = CommandType.Text;
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            con.Close();
 
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
@@ -781,8 +793,13 @@ namespace WindowsFormsApplication1
         //start
         private void Start_button_Click(object sender, EventArgs e)
         {
-            ComHistory.AppendText(output.Text + "\r\n");
-            //serialPort1.Write(output.Text);
+            if (serialPort1.IsOpen)
+            {
+                ComHistory.AppendText(output.Text + "\r\n");
+                serialPort1.Write(output.Text);
+            }
+            else
+                MessageBox.Show("Connect to a serial port first");
         }
         // calibration buttons
         private void calib_button1_Click(object sender, EventArgs e)
@@ -895,8 +912,8 @@ namespace WindowsFormsApplication1
                 DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb", AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
                 cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
 
-                foreach (string file in GetFileList(filelocation + "img/", user, pass)) 
-                    //we get a list of files with FTP, but we download them with WebClient because that works in background
+                foreach (string file in GetFileList(filelocation + "img/", user, pass))
+                //we get a list of files with FTP, but we download them with WebClient because that works in background
                 {
                     if (file.EndsWith("jpg")) // get the files one by one, only the ones that are JPG
                     {
@@ -975,7 +992,7 @@ namespace WindowsFormsApplication1
         private void DownloadNextFile(int downcount_target)
         {
             if (downcount_target > downcount_now) // if we did not downloaded all of the files in the buffer
-                // We assume that the downloading cannot be faster than adding the items in the buffer - could be done better
+                                                  // We assume that the downloading cannot be faster than adding the items in the buffer - could be done better
             {
                 WebClient downloader = new WebClient();
                 downloader.DownloadFileCompleted += new AsyncCompletedEventHandler(downloader_DownloadFileCompleted);
@@ -1031,9 +1048,14 @@ namespace WindowsFormsApplication1
 
         void downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            
+
             if (e.Error != null)
-                comStatus.Text = "DB Update failed"; 
+            {
+                comStatus.Text = "DB Update failed";
+                downcount_target = 0;
+                downcount_now = 0;
+                update.Text = "Update";
+            }
             else
             {
                 if (updateandclose) // this is activated by closing the window while updating
