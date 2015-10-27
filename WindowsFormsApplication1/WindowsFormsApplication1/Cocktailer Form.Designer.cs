@@ -1290,7 +1290,7 @@
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 67;
-            this.update.Text = "update";
+            this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 

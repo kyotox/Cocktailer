@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
         string[,] updateDownloadList;
         int downcount_target = 0;
         int downcount_now = 0;
+        bool updateandclose = false;
 
         public Form1()
         {
@@ -884,22 +885,31 @@ namespace WindowsFormsApplication1
 
         private void update_Click(object sender, EventArgs e)
         {
-            string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/";
-            string user = "dragos";
-            string pass = "parola210593";
-            DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb", AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
-            cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
-            foreach (string file in GetFileList(filelocation + "img/", user, pass))
+            if (downcount_target == downcount_now)
             {
-                if (file.EndsWith("jpg"))
+                update.Text = "Stop Update";
+                string filelocation = "ftp://dragoschiotoroiu.ro/CocktailerDB/";
+                string user = "dragos";
+                string pass = "parola210593";
+                DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/CocktailsDB.accdb", AppDomain.CurrentDomain.BaseDirectory + "CocktailsDB.accdb");
+                cocktailPhoto.Image = Image.FromFile("./img/nophoto.jpg");
+                foreach (string file in GetFileList(filelocation + "img/", user, pass))
                 {
-                    DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/img/" + file, AppDomain.CurrentDomain.BaseDirectory + "/img/" + file);
+                    if (file.EndsWith("jpg"))
+                    {
+                        DownloadFileWeb("http://dragoschiotoroiu.ro/CocktailerDB/img/" + file, AppDomain.CurrentDomain.BaseDirectory + "/img/" + file);
+
+                    }
 
                 }
 
+                DownloadNextFile(downcount_target);
             }
-
-            DownloadNextFile(downcount_target);
+            else
+            {
+                downcount_now = 0;
+                downcount_target = 0;
+            }
 
 
         }
@@ -970,6 +980,7 @@ namespace WindowsFormsApplication1
                 downcount_now = 0;
                 downcount_target = 0;
                 comStatus.Text = "Update completed";
+                update.Text = "Update";
                 LoadAll(this, EventArgs.Empty);
             }
         }
@@ -1007,28 +1018,58 @@ namespace WindowsFormsApplication1
 
         void downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
+
+
+
+
             if (e.Error != null)
                 comStatus.Text = "DB Update failed";
             else
             {
-                DownloadNextFile(downcount_target);
+                if (updateandclose)
+                {
+                    downcount_target = 0;
+                    downcount_now = 0;
+                    this.Close();
+                }
+                else
+                {
+                    DownloadNextFile(downcount_target);
+                }
             }
+
+
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string message = "You really want to quit?";
-            if (downcount_now < downcount_target)
-                message = "An update is in progress. Closing this window might make the software unusable. Are you sure you want to quit?";
-            var res = MessageBox.Show(this, message, "Exit",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            if (res != DialogResult.Yes)
+            if (!updateandclose)
             {
-                e.Cancel = true;
-                return;
+                string message = "You really want to quit?";
+
+                var res = MessageBox.Show(this, message, "Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (res != DialogResult.Yes)
+                {
+
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    if (downcount_now < downcount_target)
+                    {
+                        e.Cancel = true;
+                        updateandclose = true;
+                        return;
+                    }
+                }
             }
 
         }
+
+
     }
 }
 
