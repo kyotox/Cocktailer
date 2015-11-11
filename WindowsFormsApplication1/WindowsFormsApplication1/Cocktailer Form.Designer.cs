@@ -1224,6 +1224,7 @@
             // serialPort1
             // 
             this.serialPort1.PortName = "COM3";
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // label1
             // 
@@ -1332,7 +1333,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Cocktailer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.LoadAll);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

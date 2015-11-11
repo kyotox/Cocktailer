@@ -795,8 +795,16 @@ namespace WindowsFormsApplication1
         {
             if (serialPort1.IsOpen)
             {
-                ComHistory.AppendText(output.Text + "\r\n");
-                serialPort1.Write(output.Text);
+                // ComHistory.AppendText(output.Text + "\r\n");
+                // serialPort1.Write(output.Text);
+
+                ComHistory.AppendText("t0.txt=\"" + labelName.Text + "\"\r\n");
+                string outputtext = @"t0.txt=""" + labelName.Text + @"""";
+                serialPort1.Write(outputtext);
+                byte[] bytesToSend = new byte[3] {0xff, 0xff, 0xff};
+
+                serialPort1.Write(bytesToSend, 0, 3);
+                //serialPort1.WriteLine("");
             }
             else
                 MessageBox.Show("Connect to a serial port first");
@@ -872,6 +880,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     serialPort1.Open();
+                    serialPort1.Encoding = System.Text.Encoding.GetEncoding(28591);
                 }
                 catch
                 { }
@@ -1105,7 +1114,28 @@ namespace WindowsFormsApplication1
 
         }
 
+        delegate void SetTextCallback(string text);
 
+        private void SetText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.ComHistory.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.ComHistory.AppendText(text);
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            SetText(BitConverter.ToString(Encoding.ASCII.GetBytes(serialPort1.ReadLine())));
+        }
     }
 }
 
